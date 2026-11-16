@@ -1,3 +1,5 @@
+[![ResumeAI](docs/hero.png)](https://tootenramen.github.io/ResumeAI/)
+
 # ResumeAI
 
 **Your resume as an animated website. One prompt.**

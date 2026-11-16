@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gustavo Freitas — Resume</title>
+<!-- NOTE: JavaScript updates the title/meta tags from DATA. Social-media link previews do NOT run JavaScript, so also edit the title, description and og/twitter tags below by hand. -->
+<meta name="description" content="Gustavo Freitas — Computer Scientist — Offensive & Defensive Cyber Operations. Now playing: experience, skills, certifications and contact details.">
+<meta name="theme-color" content="#0b0a10">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gustavo Freitas — Resume">
+<meta property="og:description" content="Computer Scientist — Offensive & Defensive Cyber Operations.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gustavo Freitas — Resume">
+<meta name="twitter:description" content="Computer Scientist — Offensive & Defensive Cyber Operations.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0a10'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23221e2e'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23332d44' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23c6ff3d'/%3E%3Ccircle cx='32' cy='32' r='2' fill='%230b0a10'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0a10;--bg2:#14121c;--card:#171421;--text:#f2f0f7;--muted:#a09bb2;--line:#2a2638;--ac:#c6ff3d;--ac-rgb:198,255,61;--head:'Bricolage Grotesque','Arial Narrow',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;--sans:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;--mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%;color-scheme:dark}
+body{background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--sans);padding-bottom:104px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+ul,ol{padding:0;list-style:none}
+button{font:inherit;color:inherit}
+a{color:var(--ac)}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:8px;top:-60px;background:var(--ac);color:#0b0a10;font-weight:700;padding:10px 16px;border-radius:8px;z-index:400}.skip:focus{top:8px}
+.wrap{width:min(1080px,100% - 32px);margin:0 auto}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(50% 40% at 85% 0,rgba(var(--ac-rgb),.07),transparent 70%),radial-gradient(60% 50% at 0 40%,rgba(120,80,255,.09),transparent 70%)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:150;background:rgba(11,10,16,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{width:min(1080px,100% - 32px);margin:0 auto;display:flex;align-items:center;gap:16px;min-height:52px}
+.logo{display:flex;align-items:center;gap:10px;font:700 .78rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text);text-decoration:none;margin-right:auto}
+.logo i{width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 rgba(var(--ac-rgb),.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(var(--ac-rgb),0)}100%{box-shadow:0 0 0 0 rgba(var(--ac-rgb),0)}}
+.top nav ul{display:flex;gap:2px}
+.top nav a{display:flex;align-items:center;min-height:44px;padding:0 12px;font:500 .8rem var(--mono);letter-spacing:.06em;color:var(--muted);text-decoration:none;transition:color .2s}
+.top nav a:hover,.top nav a.on{color:var(--ac)}
+@media(max-width:700px){.top nav{display:none}}
+
+/* hero */
+.hero{padding:clamp(28px,5vw,64px) 0 clamp(36px,5vw,64px)}
+.hero-g{display:grid;gap:clamp(28px,5vw,64px);grid-template-columns:minmax(0,1fr);align-items:center}
+@media(min-width:860px){.hero-g{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+.sleeve{position:relative;width:100%;max-width:520px;padding-bottom:min(78%,405px);margin:0 auto;overflow:hidden}
+.cover{position:absolute;left:0;top:0;width:78%;aspect-ratio:1;border-radius:6px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);z-index:2;transform:rotate(-1.5deg);transform-origin:30% 70%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.sleeve:hover .cover{transform:rotate(0)}
+.cover svg{display:block;width:100%;height:100%}
+.vinyl{position:absolute;right:0;top:0;width:78%;aspect-ratio:1;border-radius:50%;z-index:1;animation:spin 5.5s linear infinite;background:repeating-radial-gradient(circle at 50% 50%,#0d0c12 0 2px,#17151f 2px 3px),#0d0c12;box-shadow:0 20px 50px rgba(0,0,0,.6);transform:translateX(0)}
+.vinyl::before{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 8%,rgba(255,255,255,.1) 12%,transparent 18% 50%,rgba(255,255,255,.08) 62%,transparent 70%)}
+.vinyl::after{content:'';position:absolute;inset:34%;border-radius:50%;background:radial-gradient(circle at 50% 50%,#0b0a10 0 4%,var(--ac) 4.5% 100%);box-shadow:0 0 0 6px #0d0c12}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lbl{position:absolute;inset:0;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:500 .78rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--ac)}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--ac)}
+h1{font:800 clamp(2.5rem,7.5vw,5.2rem)/.98 var(--head);letter-spacing:-.025em;margin-top:14px;overflow-wrap:anywhere}
+.alb{font:500 clamp(1.05rem,2.2vw,1.4rem)/1.35 var(--head);color:var(--ac);margin-top:14px;max-width:30em}
+.alb small{display:block;font:400 .72rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.sum{margin-top:20px;max-width:40rem;color:#d9d5e6;font-size:1.04rem}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:99px;border:1.5px solid var(--ac);background:var(--ac);color:#0b0a10;font:700 .95rem var(--sans);text-decoration:none;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(var(--ac-rgb),.3)}
+.btn.o{background:transparent;color:var(--text);border-color:#4a4460}
+.btn.o:hover{border-color:var(--ac);color:var(--ac);box-shadow:none}
+.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.viz{display:flex;align-items:flex-end;gap:3px;height:76px;margin-top:34px}
+.viz i{flex:1;min-width:2px;height:100%;border-radius:3px 3px 1px 1px;background:linear-gradient(to top,rgba(var(--ac-rgb),.25),var(--ac));transform-origin:50% 100%;transform:scaleY(var(--s,.5));animation:bar var(--dur,1s) ease-in-out var(--dl,0s) infinite alternate}
+@keyframes bar{from{transform:scaleY(calc(var(--s,.5)*.25))}to{transform:scaleY(var(--s,.5))}}
+.meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font:400 .8rem var(--mono);color:var(--muted)}
+.meta b{color:var(--text);font-weight:500}
+
+/* sections */
+section{padding:clamp(36px,6vw,72px) 0}
+.sh{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 18px;margin-bottom:clamp(20px,3.5vw,34px);padding-bottom:14px;border-bottom:1px solid var(--line)}
+.sh small{font:500 .74rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--ac)}
+h2{font:800 clamp(1.8rem,4.4vw,2.8rem)/1.05 var(--head);letter-spacing:-.02em}
+.sh span.r{margin-left:auto;font:400 .78rem var(--mono);color:var(--muted)}
+
+/* tracklist */
+.trks{display:grid;gap:2px}
+.trk{border-radius:14px;transition:background .3s}
+.trk:hover,.trk.open{background:var(--card)}
+.trk-h{display:grid;grid-template-columns:44px minmax(0,1fr) auto 24px;align-items:center;gap:6px 14px;width:100%;padding:14px 16px;background:none;border:0;text-align:left;cursor:pointer;border-radius:14px}
+.n{font:500 .95rem var(--mono);color:var(--muted);text-align:center;position:relative;height:22px;line-height:22px}
+.n .eqb{display:none;position:absolute;inset:0;align-items:flex-end;justify-content:center;gap:2px;padding:2px 0}
+.n .eqb i{width:3px;height:100%;background:var(--ac);border-radius:1px;transform-origin:bottom;animation:bar .7s ease-in-out infinite alternate}
+.n .eqb i:nth-child(2){animation-duration:.5s;animation-delay:-.2s}.n .eqb i:nth-child(3){animation-duration:.9s;animation-delay:-.45s}
+.trk.open .n .num{visibility:hidden}.trk.open .n .eqb{display:flex}
+.trk.open .n{color:var(--ac)}
+.tt{min-width:0}
+.tt b{display:block;font:700 clamp(1rem,2.1vw,1.2rem)/1.3 var(--head);transition:color .25s}
+.trk:hover .tt b,.trk.open .tt b{color:var(--ac)}
+.tt em{display:block;font-style:normal;color:var(--muted);font-size:.92rem;margin-top:1px}
+.du{font:400 .82rem var(--mono);color:var(--muted);white-space:nowrap}
+.chev{width:20px;height:20px;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s}
+.trk.open .chev{transform:rotate(180deg);stroke:var(--ac)}
+.lyr{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.3,.7,.2,1)}
+.trk.open .lyr{grid-template-rows:1fr}
+.lyr-in{overflow:hidden;min-height:0;visibility:hidden;transition:visibility .45s}
+.trk.open .lyr-in{visibility:visible}
+.lyr-b{padding:4px 16px 22px 74px}
+.lyr-b p.lx{font:italic 500 clamp(1.05rem,2vw,1.28rem)/1.5 var(--head);color:#e6e2f2;max-width:34em;border-left:2px solid var(--ac);padding-left:18px}
+.lyr-b p.lx span{display:block}
+.lyr-b p.lm{margin-top:12px;font:400 .78rem var(--mono);letter-spacing:.06em;color:var(--muted);padding-left:20px}
+@media(max-width:560px){
+ .trk-h{grid-template-columns:34px minmax(0,1fr) 20px;padding:14px 8px;gap:2px 8px}
+ .du{grid-column:2;grid-row:2;font-size:.76rem}.chev{grid-column:3;grid-row:1/3}
+ .lyr-b{padding:2px 8px 20px 8px}
+}
+
+/* equalizer */
+.eqw{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,40px)}
+.eqs{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:clamp(14px,3vw,30px)}
+.band{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.col{display:flex;flex-direction:column-reverse;gap:4px;width:44px;padding:6px;border-radius:10px;background:#0e0c14;border:1px solid var(--line)}
+.col i{display:block;height:11px;border-radius:2px;background:#221e2e;transition:background .35s,box-shadow .35s;transition-delay:calc(var(--k)*70ms + .15s)}
+.col i.on{background:rgba(var(--ac-rgb),.55)}
+.col i.on:nth-child(n+7){background:rgba(var(--ac-rgb),.8)}
+.band.in .col i.on{background:var(--ac);box-shadow:0 0 10px rgba(var(--ac-rgb),.45)}
+.band.in .col i.top{animation:flick 1.3s ease-in-out infinite alternate}
+@keyframes flick{to{opacity:.45}}
+.js .band:not(.in) .col i.on{background:#221e2e;box-shadow:none}
+.band b{font:700 .95rem/1.3 var(--head)}
+.band span{font:400 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* liner notes */
+.liner{display:grid;gap:clamp(18px,3vw,32px);grid-template-columns:1fr}
+@media(min-width:860px){.liner{grid-template-columns:1.1fr .9fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3.5vw,32px)}
+.card h3{font:500 .74rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:14px}
+.credits li{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);color:#ddd9ea}
+.credits li:last-child{border:0}
+.credits li::before{content:'\266A';color:var(--ac);flex:none}
+.rec{padding:12px 0;border-bottom:1px dashed var(--line)}.rec:last-child{border:0}
+.rec b{display:block;font:700 1.05rem var(--head)}
+.rec span{display:block;color:var(--muted);font-size:.92rem}
+.rec small{font:400 .76rem var(--mono);color:var(--ac)}
+.lang{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:9px 0;border-bottom:1px dashed var(--line)}.lang:last-child{border:0}
+.lang span{color:var(--muted);font-size:.92rem}
+.stack{display:grid;gap:clamp(18px,3vw,32px)}
+
+/* contact */
+.book{position:relative;overflow:hidden;border-radius:26px;padding:clamp(30px,6vw,72px);background:linear-gradient(135deg,#1b1727,#100e18);border:1px solid var(--line);text-align:center}
+.book::before{content:'';position:absolute;left:50%;top:50%;width:min(720px,140%);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 22px,rgba(var(--ac-rgb),.06) 22px 23px);pointer-events:none}
+.book>*{position:relative}
+.book h2{font-size:clamp(2.2rem,7vw,4.6rem)}
+.book h2 em{font-style:normal;color:var(--ac)}
+.book p{max-width:34rem;margin:14px auto 0;color:#d1cde0}
+.book .acts{justify-content:center}
+.foot{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;padding:26px 0 8px;color:var(--muted);font:400 .8rem var(--mono)}
+.foot a{color:var(--muted)}
+
+/* player bar */
+.player{position:fixed;left:0;right:0;bottom:0;z-index:200;background:rgba(18,15,26,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+.pbar{height:4px;background:#2a2638;position:relative;cursor:pointer}
+.pbar i{position:absolute;inset:0;background:var(--ac);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+.pbar i::after{content:'';position:absolute;right:-6px;top:-4px;width:12px;height:12px;border-radius:50%;background:var(--ac);box-shadow:0 0 12px rgba(var(--ac-rgb),.8)}
+.p-in{width:min(1080px,100% - 24px);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px;min-height:68px;padding:6px 0}
+.p-now{display:flex;align-items:center;gap:12px;min-width:0}
+.p-art{flex:none;width:48px;height:48px;border-radius:6px;overflow:hidden}.p-art svg{display:block;width:100%;height:100%}
+.p-txt{min-width:0}
+.p-txt b{display:block;font:700 .92rem/1.25 var(--head);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p-txt span{display:block;color:var(--muted);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p-ctl{display:flex;align-items:center;gap:4px}
+.pb{width:44px;height:44px;border-radius:50%;border:0;background:none;display:grid;place-items:center;cursor:pointer;color:var(--text);transition:color .2s,transform .2s}
+.pb:hover{color:var(--ac)}
+.pb svg{width:22px;height:22px;fill:currentColor}
+.pb.pl{background:var(--ac);color:#0b0a10;width:48px;height:48px}.pb.pl:hover{color:#0b0a10;transform:scale(1.07)}
+.pb.pl .ic-play{display:none}html.paused .pb.pl .ic-play{display:block}html.paused .pb.pl .ic-pause{display:none}
+.p-time{justify-self:end;font:400 .78rem var(--mono);color:var(--muted);white-space:nowrap}
+@media(max-width:620px){.p-in{grid-template-columns:minmax(0,1fr) auto}.p-time{display:none}.p-art{width:40px;height:40px}}
+
+.rv{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv:not(.in){opacity:0;transform:translateY(18px)}
+html.paused *,html.paused *::before,html.paused *::after{animation-play-state:paused!important}
+html.still *,html.still *::before,html.still *::after{transition:none!important;animation:none!important}
+html.still .rv{opacity:1!important;transform:none!important}
+html.still .band .col i.on{background:var(--ac)!important}
+html.still{scroll-behavior:auto}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+@media print{
+ @page{margin:12mm}
+ html,body{background:#fff!important;color:#000!important}
+ body{padding:0;font-size:10pt;line-height:1.4}body::before{display:none}
+ *,*::before,*::after{animation:none!important;transition:none!important;box-shadow:none!important}
+ .top,.player,.acts,.skip,.viz,.vinyl,.book::before,.chev,.foot a,.eqs .col i.top{display:none!important}
+ .rv{opacity:1!important;transform:none!important}
+ .wrap{width:100%}.hero{padding:0 0 8pt}.hero-g{grid-template-columns:90pt 1fr;gap:14pt}
+ .sleeve{padding-bottom:0;height:90pt;max-width:90pt;margin:0;overflow:visible}.cover{width:90pt;transform:none;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ h1{font-size:26pt;margin-top:2pt}.eyebrow,.alb,.alb small,.sum,.meta,.meta b{color:#000!important}.eyebrow::before{background:#000}.alb{font-size:11pt;margin-top:3pt}.sum{font-size:9.5pt;margin-top:4pt;max-width:none}
+ section{padding:8pt 0}h2{font-size:14pt}.sh{margin-bottom:6pt;padding-bottom:2pt;border-bottom:1pt solid #000}.sh small,.sh span.r{color:#000}
+ .trk{break-inside:avoid;background:none!important}.trk-h{padding:4pt 0}.n,.du,.tt em,.tt b{color:#000!important}
+ .lyr{grid-template-rows:1fr!important}.lyr-in{visibility:visible!important}.lyr-b{padding:0 0 4pt 44px}.lyr-b p.lx{color:#000;font-size:9.5pt;border-left:1pt solid #000;padding-left:8pt}.lyr-b p.lm{color:#000;padding-left:9pt}
+ .eqw,.card,.book{background:none!important;border:0;padding:0}.eqs{grid-template-columns:repeat(5,1fr);gap:8pt}
+ .col{background:#fff;border:.5pt solid #000;width:30pt;padding:2pt;gap:2pt}.col i{height:5pt;background:#ddd!important}.col i.on{background:#000!important}
+ .band b,.band span{color:#000!important}
+ .liner{grid-template-columns:1fr 1fr}.card h3{color:#000}.credits li,.lang,.rec{color:#000;border-color:#999}.credits li::before{color:#000}.rec span,.rec small,.lang span{color:#000}
+ .book{text-align:left}.book h2,.book h2 em,.book p{color:#000}.book p{margin:4pt 0 0}
+ .cl-print{display:block!important}
+ .foot{color:#000}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="app"></div>
+<noscript><p style="padding:24px">This resume needs JavaScript to display. Please enable it.</p></noscript>
+
+<script>
+/* ===== EDIT YOUR DETAILS HERE ===== */
+/* Change the text inside the quotes below. Keep the quotes, commas and brackets exactly as they are. */
+const DATA = {
+ name:"Gustavo Freitas",
+ title:"Computer Scientist — Offensive & Defensive Cyber Operations",
+ summary:"Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.",
+ email:"gustavo@example.com", phone:"555-010-0100",
+ jobs:[
+  {role:"Security Orchestration, Automation & Response Engineer",co:"Marriott International",dates:"05/2024 – Present",loc:"Remote · Bethesda, MD",text:"Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating."},
+  {role:"Senior Cyber Incident Response Analyst",co:"Marriott International",dates:"05/2022 – 05/2024",loc:"Remote · Bethesda, MD",text:"Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources."},
+  {role:"Security Analyst, Security Operations Center",co:"Arkansas Blue Cross Blue Shield",dates:"11/2021 – 05/2022",loc:"Little Rock, AR",text:"Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures."},
+  {role:"Lead Security Analyst, Security Operations Center",co:"Bank OZK",dates:"01/2019 – 08/2021",loc:"Little Rock, AR",text:"Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape."},
+  {role:"Network Security Analyst, Security Operations",co:"Mechanics Bank",dates:"09/2016 – 08/2018",loc:"Hercules, CA",text:"Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling."}
+ ],
+ skills:[["DevOps · Blue Team",4],["Penetration Testing · Red Team",4],["Exploit Dev / Vulnerability Research",3],["Enterprise Risk Management",4],["DFIR · Digital Forensics",5]],
+ certs:["Apple Certified Support Professional (2016)","CompTIA Security+ (2019)","CompTIA A+ (2019)","SpecterOps – Red Team Operations (2020)","DARPA – SSITH Bug Hunter (2020)","SANS – GIAC Certified Incident Handler (2020)","Tenable CTF – Team webepeepin ('21 '22 '23)","ServiceNow Flow Designer Developer (2024)","Python Certified Entry-Level Programmer (2025)"],
+ edu:[["Computer Science","10/2022 – 10/2023","Western Governors University"],["Computer Science","07/2020 – 01/2022","University of Arkansas – eVersity"],["Applied Physics","08/2012 – 12/2013","University of Central Arkansas"]],
+ langs:[["English","Native / Bilingual"],["Portuguese","Native / Bilingual"],["Spanish","Professional Working"]]
+};
+/* ===== END OF EDITABLE AREA — nothing below needs to change ===== */
+
+(function(){
+'use strict';
+var root=document.documentElement,$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var arr=function(x){return Array.isArray(x)?x:[]};
+var D=DATA||{},name=String(D.name||'Your Name').trim(),title=D.title||'',sum=D.summary||'';
+var jobs=arr(D.jobs).filter(Boolean),skills=arr(D.skills).filter(Boolean),certs=arr(D.certs).filter(Boolean),edu=arr(D.edu).filter(Boolean),langs=arr(D.langs).filter(Boolean);
+var email=D.email?String(D.email).trim():'',phone=D.phone?String(D.phone).trim():'',tel=phone.replace(/[^0-9+]/g,'');
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var still=RM||/[?&]static(\b|=)/.test(location.search);
+root.classList.add('js');if(still)root.classList.add('still');
+var initials=name.split(/\s+/).filter(Boolean).slice(0,2).map(function(w){return w[0].toUpperCase()}).join('')||'CV';
+var pad=function(n){return n<10?'0'+n:''+n};
+
+/* head */
+document.title=name+' — Resume';
+var desc=(title?title+'. ':'')+(sum?sum.slice(0,150):'');
+function meta(sel,v){var m=$(sel);if(m)m.setAttribute('content',v)}
+meta('meta[name=description]',desc);meta('meta[property="og:title"]',name+' — Resume');meta('meta[property="og:description"]',desc);meta('meta[name="twitter:title"]',name+' — Resume');meta('meta[name="twitter:description"]',desc);
+
+/* seeded randomness: same name -> same cover art, every time */
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function rng(seed){var a=seed>>>0;return function(){a=(a+0x6D2B79F5)|0;var t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296}}
+
+/* generative album cover (pure SVG) */
+function cover(id,small){
+ var r=rng(hash(name+'|'+title)),h1=Math.floor(r()*360),h2=(h1+50+Math.floor(r()*110))%360,h3=(h2+60+Math.floor(r()*90))%360;
+ var blobs='',i,cols=[h1,h2,h3,h1,h2];
+ for(i=0;i<5;i++)blobs+='<circle cx="'+Math.round(r()*400)+'" cy="'+Math.round(r()*400)+'" r="'+Math.round(90+r()*120)+'" fill="hsl('+cols[i]+',78%,'+(46+Math.round(r()*14))+'%)" opacity=".85"/>';
+ var cx=Math.round(120+r()*160),cy=Math.round(120+r()*160),rings='';
+ for(i=1;i<=7;i++)rings+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(i*26)+'" fill="none" stroke="#fff" stroke-opacity="'+(.22-i*.02).toFixed(2)+'" stroke-width="1.4"/>';
+ var fs=initials.length>1?170:210;
+ return '<svg viewBox="0 0 400 400" role="img" aria-label="Generated album cover for '+esc(name)+'" preserveAspectRatio="xMidYMid slice"><defs>'+
+  '<linearGradient id="g'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl('+h1+',60%,16%)"/><stop offset="1" stop-color="hsl('+h3+',70%,10%)"/></linearGradient>'+
+  '<filter id="b'+id+'" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="'+(small?22:34)+'"/></filter>'+
+  '<linearGradient id="s'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".62"/></linearGradient></defs>'+
+  '<rect width="400" height="400" fill="url(#g'+id+')"/><g filter="url(#b'+id+')">'+blobs+'</g>'+
+  '<g>'+rings+'</g><circle cx="'+cx+'" cy="'+cy+'" r="'+(small?10:16)+'" fill="#c6ff3d"/><circle cx="'+cx+'" cy="'+cy+'" r="'+(small?22:36)+'" fill="none" stroke="#c6ff3d" stroke-width="3"/>'+
+  '<rect width="400" height="400" fill="url(#s'+id+')"/>'+
+  '<text x="26" y="360" style="font:800 '+fs+'px var(--head);letter-spacing:-6px" fill="#fff" fill-opacity=".96">'+esc(initials)+'</text>'+
+  (small?'':'<text x="26" y="42" style="font:500 15px var(--mono);letter-spacing:3px" fill="#fff" fill-opacity=".85">'+esc(name.toUpperCase().slice(0,26))+'</text><text x="374" y="42" text-anchor="end" style="font:500 13px var(--mono);letter-spacing:2px" fill="#c6ff3d">STEREO</text>')+
+  '</svg>'}
+
+/* tenure helpers */
+function parseDates(s){
+ s=String(s||'');var now=new Date(),nm=now.getFullYear()*12+now.getMonth();
+ var m=s.match(/(?:(\d{1,2})\s*[\/.-]\s*)?((?:19|20)\d{2})/g)||[];
+ function pm(t,end){var x=t.match(/(?:(\d{1,2})\s*[\/.-]\s*)?((?:19|20)\d{2})/);if(!x)return null;var mo=x[1]?Math.min(12,Math.max(1,+x[1]))-1:(end?11:0);return (+x[2])*12+mo}
+ var a=m.length?pm(m[0],false):null,b=null;
+ if(/present|current|now|today/i.test(s))b=nm;else if(m.length>1)b=pm(m[m.length-1],true);else if(a!=null)b=a;
+ if(a==null||b==null)return null;if(b>nm)b=nm;if(b<a)return null;return [a,b+1]}
+function expYears(){
+ var rs=jobs.map(function(j){return parseDates(j.dates)}).filter(Boolean).sort(function(x,y){return x[0]-y[0]});
+ if(!rs.length)return 0;var tot=0,cs=rs[0][0],ce=rs[0][1];
+ for(var i=1;i<rs.length;i++){if(rs[i][0]<=ce)ce=Math.max(ce,rs[i][1]);else{tot+=ce-cs;cs=rs[i][0];ce=rs[i][1]}}
+ tot+=ce-cs;return Math.floor(tot/12)}
+var years=expYears();
+
+/* icons */
+var IC={mail:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',phone:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',dl:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>',chev:'<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>'};
+var lw=['','Foundational','Working','Proficient','Advanced','Expert'];
+function lvl(v){return Math.max(1,Math.min(5,Math.round(Number(v)||3)))}
+
+/* secs */
+var secs=[];
+if(jobs.length)secs.push(['tracklist','Tracklist']);if(skills.length)secs.push(['equalizer','Equalizer']);if(certs.length||edu.length||langs.length)secs.push(['liner','Liner notes']);secs.push(['contact','Book']);
+
+/* viz bars */
+var vr=rng(hash(name)+7),bars='';
+for(var q=0;q<56;q++){var env=.35+.65*Math.abs(Math.sin(q/56*Math.PI*2.4+1)),s=Math.max(.14,Math.min(1,env*(.55+vr()*.6)));bars+='<i style="--s:'+s.toFixed(2)+';--dur:'+(.55+vr()*.9).toFixed(2)+'s;--dl:-'+(vr()*1.5).toFixed(2)+'s"></i>'}
+
+var out='<header class="top"><div class="top-in"><a class="logo" href="#top"><i></i>Now playing</a><nav aria-label="Sections"><ul id="navlist">'+secs.map(function(s){return '<li><a href="#'+s[0]+'">'+s[1]+'</a></li>'}).join('')+'</ul></nav></div></header>'+
+'<main id="main"><div class="hero" id="top"><div class="wrap hero-g">'+
+ '<div class="sleeve rv" aria-hidden="false"><div class="vinyl" aria-hidden="true"></div><div class="cover">'+cover('A',false)+'</div></div>'+
+ '<div><p class="eyebrow rv" style="--d:.05s">Now playing</p><h1 class="rv" style="--d:.1s">'+esc(name)+'</h1>'+
+ (title?'<p class="alb rv" style="--d:.16s"><small>Album</small>'+esc(title)+'</p>':'')+
+ (sum?'<p class="sum rv" style="--d:.22s">'+esc(sum)+'</p>':'')+
+ '<p class="cl-print" style="display:none;margin-top:4pt">'+[email,phone].filter(Boolean).map(esc).join('  ·  ')+'</p>'+
+ '<div class="acts rv" style="--d:.28s">'+(email?'<a class="btn" href="mailto:'+esc(email)+'">'+IC.mail+'Book the band</a>':'')+'<button type="button" class="btn o" id="pdf">'+IC.dl+'Download PDF</button></div>'+
+ '<div class="viz rv" style="--d:.34s" aria-hidden="true">'+bars+'</div>'+
+ '<p class="meta rv" style="--d:.4s">'+(years>=1?'<span><b>'+years+'+</b> yrs on the road</span>':'')+(jobs.length?'<span><b>'+jobs.length+'</b> tracks</span>':'')+(certs.length?'<span><b>'+certs.length+'</b> credits</span>':'')+'</p>'+
+ '</div></div></div>';
+
+function lines(t){t=String(t||'').replace(/\s+/g,' ').trim();return t?(t.match(/[^.!?;]+[.!?;]*/g)||[t]).map(function(x){return x.trim()}).filter(Boolean):[]}
+
+if(jobs.length)out+='<section id="tracklist" aria-labelledby="h-tracks"><div class="wrap"><div class="sh rv"><small>Side A</small><h2 id="h-tracks">Tracklist</h2><span class="r">'+jobs.length+' track'+(jobs.length>1?'s':'')+' · click to read the lyrics</span></div><ol class="trks">'+
+ jobs.map(function(j,i){var L=lines(j.text);return '<li class="trk rv" id="t'+i+'" style="--d:.04s"><button type="button" class="trk-h" aria-expanded="false" aria-controls="l'+i+'"><span class="n"><span class="num">'+pad(i+1)+'</span><span class="eqb" aria-hidden="true"><i></i><i></i><i></i></span></span><span class="tt"><b>'+esc(j.role||'Untitled')+'</b>'+(j.co?'<em>'+esc(j.co)+'</em>':'')+'</span>'+(j.dates?'<span class="du">'+esc(j.dates)+'</span>':'<span></span>')+IC.chev+'</button>'+
+ '<div class="lyr" id="l'+i+'" role="region" aria-label="Lyrics: '+esc(j.role||'')+'"><div class="lyr-in"><div class="lyr-b">'+(L.length?'<p class="lx">'+L.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</p>':'')+(j.loc?'<p class="lm">Recorded live — '+esc(j.loc)+'</p>':'')+'</div></div></div></li>'}).join('')+'</ol></div></section>';
+
+if(skills.length)out+='<section id="equalizer" aria-labelledby="h-eq"><div class="wrap"><div class="sh rv"><small>Mix</small><h2 id="h-eq">Equalizer</h2><span class="r">levels 1 – 5</span></div><div class="eqw rv"><ul class="eqs">'+
+ skills.map(function(s,i){var n=lvl(s[1]),segs='';for(var k=0;k<10;k++){var on=k<n*2;segs+='<i class="'+(on?'on':'')+(k===n*2-1?' top':'')+'" style="--k:'+k+'"></i>'}return '<li class="band" style="--d:'+(i*.08)+'s"><div class="col" role="img" aria-label="'+lw[n]+', '+n+' out of 5">'+segs+'</div><b>'+esc(s[0])+'</b><span>'+lw[n]+' · '+n+'/5</span></li>'}).join('')+'</ul></div></div></section>';
+
+if(certs.length||edu.length||langs.length){out+='<section id="liner" aria-labelledby="h-liner"><div class="wrap"><div class="sh rv"><small>Credits</small><h2 id="h-liner">Liner notes</h2></div><div class="liner">';
+ if(certs.length)out+='<div class="card rv"><h3>Certifications &amp; credits</h3><ul class="credits">'+certs.map(function(c){return '<li><span>'+esc(c)+'</span></li>'}).join('')+'</ul></div>';
+ if(edu.length||langs.length){out+='<div class="stack">';
+  if(edu.length)out+='<div class="card rv" style="--d:.08s"><h3>Recorded at</h3>'+edu.map(function(e){return '<div class="rec"><b>'+esc(e[0]||'')+'</b>'+(e[2]?'<span>'+esc(e[2])+'</span>':'')+(e[1]?'<small>'+esc(e[1])+'</small>':'')+'</div>'}).join('')+'</div>';
+  if(langs.length)out+='<div class="card rv" style="--d:.14s"><h3>Sung in</h3>'+langs.map(function(l){return '<div class="lang"><b>'+esc(l[0]||'')+'</b><span>'+esc(l[1]||'')+'</span></div>'}).join('')+'</div>';
+  out+='</div>'}
+ out+='</div></div></section>'}
+
+out+='<section id="contact" aria-labelledby="h-contact"><div class="wrap"><div class="book rv"><p class="eyebrow" style="justify-content:center">Next show</p><h2 id="h-contact" style="margin-top:12px">Book <em>the band</em></h2><p>Available for new engagements. Drop a line and let’s set up the next session.</p>'+
+ '<div class="acts">'+(email?'<a class="btn" href="mailto:'+esc(email)+'">'+IC.mail+esc(email)+'</a>':'')+(phone?'<a class="btn o" href="tel:'+esc(tel)+'">'+IC.phone+esc(phone)+'</a>':'')+'<button type="button" class="btn o" id="pdf2">'+IC.dl+'Download PDF</button></div></div>'+
+ '<div class="foot"><span>© '+new Date().getFullYear()+' '+esc(name)+' · All rights reserved</span><a href="#top">Back to track 00 ↑</a></div></div></section></main>'+
+ '<div class="player" role="region" aria-label="Scroll progress player"><div class="pbar" id="pbar"><i id="pfill"></i></div><div class="p-in"><div class="p-now"><div class="p-art" aria-hidden="true">'+cover('B',true)+'</div><div class="p-txt"><b id="pt">'+esc(name)+'</b><span id="pa">'+esc(title||'Resume')+'</span></div></div>'+
+ '<div class="p-ctl"><button type="button" class="pb" id="prev" aria-label="Previous track"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button><button type="button" class="pb pl" id="pp" aria-label="Pause animations"><svg class="ic-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg><svg class="ic-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><button type="button" class="pb" id="next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5l11 7L4 19z"/></svg></button></div>'+
+ '<div class="p-time" id="ptime">0:00 / 3:47</div></div></div>';
+$('#app').innerHTML=out;
+[$('#pdf'),$('#pdf2')].forEach(function(b){if(b)b.addEventListener('click',function(){window.print()})});
+
+/* tracklist accordion */
+var trks=$$('.trk');
+function setOpen(t,o){t.classList.toggle('open',o);$('.trk-h',t).setAttribute('aria-expanded',o?'true':'false')}
+trks.forEach(function(t){$('.trk-h',t).addEventListener('click',function(){var o=!t.classList.contains('open');trks.forEach(function(x){if(x!==t)setOpen(x,false)});setOpen(t,o)})});
+if(trks.length)setOpen(trks[0],true);
+
+/* play/pause (pauses all decorative animation) */
+var pp=$('#pp'),paused=false;
+pp.addEventListener('click',function(){paused=!paused;root.classList.toggle('paused',paused);pp.setAttribute('aria-label',paused?'Resume animations':'Pause animations')});
+
+/* reveal */
+var targets=$$('.rv,.band');
+if(still||!('IntersectionObserver' in window))targets.forEach(function(t){t.classList.add('in')});
+else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -5% 0px'});targets.forEach(function(t){io.observe(t)})}
+
+/* scroll: progress + now-playing track + nav spy */
+var pfill=$('#pfill'),pt=$('#pt'),pa=$('#pa'),ptime=$('#ptime'),links=$$('#navlist a'),tick=false,TOTAL=227,cur=-1;
+function fmt(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+pad(s%60)}
+function upd(){var h=root.scrollHeight-innerHeight,p=h>0?Math.min(1,Math.max(0,scrollY/h)):0;
+ pfill.style.transform='scaleX('+p+')';ptime.textContent=fmt(p*TOTAL)+' / '+fmt(TOTAL);
+ var mid=innerHeight*.5,best=-1,bd=1e9;
+ trks.forEach(function(t,i){var r=t.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){var d=Math.abs((r.top+r.bottom)/2-mid);if(d<bd){bd=d;best=i}}});
+ var tl=$('#tracklist');var inList=false;if(tl){var tr=tl.getBoundingClientRect();inList=tr.top<innerHeight*.6&&tr.bottom>innerHeight*.3}
+ var idx=inList?best:-1;
+ if(idx!==cur){cur=idx;if(idx>=0){pt.textContent=pad(idx+1)+' · '+(jobs[idx].role||'');pa.textContent=jobs[idx].co||name}else{pt.textContent=name;pa.textContent=title||'Resume'}}
+ tick=false}
+addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
+$('#pbar').addEventListener('click',function(e){var r=this.getBoundingClientRect(),h=root.scrollHeight-innerHeight;scrollTo({top:h*((e.clientX-r.left)/r.width),behavior:still?'auto':'smooth'})});
+function goTrack(d){if(!trks.length)return;var i=cur<0?(d>0?0:trks.length-1):Math.max(0,Math.min(trks.length-1,cur+d));trks.forEach(function(x){setOpen(x,false)});setOpen(trks[i],true);trks[i].scrollIntoView({behavior:still?'auto':'smooth',block:'center'})}
+$('#prev').addEventListener('click',function(){goTrack(-1)});$('#next').addEventListener('click',function(){goTrack(1)});
+if('IntersectionObserver' in window){var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-35% 0px -60% 0px'});secs.forEach(function(s){var el=document.getElementById(s[0]);if(el)spy.observe(el)})}
+})();
+</script>
+</body>
+</html>

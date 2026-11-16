@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gustavo Freitas — Receipt</title>
+<!-- NOTE: JavaScript updates the title/meta tags from DATA. Social-media link previews do NOT run JavaScript, so also edit the title, description and og/twitter tags below by hand. -->
+<meta name="description" content="Gustavo Freitas — Computer Scientist — Offensive & Defensive Cyber Operations. A resume printed as a thermal receipt. TOTAL: HIRED.">
+<meta name="theme-color" content="#121316">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gustavo Freitas — Receipt">
+<meta property="og:description" content="Computer Scientist — Offensive & Defensive Cyber Operations. TOTAL: HIRED.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gustavo Freitas — Receipt">
+<meta name="twitter:description" content="Computer Scientist — Offensive & Defensive Cyber Operations. TOTAL: HIRED.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121316'/%3E%3Cpath d='M16 8h32v44l-4-4-4 4-4-4-4 4-4-4-4 4-4-4-4 4z' fill='%23f1eee4'/%3E%3Cpath d='M22 18h20M22 26h20M22 34h12' stroke='%23222' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f1eee4;--ink:#23211e;--faint:#6d675b;--mono:'Courier Prime','Courier New',Courier,ui-monospace,Consolas,monospace;--ui:'Space Mono',ui-monospace,Consolas,'Courier New',monospace;--led:#5dff8a}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{-webkit-text-size-adjust:100%}
+body{min-height:100vh;color:#cfc8b8;font:400 14px/1.5 var(--mono);overflow-x:hidden;-webkit-font-smoothing:antialiased;
+ background:radial-gradient(800px 520px at 50% -40px,rgba(255,206,140,.16),transparent 70%),repeating-linear-gradient(90deg,rgba(255,255,255,.014) 0 2px,transparent 2px 9px),repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 1px,transparent 1px 5px),linear-gradient(#1a1b1f,#0d0e10);background-attachment:fixed}
+a{color:inherit}
+:focus-visible{outline:3px solid #ffd24a;outline-offset:2px}
+.desk{width:min(440px,100% - 24px);margin:0 auto;padding:22px 0 70px}
+
+/* printer slot */
+.slot{position:relative;z-index:3;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 -14px -12px;padding:10px 14px 16px;border-radius:14px 14px 6px 6px;background:linear-gradient(#34363c,#1f2024);box-shadow:0 10px 20px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.12);font:700 11px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:#9a9588}
+.slot::after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:6px;border-radius:3px;background:#050506;box-shadow:inset 0 2px 3px #000,0 1px 0 rgba(255,255,255,.1)}
+.led{width:9px;height:9px;border-radius:50%;background:#2c3a30;box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}
+.led.on{background:var(--led);box-shadow:0 0 10px var(--led);animation:blink .5s steps(2) infinite}
+.slot .st{margin-right:auto}
+.sbtn{font:700 10px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:#d7d1c2;background:#2b2d33;border:1px solid #4a4d55;border-radius:4px;padding:8px 10px;min-height:32px;cursor:pointer;transition:background .2s,color .2s}
+.sbtn:hover{background:#d7d1c2;color:#111}
+@keyframes blink{50%{opacity:.35}}
+
+/* paper */
+.sheet{position:relative;filter:drop-shadow(0 22px 22px rgba(0,0,0,.55)) drop-shadow(0 3px 3px rgba(0,0,0,.45));margin-top:0}
+.paper{position:relative;color:var(--ink);padding:26px clamp(14px,5vw,26px) 14px;font-size:clamp(12.5px,3.5vw,14.5px);line-height:1.45;
+ background:linear-gradient(90deg,rgba(0,0,0,.05),transparent 5%,transparent 95%,rgba(0,0,0,.06)),var(--paper)}
+.paper::before,.paper::after{content:"";position:absolute;left:0;right:0;height:9px;background-repeat:repeat-x;background-size:16px 9px}
+.paper::before{top:-8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Cpath d='M0 9h16L8 0z' fill='%23f1eee4'/%3E%3C/svg%3E")}
+.paper::after{bottom:-8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9'%3E%3Cpath d='M0 0h16L8 9z' fill='%23f1eee4'/%3E%3C/svg%3E")}
+.sheet.printing .paper{animation:jit .16s steps(2) infinite}
+@keyframes jit{0%{transform:translate(0,0)}50%{transform:translate(.7px,-.4px) rotate(.04deg)}100%{transform:translate(-.5px,.3px)}}
+.ln{position:relative}
+.ln.x{display:none}
+.ln.feed{animation:feed .28s steps(7) both}
+@keyframes feed{from{clip-path:inset(0 0 100% 0);opacity:.2}to{clip-path:inset(0);opacity:1}}
+.sp{height:.7em}
+.c{text-align:center}
+.dim{color:var(--faint)}
+.b{font-weight:700}
+.big{text-align:center;font:700 clamp(23px,7.6vw,32px)/1.08 var(--mono);letter-spacing:.04em;text-transform:uppercase;overflow-wrap:anywhere;margin:2px 0 4px}
+.logo{display:block;margin:0 auto 6px;width:54px;height:54px}
+.tag{text-align:center;text-transform:uppercase;letter-spacing:.08em;font-size:.92em}
+.rule{height:0;border-top:2px dashed var(--ink);margin:.55em 0;opacity:.8}
+.rule.dbl{border-top:4px double var(--ink);opacity:1}
+.hd{text-align:center;background:var(--ink);color:var(--paper);font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:3px 0 2px;margin:1.1em 0 .6em}
+.row{display:flex;align-items:flex-end}
+.row .nm{min-width:0;overflow-wrap:anywhere}
+.row .pr{flex:none;white-space:nowrap;text-align:right}
+.row .ld{flex:1 1 1.2em;min-width:1.2em;border-bottom:2px dotted currentColor;opacity:.5;margin:0 .45em .42em}
+.it1{font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin-top:.55em;display:flex;gap:1ch}
+.it1 i{font-style:normal;flex:none}
+.ind{margin-left:3ch}.row.ind{margin-left:0}.txt{margin:.15em 0 .2em 3ch;text-wrap:pretty}
+.note{text-wrap:pretty}
+.cert{padding-left:4ch;text-indent:-4ch;margin:.12em 0}
+.pips{display:inline-flex;gap:3px;align-self:center}
+.pips i{width:.72em;height:.72em;border:1.5px solid var(--ink);display:block}
+.pips i.on{background:var(--ink)}
+.total{position:relative;text-align:center;font-weight:700;font-size:clamp(21px,7.2vw,30px);letter-spacing:.05em;border:3px solid var(--ink);padding:.28em .1em .2em;margin:.7em 0 .4em;text-transform:uppercase}
+.total::before{content:"";position:absolute;inset:3px;border:1px solid var(--ink)}
+.barcode{position:relative;height:66px;margin:.7em 6px .2em;overflow:hidden}
+.barcode svg{display:block;width:100%;height:100%}
+.laser{position:absolute;top:0;bottom:0;width:2px;left:0;background:#d8281d;box-shadow:0 0 8px 1px rgba(216,40,29,.8);animation:scan 3.2s ease-in-out infinite alternate;mix-blend-mode:multiply}
+@keyframes scan{from{left:0}to{left:calc(100% - 2px)}}
+.digits{text-align:center;letter-spacing:.42em;font-size:.9em;margin-left:.42em}
+.tear{text-align:center;letter-spacing:.2em;white-space:nowrap;overflow:hidden;color:var(--faint);margin-top:1.2em;font-size:.9em}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:.9em 0 .6em}
+.btn{font:700 12px/1 var(--ui);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:transparent;border:2px solid var(--ink);padding:0 14px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;cursor:pointer;transition:background .15s,color .15s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.p{background:var(--ink);color:var(--paper)}.btn.p:hover{background:transparent;color:var(--ink)}
+.after{margin-top:34px;text-align:center;font:400 11px/1.6 var(--ui);letter-spacing:.08em;color:#7d7869}
+.after a{color:#a39d8c}
+#sent{height:1px}
+noscript p{padding:24px;color:#ddd}
+
+/* reduced motion / static */
+html.still *,html.still *::before,html.still *::after{animation:none!important;transition:none!important}
+html.still .ln{clip-path:none!important;opacity:1!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.ln{clip-path:none!important;opacity:1!important}}
+
+@media print{
+ @page{margin:12mm}
+ html,body{background:#fff!important;color:#000!important}
+ body{font-size:9.5pt}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .slot,.acts,.laser,.after,#sent{display:none!important}
+ .desk{width:100%;max-width:150mm;padding:0}
+ .sheet{filter:none!important}
+ .paper{background:#fff!important;padding:0!important;font-size:9.5pt;color:#000;--ink:#000;--paper:#fff;--faint:#444}
+ .paper::before,.paper::after{display:none}
+ .ln,.ln.x{display:block!important;clip-path:none!important;opacity:1!important}
+ .ln.row,.ln.row.x{display:flex!important}
+ .ln.it1,.ln.it1.x{display:flex!important}
+ .hd{background:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .ln{break-inside:avoid}
+ .big{font-size:22pt}.total{font-size:20pt}
+ .pips i.on{background:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .barcode{height:16mm}
+}
+</style>
+</head>
+<body>
+<main class="desk" id="main">
+ <div class="slot" role="group" aria-label="Printer controls"><span class="led on" id="led" aria-hidden="true"></span><span class="st" id="st" role="status">Printing…</span><button type="button" class="sbtn" id="skip">Print all</button><button type="button" class="sbtn" id="pdf">Download PDF</button></div>
+ <div class="sheet printing" id="sheet"><div class="paper"><div id="rc"></div><div id="sent" aria-hidden="true"></div></div></div>
+ <p class="after" id="after"></p>
+</main>
+<noscript><p>This resume needs JavaScript to display. Please enable it.</p></noscript>
+
+<script>
+/* ===== EDIT YOUR DETAILS HERE ===== */
+/* Change the text inside the quotes below. Keep the quotes, commas and brackets exactly as they are. */
+const DATA = {
+ name:"Gustavo Freitas",
+ title:"Computer Scientist — Offensive & Defensive Cyber Operations",
+ summary:"Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.",
+ email:"gustavo@example.com", phone:"555-010-0100",
+ jobs:[
+  {role:"Security Orchestration, Automation & Response Engineer",co:"Marriott International",dates:"05/2024 – Present",loc:"Remote · Bethesda, MD",text:"Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating."},
+  {role:"Senior Cyber Incident Response Analyst",co:"Marriott International",dates:"05/2022 – 05/2024",loc:"Remote · Bethesda, MD",text:"Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources."},
+  {role:"Security Analyst, Security Operations Center",co:"Arkansas Blue Cross Blue Shield",dates:"11/2021 – 05/2022",loc:"Little Rock, AR",text:"Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures."},
+  {role:"Lead Security Analyst, Security Operations Center",co:"Bank OZK",dates:"01/2019 – 08/2021",loc:"Little Rock, AR",text:"Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape."},
+  {role:"Network Security Analyst, Security Operations",co:"Mechanics Bank",dates:"09/2016 – 08/2018",loc:"Hercules, CA",text:"Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling."}
+ ],
+ skills:[["DevOps · Blue Team",4],["Penetration Testing · Red Team",4],["Exploit Dev / Vulnerability Research",3],["Enterprise Risk Management",4],["DFIR · Digital Forensics",5]],
+ certs:["Apple Certified Support Professional (2016)","CompTIA Security+ (2019)","CompTIA A+ (2019)","SpecterOps – Red Team Operations (2020)","DARPA – SSITH Bug Hunter (2020)","SANS – GIAC Certified Incident Handler (2020)","Tenable CTF – Team webepeepin ('21 '22 '23)","ServiceNow Flow Designer Developer (2024)","Python Certified Entry-Level Programmer (2025)"],
+ edu:[["Computer Science","10/2022 – 10/2023","Western Governors University"],["Computer Science","07/2020 – 01/2022","University of Arkansas – eVersity"],["Applied Physics","08/2012 – 12/2013","University of Central Arkansas"]],
+ langs:[["English","Native / Bilingual"],["Portuguese","Native / Bilingual"],["Spanish","Professional Working"]]
+};
+/* ===== END OF EDITABLE AREA — nothing below needs to change ===== */
+
+(function(){
+'use strict';
+var root=document.documentElement,$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var arr=function(x){return Array.isArray(x)?x:[]};
+var D=DATA||{},name=String(D.name||'Your Name').trim(),title=D.title||'',sum=D.summary||'';
+var jobs=arr(D.jobs).filter(Boolean),skills=arr(D.skills).filter(Boolean),certs=arr(D.certs).filter(Boolean),edu=arr(D.edu).filter(Boolean),langs=arr(D.langs).filter(Boolean);
+var email=D.email?String(D.email).trim():'',phone=D.phone?String(D.phone).trim():'',tel=phone.replace(/[^0-9+]/g,'');
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var still=RM||/[?&]static(\b|=)/.test(location.search);
+root.classList.add('js');if(still)root.classList.add('still');
+var initials=name.split(/\s+/).filter(Boolean).slice(0,2).map(function(w){return w[0].toUpperCase()}).join('')||'CV';
+
+/* ---------- head ---------- */
+document.title=name+' — Receipt';
+var desc=(title?title+'. ':'')+(sum?sum.slice(0,150):'');
+function meta(sel,v){var m=$(sel);if(m)m.setAttribute('content',v)}
+meta('meta[name=description]',desc);meta('meta[property="og:title"]',document.title);meta('meta[property="og:description"]',desc);meta('meta[name="twitter:title"]',document.title);meta('meta[name="twitter:description"]',desc);
+
+/* ---------- helpers ---------- */
+function hash(s){var h=2166136261;s=String(s);for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function rng(seed){return function(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+var seed=hash(name+'|'+title);
+var yrs=[];jobs.forEach(function(j){(String(j.dates||'').match(/\b(19|20)\d{2}\b/g)||[]).forEach(function(y){yrs.push(+y)})});
+var years=yrs.length?new Date().getFullYear()-Math.min.apply(null,yrs):0;
+var now=new Date();
+var dstr=now.toLocaleDateString('en-US',{year:'numeric',month:'2-digit',day:'2-digit'});
+var tstr=now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
+var orderNo=String(seed%100000).padStart(5,'0');
+
+/* ---------- build receipt lines ---------- */
+var L=[];
+function add(c,h){L.push({c:c||'',h:h||''})}
+function sp(){add('sp','')}
+function rule(k){add('rule'+(k?' '+k:''),'')}
+function row(l,r,c){add('row '+(c||''),'<span class="nm">'+l+'</span><span class="ld"></span><span class="pr">'+r+'</span>')}
+function head(t){add('hd','*** '+esc(t)+' ***')}
+function barcodeSvg(){
+ var r=rng(seed),x=0,rects='',units=[2,1,2,1,2];
+ for(var i=0;i<46;i++){units.push(1+Math.floor(r()*3));units.push(1+Math.floor(r()*3))}
+ units=units.concat([2,1,2,1,2]);
+ units.forEach(function(u,i){if(i%2===0)rects+='<rect x="'+x+'" y="0" width="'+u+'" height="60"/>';x+=u});
+ return '<svg viewBox="0 0 '+x+' 60" preserveAspectRatio="none" role="img" aria-label="Barcode"><g fill="#17150f">'+rects+'</g></svg>'}
+function digits(){var r=rng(seed^0x9e3779b9),s='';for(var i=0;i<12;i++)s+=Math.floor(r()*10);return s.slice(0,1)+' '+s.slice(1,7)+' '+s.slice(7)}
+
+add('c','<svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="32" r="23" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 3"/><text x="32" y="40" text-anchor="middle" font-family="Courier New,monospace" font-weight="700" font-size="22" fill="currentColor">'+esc(initials)+'</text></svg>');
+add('big',esc(name));
+if(title)add('tag',esc(title));
+sp();rule();
+row('ORDER #',esc(orderNo));
+row('DATE',esc(dstr+'  '+tstr));
+row('CASHIER','RESUME-BOT 01');
+row('LANE','WWW / ONLINE');
+rule();
+if(sum){add('b','CUSTOMER NOTE');add('note',esc(sum));rule()}
+if(email||phone){add('c dim','CONTACT THE MERCHANT');
+ if(phone)add('c','<a href="tel:'+esc(tel)+'">'+esc(phone)+'</a>');
+ if(email)add('c','<a href="mailto:'+esc(email)+'" style="overflow-wrap:anywhere">'+esc(email)+'</a>')}
+if(jobs.length){
+ head('Experience');
+ row('<span class="dim">ITEM</span>','<span class="dim">PERIOD</span>','dim');
+ jobs.forEach(function(j,i){
+  add('it1','<i>'+String(i+1).padStart(2,'0')+'</i><span>'+esc(j.role||'')+'</span>');
+  if(j.co||j.dates)row(esc(j.co||''),esc(j.dates||''),'ind');
+  if(j.loc)add('ind dim',esc(j.loc));
+  if(j.text)add('txt',esc(j.text))});
+ rule();
+ row('SUBTOTAL POSITIONS',esc(jobs.length));
+ if(years>=1)row('YEARS ON THE JOB',esc(years)+'+');
+ row('SALES TAX','WAIVED')}
+if(skills.length){
+ head('Skills');
+ skills.forEach(function(s){var lv=Math.max(1,Math.min(5,Math.round(Number(s[1])||3)));var p='';for(var k=1;k<=5;k++)p+='<i'+(k<=lv?' class="on"':'')+'></i>';
+  row(esc(s[0]),'<span class="pips" role="img" aria-label="'+lv+' out of 5">'+p+'</span>')})}
+if(certs.length){
+ head('Certifications');
+ certs.forEach(function(c){add('cert','[x] '+esc(c))});
+ row('CERTS ON FILE',esc(certs.length))}
+if(edu.length){
+ head('Education');
+ edu.forEach(function(e,i){add('it1','<i>'+String(i+1).padStart(2,'0')+'</i><span>'+esc(e[0]||'')+'</span>');
+  if(e[2]||e[1])row(esc(e[2]||''),esc(e[1]||''),'ind')})}
+if(langs.length){
+ head('Languages');
+ langs.forEach(function(l){row(esc(l[0]||''),esc(l[1]||''))})}
+sp();rule('dbl');
+row('SUBTOTAL','1 CANDIDATE');
+row('TAX','0.00');
+add('total','TOTAL: HIRED');
+row('PAYMENT','1 INTERVIEW');
+row('CHANGE DUE','0.00');
+rule();
+add('c b','THANK YOU FOR YOUR BUSINESS');
+add('c dim','NO REFUNDS. NO REGRETS.');
+add('barcode','<div class="barcode">'+barcodeSvg()+'<span class="laser" aria-hidden="true"></span></div>');
+add('digits',esc(digits()));
+add('tear','- - - - - - - ✂ TEAR HERE - - - - - - -');
+add('acts','<a class="btn p" href="mailto:'+esc(email)+'"'+(email?'':' hidden')+'>Email me</a><button type="button" class="btn" id="pdf2">Download PDF</button>');
+
+var rc=$('#rc');
+rc.innerHTML=L.map(function(l){return '<div class="ln x '+l.c+'">'+l.h+'</div>'}).join('');
+$('#after').innerHTML='© '+new Date().getFullYear()+' '+esc(name)+' · printed on 100% recycled thermal paper';
+[$('#pdf'),$('#pdf2')].forEach(function(b){if(b)b.addEventListener('click',function(){window.print()})});
+
+/* ---------- print-out animation (paper feeds as you scroll) ---------- */
+var els=$$('.ln',rc),idx=0,near=true,running=false,sheet=$('#sheet'),led=$('#led'),st=$('#st'),skipBtn=$('#skip');
+function reveal(n){n.classList.remove('x');if(!still)n.classList.add('feed')}
+function finish(){sheet.classList.remove('printing');led.classList.remove('on');st.textContent='Ready — thank you';skipBtn.hidden=true}
+function all(){while(idx<els.length)reveal(els[idx++]);finish()}
+function pump(){
+ if(running)return;running=true;
+ (function go(){
+  if(idx>=els.length){finish();running=false;return}
+  if(!near){running=false;return}
+  var n=els[idx++];reveal(n);
+  setTimeout(go,n.classList.contains('sp')?8:30);
+ })();
+}
+if(still||!('IntersectionObserver' in window)){all()}
+else{
+ var io=new IntersectionObserver(function(es){near=es[es.length-1].isIntersecting;if(near)pump()},{rootMargin:'0px 0px 450px 0px'});
+ io.observe($('#sent'));pump();
+ skipBtn.addEventListener('click',function(){all()});
+}
+if(still)skipBtn.hidden=true;
+})();
+</script>
+</body>
+</html>

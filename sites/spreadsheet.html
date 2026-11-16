@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gustavo Freitas — Sheet1</title>
+<!-- NOTE: JavaScript updates the title/meta tags from DATA. Social-media link previews do NOT run JavaScript, so also edit the title, description and og/twitter tags below by hand. -->
+<meta name="description" content="Gustavo Freitas — Computer Scientist — Offensive & Defensive Cyber Operations. Resume as a spreadsheet.">
+<meta name="theme-color" content="#217346">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gustavo Freitas — Sheet1">
+<meta property="og:description" content="Computer Scientist — Offensive & Defensive Cyber Operations.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gustavo Freitas — Sheet1">
+<meta name="twitter:description" content="Computer Scientist — Offensive & Defensive Cyber Operations.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23fff' stroke='%232a8a52' stroke-width='4'/%3E%3Cpath d='M4 22h56M4 42h56M24 4v56M44 4v56' stroke='%232a8a52' stroke-width='4'/%3E%3Crect x='26' y='24' width='16' height='16' fill='%232a8a52' opacity='.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--g:#217346;--g2:#2a8a52;--hdr:#f3f3f3;--line:#d4d4d4;--line2:#e2e2e2;--sel:#1a73e8;--selbg:rgba(26,115,232,.1);--text:#1f1f1f;--muted:#5f6368;--sans:'Roboto',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;--mono:'Roboto Mono',ui-monospace,Consolas,'Liberation Mono',Menlo,monospace}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html,body{height:100%}
+body{font:400 14px/1.35 var(--sans);color:var(--text);background:#fff;display:flex;flex-direction:column;overflow:hidden;-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--sel);outline-offset:1px}
+
+/* title / toolbar */
+.top{flex:none;background:#fff;border-bottom:1px solid var(--line)}
+.title{display:flex;align-items:center;gap:10px;padding:6px 12px 2px}
+.logo{flex:none;width:24px;height:28px;background:var(--g);border-radius:3px;position:relative}
+.logo::after{content:'';position:absolute;left:5px;right:5px;top:8px;bottom:7px;background:repeating-linear-gradient(#fff 0 2px,transparent 2px 5px);opacity:.9}
+.doc{font:500 16px var(--sans);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.menu{display:flex;gap:2px;padding:0 8px 2px 46px;color:var(--muted);font-size:13px;overflow-x:auto;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu span{padding:3px 8px;white-space:nowrap}
+.tools{display:flex;align-items:center;gap:6px;padding:4px 12px 6px;background:#f9fbfd;border-top:1px solid var(--line2);flex-wrap:wrap}
+.tb{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 12px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer;text-decoration:none;color:var(--text);font-size:13px;font-weight:500}
+.tb:hover{background:#eef3f9}
+.tb.p{background:var(--g);border-color:var(--g);color:#fff}.tb.p:hover{background:var(--g2)}
+.tb svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sp{flex:1}
+.fbar{display:flex;align-items:stretch;border-top:1px solid var(--line);background:#fff;min-height:30px}
+.nb{flex:none;width:76px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);font:500 13px var(--sans);color:var(--text)}
+.fx{flex:none;width:32px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);font:italic 500 14px var(--mono);color:var(--muted)}
+.fv{flex:1;min-width:0;padding:6px 10px;font:400 13px/1.3 var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fv.wrap{white-space:normal;max-height:4.2em;overflow-y:auto}
+
+/* grid */
+.grid-wrap{flex:1;min-height:0;overflow:auto;position:relative;background:#fff;-webkit-overflow-scrolling:touch}
+.sheet{display:none}.sheet.on{display:block}
+table{border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:13px}
+th,td{border-right:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+thead th{position:sticky;top:0;z-index:3;background:var(--hdr);color:var(--muted);font-weight:500;height:24px;border-color:var(--line);text-align:center;user-select:none}
+tbody th{position:sticky;left:0;z-index:2;background:var(--hdr);color:var(--muted);font-weight:400;width:46px;min-width:46px;text-align:center;border-color:var(--line);vertical-align:top;padding-top:4px;user-select:none;font-size:12px}
+thead th.corner{left:0;z-index:4;width:46px;min-width:46px}
+thead th.hl,tbody th.hl{background:#dfe5ee;color:#0b3d91;font-weight:700}
+td{padding:4px 8px;vertical-align:top;min-height:24px;height:24px;overflow-wrap:anywhere;cursor:cell;position:relative;background:#fff}
+td.e{background:#fff}
+td.sel{outline:2px solid var(--sel);outline-offset:-2px;z-index:1;background:var(--selbg)}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td.ctr{text-align:center}
+td.hd{background:var(--g);color:#fff;font-weight:700;border-color:#1b5e38}
+td.hd.sel{background:var(--g)}
+td.big{font:500 22px/1.2 var(--sans);height:auto;padding:8px}
+td.lab{font-weight:700;background:#f3f6f4}
+td.tot{font-weight:700;background:#e9f4ee;border-top:2px solid var(--g);color:#124d2c}
+td.sec{background:#e6efe9;color:#124d2c;font-weight:700;letter-spacing:.03em}
+td.bar{padding:3px 6px}
+.db{display:block;height:16px;border-radius:2px;background:linear-gradient(90deg,#34a853,#7bc67e);width:var(--w);transform-origin:left;min-width:2px}
+.db.l1{background:linear-gradient(90deg,#e57373,#ef9a9a)}.db.l2{background:linear-gradient(90deg,#f0a640,#f6c77a)}.db.l3{background:linear-gradient(90deg,#e7d34a,#f1e58a)}
+.rept{font-family:var(--mono);font-size:12px;letter-spacing:-.5px;color:#1b6b3e;white-space:nowrap;overflow:hidden}
+td a{color:#1a56c4}
+.dim{color:var(--muted)}
+
+/* fill-in animation */
+.fill td:not(.e){animation:fillin .35s ease both;animation-delay:var(--d,0s)}
+@keyframes fillin{from{opacity:0;background:#fff7cc}to{opacity:1}}
+.fill .db{animation:grow .7s cubic-bezier(.3,.7,.2,1) both;animation-delay:calc(var(--d,0s) + .15s)}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+html.still *,html.still *::before,html.still *::after{transition:none!important;animation:none!important}
+
+/* tabs */
+.tabs{flex:none;display:flex;align-items:stretch;background:var(--hdr);border-top:1px solid var(--line);min-height:40px;padding-bottom:env(safe-area-inset-bottom)}
+.tabs .plus{flex:none;width:40px;display:grid;place-items:center;color:var(--muted);font-size:20px}
+.tabs .list{display:flex;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.tabs .list::-webkit-scrollbar{display:none}
+.tab{flex:none;min-height:40px;padding:0 20px;border:0;border-right:1px solid var(--line);background:transparent;cursor:pointer;color:var(--muted);font-size:14px;white-space:nowrap}
+.tab:hover{background:#e8eaed}
+.tab[aria-selected=true]{background:#fff;color:var(--g);font-weight:700;box-shadow:inset 0 -3px 0 var(--g)}
+.stat{flex:none;align-self:center;padding:0 14px;color:var(--muted);font-size:12px;white-space:nowrap}
+@media(max-width:640px){.stat,.menu,.doc small{display:none}.nb{width:56px}.tools .tb span{display:none}}
+.skip{position:absolute;left:8px;top:-60px;background:var(--g);color:#fff;padding:8px 14px;border-radius:4px;z-index:300}.skip:focus{top:8px}
+
+/* print: all sheets, plain tables */
+@media print{
+ @page{margin:12mm}
+ html,body{height:auto;overflow:visible;background:#fff}
+ body{display:block;font-size:9.5pt}
+ .top,.tabs,.skip{display:none!important}
+ .grid-wrap{overflow:visible}
+ .sheet,.sheet.on{display:block;margin-bottom:10pt;break-inside:avoid}
+ .sheet::before{content:attr(data-title);display:block;font:700 12pt var(--sans);margin-bottom:3pt}
+ table{width:100%!important;font-size:9pt}
+ thead th,tbody th{display:none}
+ td{border:.5pt solid #999;padding:2pt 4pt;height:auto;background:#fff!important;animation:none!important;opacity:1!important;color:#000!important}
+ td.hd{font-weight:700;background:#ddd!important}td.tot,td.lab,td.sec{background:#eee!important;font-weight:700}
+ td.sel{outline:0;background:#fff}
+ .db{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#555!important}
+ col{width:auto!important}
+ .printhead{display:block!important}
+}
+.printhead{display:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#grid">Skip to sheet</a>
+<div class="top">
+ <div class="title"><span class="logo" aria-hidden="true"></span><span class="doc" id="doc">Resume</span></div>
+ <div class="menu" aria-hidden="true"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span></div>
+ <div class="tools" id="tools"></div>
+ <div class="fbar"><div class="nb" id="nb">A1</div><div class="fx" aria-hidden="true">fx</div><div class="fv" id="fv" aria-live="polite"></div></div>
+</div>
+<main class="grid-wrap" id="grid" tabindex="-1" aria-label="Resume spreadsheet"></main>
+<div class="tabs" role="tablist" aria-label="Sheets"><span class="plus" aria-hidden="true">+</span><div class="list" id="tabs"></div><span class="stat" id="stat" aria-hidden="true"></span></div>
+<noscript><p style="padding:24px">This resume needs JavaScript to display. Please enable it.</p></noscript>
+
+<script>
+/* ===== EDIT YOUR DETAILS HERE ===== */
+/* Change the text inside the quotes below. Keep the quotes, commas and brackets exactly as they are. */
+const DATA = {
+ name:"Gustavo Freitas",
+ title:"Computer Scientist — Offensive & Defensive Cyber Operations",
+ summary:"Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.",
+ email:"gustavo@example.com", phone:"555-010-0100",
+ jobs:[
+  {role:"Security Orchestration, Automation & Response Engineer",co:"Marriott International",dates:"05/2024 – Present",loc:"Remote · Bethesda, MD",text:"Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating."},
+  {role:"Senior Cyber Incident Response Analyst",co:"Marriott International",dates:"05/2022 – 05/2024",loc:"Remote · Bethesda, MD",text:"Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources."},
+  {role:"Security Analyst, Security Operations Center",co:"Arkansas Blue Cross Blue Shield",dates:"11/2021 – 05/2022",loc:"Little Rock, AR",text:"Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures."},
+  {role:"Lead Security Analyst, Security Operations Center",co:"Bank OZK",dates:"01/2019 – 08/2021",loc:"Little Rock, AR",text:"Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape."},
+  {role:"Network Security Analyst, Security Operations",co:"Mechanics Bank",dates:"09/2016 – 08/2018",loc:"Hercules, CA",text:"Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling."}
+ ],
+ skills:[["DevOps · Blue Team",4],["Penetration Testing · Red Team",4],["Exploit Dev / Vulnerability Research",3],["Enterprise Risk Management",4],["DFIR · Digital Forensics",5]],
+ certs:["Apple Certified Support Professional (2016)","CompTIA Security+ (2019)","CompTIA A+ (2019)","SpecterOps – Red Team Operations (2020)","DARPA – SSITH Bug Hunter (2020)","SANS – GIAC Certified Incident Handler (2020)","Tenable CTF – Team webepeepin ('21 '22 '23)","ServiceNow Flow Designer Developer (2024)","Python Certified Entry-Level Programmer (2025)"],
+ edu:[["Computer Science","10/2022 – 10/2023","Western Governors University"],["Computer Science","07/2020 – 01/2022","University of Arkansas – eVersity"],["Applied Physics","08/2012 – 12/2013","University of Central Arkansas"]],
+ langs:[["English","Native / Bilingual"],["Portuguese","Native / Bilingual"],["Spanish","Professional Working"]]
+};
+/* ===== END OF EDITABLE AREA — nothing below needs to change ===== */
+
+(function(){
+'use strict';
+var root=document.documentElement,$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var arr=function(x){return Array.isArray(x)?x:[]};
+var D=DATA||{},name=String(D.name||'Your Name').trim(),title=D.title||'',sum=D.summary||'';
+var jobs=arr(D.jobs).filter(Boolean),skills=arr(D.skills).filter(Boolean),certs=arr(D.certs).filter(Boolean),edu=arr(D.edu).filter(Boolean),langs=arr(D.langs).filter(Boolean);
+var email=D.email?String(D.email).trim():'',phone=D.phone?String(D.phone).trim():'',tel=phone.replace(/[^0-9+]/g,'');
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var still=RM||/[?&]static(\b|=)/.test(location.search);
+if(still)root.classList.add('still');
+var mobile=function(){return innerWidth<640};
+
+/* head */
+document.title=name+' — Sheet1';
+var desc=(title?title+'. ':'')+(sum?sum.slice(0,150):'');
+function meta(sel,v){var m=$(sel);if(m)m.setAttribute('content',v)}
+meta('meta[name=description]',desc);meta('meta[property="og:title"]',name+' — Sheet1');meta('meta[property="og:description"]',desc);meta('meta[name="twitter:title"]',name+' — Sheet1');meta('meta[name="twitter:description"]',desc);
+$('#doc').textContent=name+' — Resume';
+
+/* date math */
+function parseDates(s){
+ s=String(s||'');var now=new Date(),nm=now.getFullYear()*12+now.getMonth();
+ var m=s.match(/(?:(\d{1,2})\s*[\/.-]\s*)?((?:19|20)\d{2})/g)||[];
+ function pm(t,end){var x=t.match(/(?:(\d{1,2})\s*[\/.-]\s*)?((?:19|20)\d{2})/);if(!x)return null;var mo=x[1]?Math.min(12,Math.max(1,+x[1]))-1:(end?11:0);return (+x[2])*12+mo}
+ var a=m.length?pm(m[0],false):null,b=null;
+ if(/present|current|now|today/i.test(s))b=nm;else if(m.length>1)b=pm(m[m.length-1],true);else if(a!=null)b=a;
+ if(a==null||b==null)return null;if(b>nm)b=nm;if(b<a)return null;return b+1-a}
+function jobYears(j){var mo=parseDates(j.dates);return mo==null?null:Math.round(mo/12*10)/10}
+
+/* ---------- sheet model ----------
+ cell: {v:display text, f:formula text (formula bar), c:class, bar:0..1, html:optional safe html, href}
+ sheet: {name, cols:[{w,h}], rows:[[cell|null...]], title} */
+function C(v,c,f){return {v:v==null?'':String(v),c:c||'',f:f}}
+function H(v){return C(v,'hd')}
+var sheets=[];
+
+/* Summary */
+(function(){
+ var r=[];
+ r.push([H('Field'),H('Value')]);
+ r.push([C('Name','lab'),C(name,'big')]);
+ if(title)r.push([C('Title','lab'),C(title)]);
+ if(sum)r.push([C('Summary','lab'),C(sum)]);
+ if(email){var c=C(email);c.href='mailto:'+email.replace(/[\s<>"]/g,'');r.push([C('Email','lab'),c])}
+ if(phone){var p=C(phone);p.href='tel:'+tel;r.push([C('Phone','lab'),p])}
+ var ty=jobs.map(jobYears).filter(function(x){return x!=null}).reduce(function(a,b){return a+b},0);
+ if(jobs.length)r.push([C('Years experience','lab'),C(ty.toFixed(1),'num',"=SUM(Experience!E2:E"+(jobs.length+1)+")")]);
+ if(jobs.length)r.push([C('Positions held','lab'),C(jobs.length,'num','=COUNTA(Experience!A2:A'+(jobs.length+1)+')')]);
+ if(certs.length)r.push([C('Certifications','lab'),C(certs.length,'num','=COUNTA(Education!A'+(edu.length+5)+':A'+(edu.length+4+certs.length)+')')]);
+ sheets.push({name:'Summary',title:'Summary',cols:[{w:170},{w:mobile()?420:720}],rows:r})
+})();
+
+/* Experience */
+(function(){
+ var r=[[H('Role'),H('Company'),H('Dates'),H('Location'),H('Years'),H('Description')]];
+ jobs.forEach(function(j,i){var y=jobYears(j);r.push([C(j.role),C(j.co),C(j.dates),C(j.loc),y==null?C('','num'):C(y.toFixed(1),'num'),C(j.text)])});
+ var n=jobs.length+1;
+ var ty=jobs.map(jobYears).filter(function(x){return x!=null}).reduce(function(a,b){return a+b},0);
+ r.push([C('Years experience','tot'),C('','tot'),C('','tot'),C('','tot'),C(ty.toFixed(1),'tot num','=SUM(E2:E'+n+')'),C('','tot')]);
+ sheets.push({name:'Experience',title:'Experience',cols:[{w:230},{w:190},{w:140},{w:170},{w:70},{w:mobile()?380:520}],rows:r})
+})();
+
+/* Skills */
+(function(){
+ var r=[[H('Skill'),H('Level (1-5)'),H('Proficiency'),H('REPT')]];
+ skills.forEach(function(s,i){var n=Math.max(1,Math.min(5,Math.round(Number(s[1])||3)));var row=i+2;
+  var b=C('','bar','=REPT("█",B'+row+'*2)&REPT("░",10-B'+row+'*2)');b.bar=n/5;b.n=n;
+  r.push([C(s[0]),C(n,'num ctr'),b,C(new Array(n*2+1).join('█')+new Array(11-n*2).join('░'),'rept','=REPT("█",B'+row+'*2)')])});
+ if(skills.length){var avg=skills.reduce(function(a,s){return a+Math.max(1,Math.min(5,Math.round(Number(s[1])||3)))},0)/skills.length;
+  r.push([C('Average','tot'),C(avg.toFixed(1),'tot num ctr','=AVERAGE(B2:B'+(skills.length+1)+')'),C('','tot'),C('','tot')])}
+ sheets.push({name:'Skills',title:'Skills',cols:[{w:280},{w:100},{w:260},{w:190}],rows:r})
+})();
+
+/* Education (+ certifications, languages) */
+(function(){
+ var r=[],hdr=function(a,b,c){return [H(a),H(b),H(c)]};
+ r.push(hdr('Degree','Dates','School'));
+ edu.forEach(function(e){r.push([C(e[0]),C(e[1]),C(e[2])])});
+ r.push([null,null,null]);
+ r.push([C('Certification','sec'),C('','sec'),C('','sec')]);
+ certs.forEach(function(c,i){r.push([C(c),C('✔','ctr'),C('')])});
+ if(certs.length){r.push([C('Total certifications','tot'),C(certs.length,'tot num','=COUNTA(A'+(edu.length+4)+':A'+(edu.length+3+certs.length)+')'),C('','tot')])}
+ r.push([null,null,null]);
+ r.push([C('Language','sec'),C('Level','sec'),C('','sec')]);
+ langs.forEach(function(l){r.push([C(l[0]),C(l[1]),C('')])});
+ sheets.push({name:'Education',title:'Education',cols:[{w:mobile()?280:340},{w:190},{w:300}],rows:r})
+})();
+/* fix certs formula refs now that layout is fixed: cert rows start at row edu+4 (1 hdr + edu + blank + section) */
+
+function col(i){var s='';i++;while(i>0){var m=(i-1)%26;s=String.fromCharCode(65+m)+s;i=Math.floor((i-1)/26)}return s}
+
+/* ---------- render ---------- */
+var gridEl=$('#grid');
+var html='';
+sheets.forEach(function(sh,si){
+ html+='<div class="sheet" data-i="'+si+'" data-title="'+esc(sh.title)+'" role="tabpanel" id="p'+si+'" aria-label="'+esc(sh.name)+'"><table role="grid" aria-readonly="true" style="width:'+(46+sh.cols.reduce(function(a,c){return a+c.w},0))+'px"><colgroup><col style="width:46px">'+sh.cols.map(function(c){return '<col style="width:'+c.w+'px">'}).join('')+'</colgroup><thead><tr><th class="corner" scope="col"></th>'+sh.cols.map(function(c,i){return '<th scope="col" data-c="'+i+'">'+col(i)+'</th>'}).join('')+'</tr></thead><tbody>';
+ sh.rows.forEach(function(row,ri){
+  html+='<tr><th scope="row" data-r="'+ri+'">'+(ri+1)+'</th>';
+  for(var ci=0;ci<sh.cols.length;ci++){
+   var c=row[ci];
+   if(!c){html+='<td class="e" data-r="'+ri+'" data-c="'+ci+'"></td>';continue}
+   var d=(ri*.045+ci*.03).toFixed(3);
+   var inner=c.bar!=null?'<span class="db l'+c.n+'" style="--w:'+Math.round(c.bar*100)+'%"></span>':(c.href?'<a href="'+esc(c.href)+'">'+esc(c.v)+'</a>':esc(c.v));
+   html+='<td class="'+esc(c.c)+'" data-r="'+ri+'" data-c="'+ci+'" style="--d:'+d+'s" role="gridcell" aria-label="'+(col(ci)+(ri+1))+'">'+inner+'</td>'}
+  html+='</tr>'});
+ html+='</tbody></table></div>'});
+gridEl.innerHTML=html;
+
+/* tabs */
+var tabsEl=$('#tabs');
+tabsEl.innerHTML=sheets.map(function(s,i){return '<button type="button" class="tab" role="tab" id="t'+i+'" aria-controls="p'+i+'" aria-selected="false" tabindex="-1">'+esc(s.name)+'</button>'}).join('');
+var cur=0,sel={r:0,c:0};
+var gridCells=function(){return $$('.sheet.on td')};
+function cellEl(r,c){return $('.sheet.on td[data-r="'+r+'"][data-c="'+c+'"]')}
+function showSheet(i,keep){
+ cur=i;
+ $$('.sheet').forEach(function(s){s.classList.remove('on','fill')});
+ var sh=$('.sheet[data-i="'+i+'"]');sh.classList.add('on');
+ if(!still){void sh.offsetWidth;sh.classList.add('fill')}
+ $$('.tab').forEach(function(t,k){var on=k===i;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1});
+ gridEl.scrollTop=0;gridEl.scrollLeft=0;
+ select(keep?sel.r:0,keep?sel.c:0,true);
+ $('#stat').textContent=sheets[i].rows.length+' rows × '+sheets[i].cols.length+' columns'}
+tabsEl.addEventListener('click',function(e){var t=e.target.closest('.tab');if(t)showSheet(+t.id.slice(1))});
+tabsEl.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=(cur+(e.key==='ArrowRight'?1:-1)+sheets.length)%sheets.length;showSheet(n);$('#t'+n).focus();e.preventDefault()}});
+
+function select(r,c,noScroll){
+ var sh=sheets[cur];r=Math.max(0,Math.min(sh.rows.length-1,r));c=Math.max(0,Math.min(sh.cols.length-1,c));
+ var prev=$('.sheet.on td.sel');if(prev)prev.classList.remove('sel');
+ $$('.sheet.on .hl').forEach(function(x){x.classList.remove('hl')});
+ sel={r:r,c:c};
+ var el=cellEl(r,c);if(!el)return;el.classList.add('sel');
+ var ch=$('.sheet.on thead th[data-c="'+c+'"]'),rh=$('.sheet.on tbody th[data-r="'+r+'"]');if(ch)ch.classList.add('hl');if(rh)rh.classList.add('hl');
+ $('#nb').textContent=col(c)+(r+1);
+ var cell=sh.rows[r][c],fv=$('#fv'),txt='';
+ if(cell){txt=cell.f||cell.v;if(cell.bar!=null&&!cell.f)txt=''}
+ fv.textContent=txt;fv.classList.toggle('wrap',txt.length>90);
+ if(!noScroll)keepVisible(el)}
+function keepVisible(el){
+ var g=gridEl,gr=g.getBoundingClientRect(),er=el.getBoundingClientRect(),hh=24,rw=46;
+ if(er.top<gr.top+hh)g.scrollTop-=gr.top+hh-er.top;else if(er.bottom>gr.bottom)g.scrollTop+=er.bottom-gr.bottom;
+ if(er.left<gr.left+rw)g.scrollLeft-=gr.left+rw-er.left;else if(er.right>gr.right)g.scrollLeft+=er.right-gr.right}
+gridEl.addEventListener('click',function(e){
+ var td=e.target.closest('td');if(td){select(+td.dataset.r,+td.dataset.c,true);return}
+ var rh=e.target.closest('tbody th');if(rh)select(+rh.dataset.r,0,true);
+ var ch=e.target.closest('thead th[data-c]');if(ch)select(0,+ch.dataset.c,true)});
+document.addEventListener('keydown',function(e){
+ if(e.target.closest&&e.target.closest('.tabs,.tools a,.tools button'))return;
+ if(e.ctrlKey||e.metaKey||e.altKey)return;
+ var sh=sheets[cur],k=e.key,r=sel.r,c=sel.c,h=true;
+ if(k==='ArrowDown'||k==='Enter')r++;else if(k==='ArrowUp')r--;else if(k==='ArrowRight'||(k==='Tab'&&!e.shiftKey))c++;else if(k==='ArrowLeft'||(k==='Tab'&&e.shiftKey))c--;
+ else if(k==='Home'){c=0}else if(k==='End'){c=sh.cols.length-1}else if(k==='PageDown'){r+=8}else if(k==='PageUp'){r-=8}else h=false;
+ if(k==='Enter'&&e.shiftKey)r-=2;
+ if(h){e.preventDefault();select(r,c)}});
+
+/* toolbar */
+var IC={mail:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',phone:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',dl:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>'};
+$('#tools').innerHTML=(email?'<a class="tb p" href="mailto:'+esc(email.replace(/[\s<>"]/g,''))+'">'+IC.mail+'<span>Email me</span></a>':'')+(phone?'<a class="tb" href="tel:'+esc(tel)+'">'+IC.phone+'<span>'+esc(phone)+'</span></a>':'')+'<span class="sp"></span><button type="button" class="tb" id="pdf">'+IC.dl+'<span>Download PDF</span></button>';
+$('#pdf').addEventListener('click',function(){window.print()});
+
+/* load: cells fill in when grid is visible */
+var hs=location.hash.match(/^#sheet=(\d)/);
+showSheet(hs&&sheets[+hs[1]]?+hs[1]:0);
+if(!still&&'IntersectionObserver' in window){
+ var sh0=$('.sheet.on');sh0.classList.remove('fill');
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){sh0.classList.add('fill');io.disconnect()}})},{threshold:.05});io.observe(gridEl)}
+})();
+</script>
+</body>
+</html>

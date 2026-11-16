@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gustavo Freitas — Root Shell</title>
+<meta name="description" content="Computer Scientist — Offensive & Defensive Cyber Operations">
+<meta name="theme-color" content="#030d06">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gustavo Freitas — Root Shell">
+<meta property="og:description" content="Computer Scientist — Offensive & Defensive Cyber Operations">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gustavo Freitas — Root Shell">
+<meta name="twitter:description" content="Computer Scientist — Offensive & Defensive Cyber Operations">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23030d06'/%3E%3Cpath d='M14 20l16 12-16 12' fill='none' stroke='%235dff8a' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M36 46h16' stroke='%235dff8a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#030d06;--bg2:#061a0c;--fg:#5dff8a;--dim:#4db36a;--acc:#d2ffe0;--warn:#ffd24a;--err:#ff7b7b;--glow:rgba(93,255,138,.55);--line:rgba(93,255,138,.28);
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;
+}
+[data-theme=amber]{--bg:#0e0800;--bg2:#1c1100;--fg:#ffb000;--dim:#c78a12;--acc:#ffe3a3;--warn:#ff7849;--glow:rgba(255,176,0,.5);--line:rgba(255,176,0,.3)}
+[data-theme=cyan]{--bg:#00090f;--bg2:#001724;--fg:#4de3ff;--dim:#3aa6bf;--acc:#d3f7ff;--warn:#ffd24a;--glow:rgba(77,227,255,.5);--line:rgba(77,227,255,.3)}
+[data-theme=magenta]{--bg:#0d0212;--bg2:#1b0526;--fg:#ff6ee7;--dim:#c25bb0;--acc:#ffd5f7;--warn:#ffd24a;--glow:rgba(255,110,231,.5);--line:rgba(255,110,231,.3)}
+[data-theme=ice]{--bg:#0a0c10;--bg2:#141821;--fg:#e8edf5;--dim:#98a2b3;--acc:#ffffff;--warn:#ffd24a;--glow:rgba(232,237,245,.3);--line:rgba(232,237,245,.25)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:#000;color:var(--fg);font:15px/1.55 var(--mono);overflow:hidden;-webkit-text-size-adjust:100%}
+@media(min-width:900px){html,body{font-size:17px}}
+#crt{position:fixed;inset:0;display:flex;flex-direction:column;background:radial-gradient(ellipse at 50% 40%,var(--bg2) 0%,var(--bg) 75%);text-shadow:0 0 5px var(--glow)}
+#bar{flex:none;display:flex;align-items:center;gap:12px;padding:8px 14px;padding-top:max(8px,env(safe-area-inset-top));border-bottom:1px solid var(--line);font-size:12px;color:var(--dim);background:rgba(0,0,0,.35)}
+#bar .dots{display:flex;gap:6px}#bar .dots i{width:10px;height:10px;border-radius:50%;border:1px solid var(--dim);display:block}
+#bar .ttl{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+#bar .up{white-space:nowrap}
+#scr{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:16px 16px 28px;scroll-behavior:auto;overscroll-behavior:contain}
+#wrap{max-width:980px;margin:0 auto}
+#out>*{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+.ps1{color:var(--acc)}.ps1 b{color:var(--fg)}
+.cmdline{margin-top:14px}
+.cmdline .t{color:var(--acc)}
+.cur{display:inline-block;width:.6em;height:1.05em;background:var(--fg);vertical-align:text-bottom;margin-left:1px;animation:blink 1s steps(1) infinite;box-shadow:0 0 8px var(--glow)}
+@keyframes blink{50%{opacity:0}}
+.dim{color:var(--dim)}.acc{color:var(--acc)}.warn{color:var(--warn)}.err{color:var(--err)}.ok{color:var(--fg)}
+.big{font-size:clamp(26px,7.4vw,46px);line-height:1.15;font-weight:700;color:var(--acc);margin:10px 0 2px;letter-spacing:-.02em}
+.h{margin:12px 0 6px;color:var(--fg);font-weight:700;letter-spacing:.06em}
+.ind{border-left:2px solid var(--line);padding-left:12px;margin-left:2px}
+.first{margin-top:12px}
+.role{color:var(--acc);font-weight:700}
+.bar .on{color:var(--fg)}.bar .off{color:var(--dim);opacity:.8}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 4px;white-space:normal!important}
+.btn,.chip{font:inherit;color:var(--fg);background:transparent;border:1px solid var(--fg);border-radius:3px;padding:8px 14px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;cursor:pointer;text-shadow:inherit;transition:background .15s,color .15s,box-shadow .15s}
+.btn:hover,.chip:hover{background:var(--fg);color:var(--bg);text-shadow:none;box-shadow:0 0 14px var(--glow)}
+.btn.p{background:var(--fg);color:var(--bg);text-shadow:none;font-weight:700}
+.btn.p:hover{background:var(--acc)}
+a{color:var(--acc)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--warn);outline-offset:2px}
+#pl{display:flex;gap:.6ch;align-items:center;margin-top:14px}
+#pl .ps1{flex:none}
+#in{flex:1;min-width:0;font:inherit;color:var(--acc);background:transparent;border:0;outline:0;padding:8px 0;caret-color:var(--fg);caret-shape:block;text-shadow:inherit}
+#in:focus-visible{outline:0}
+#pl:focus-within{box-shadow:0 1px 0 var(--line)}
+#chips{flex:none;display:flex;gap:8px;overflow-x:auto;padding:10px 14px;padding-bottom:max(10px,env(safe-area-inset-bottom));border-top:1px solid var(--line);background:rgba(0,0,0,.45);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+#chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:6px 12px;min-height:40px;font-size:14px;border-color:var(--line);color:var(--fg)}
+.chip::before{content:"$ ";color:var(--dim)}
+.chip:hover::before{color:var(--bg)}
+.skip{position:absolute;right:14px;bottom:72px;z-index:6;font-size:12px;color:var(--dim);background:rgba(0,0,0,.7);padding:3px 8px;border:1px solid var(--line);opacity:.95;pointer-events:none;transition:opacity .4s}
+.skip.gone{opacity:0}
+/* CRT fx */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:5}
+#fx::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.22) 3px,rgba(0,0,0,0) 4px)}
+#fx::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55) 100%);animation:flick 5s infinite steps(1)}
+#sweep{position:absolute;left:0;right:0;top:0;height:22vh;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.035),transparent);animation:sweep 7s linear infinite;will-change:transform}
+@keyframes sweep{from{transform:translateY(-30vh)}to{transform:translateY(110vh)}}
+@keyframes flick{0%,100%{opacity:1}92%{opacity:.93}93%{opacity:1}96%{opacity:.96}}
+@media(prefers-reduced-motion:reduce){#sweep,#fx::after,.cur{animation:none}.btn,.chip{transition:none}}
+.static #sweep,.static #fx::after,.static .cur{animation:none}
+#print{display:none}
+noscript{position:fixed;inset:0;z-index:9;background:#000;color:#5dff8a;padding:24px;font-family:monospace}
+@media print{
+  @page{margin:14mm}
+  html,body{height:auto!important;overflow:visible!important;background:#fff!important;color:#111!important;font:10.5pt/1.4 Georgia,'Times New Roman',serif!important}
+  #crt,#fx,noscript{display:none!important}
+  #print{display:block!important;text-shadow:none}
+  #print h1{font-size:22pt;margin:0}
+  #print .t{font-size:12pt;margin:2pt 0 4pt;color:#333}
+  #print .c{font-size:10pt;color:#333;margin-bottom:8pt}
+  #print h2{font-size:11pt;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid #444;margin:12pt 0 5pt;padding-bottom:2pt;break-after:avoid}
+  #print .it{break-inside:avoid;margin-bottom:6pt}
+  #print .it b{font-weight:700}
+  #print p{margin:2pt 0}
+  #print ul{margin:0;padding-left:16pt;columns:2}
+  #print .m{color:#444;font-size:9.5pt}
+}
+</style>
+</head>
+<body>
+<noscript>Root Shell needs JavaScript. Please enable it to view this resume.</noscript>
+<div id="crt">
+  <header id="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="ttl" id="ttl">visitor — bash</span><span class="up" id="up" aria-hidden="true">up 00:00</span></header>
+  <div class="skip" id="skip" aria-hidden="true">tap / press any key to skip intro</div>
+  <main id="scr" aria-label="Terminal" aria-live="off"><div id="wrap"><div id="out"></div>
+    <form id="pl" autocomplete="off"><label class="ps1" id="ps" for="in"></label><input id="in" type="text" enterkeyhint="send" autocapitalize="none" autocorrect="off" autocomplete="off" spellcheck="false" aria-label="Type a command, for example help"></form>
+  </div></main>
+  <nav id="chips" aria-label="Command shortcuts"></nav>
+</div>
+<div id="fx" aria-hidden="true"><div id="sweep"></div></div>
+<article id="print"></article>
+
+<script>
+/* ===== EDIT YOUR DETAILS HERE ===== */
+const DATA = {
+ name:"Gustavo Freitas",
+ title:"Computer Scientist — Offensive & Defensive Cyber Operations",
+ summary:"Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.",
+ email:"gustavo@example.com", phone:"555-010-0100",
+ jobs:[
+  {role:"Security Orchestration, Automation & Response Engineer",co:"Marriott International",dates:"05/2024 – Present",loc:"Remote · Bethesda, MD",text:"Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating."},
+  {role:"Senior Cyber Incident Response Analyst",co:"Marriott International",dates:"05/2022 – 05/2024",loc:"Remote · Bethesda, MD",text:"Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources."},
+  {role:"Security Analyst, Security Operations Center",co:"Arkansas Blue Cross Blue Shield",dates:"11/2021 – 05/2022",loc:"Little Rock, AR",text:"Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures."},
+  {role:"Lead Security Analyst, Security Operations Center",co:"Bank OZK",dates:"01/2019 – 08/2021",loc:"Little Rock, AR",text:"Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape."},
+  {role:"Network Security Analyst, Security Operations",co:"Mechanics Bank",dates:"09/2016 – 08/2018",loc:"Hercules, CA",text:"Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling."}
+ ],
+ skills:[["DevOps · Blue Team",4],["Penetration Testing · Red Team",4],["Exploit Dev / Vulnerability Research",3],["Enterprise Risk Management",4],["DFIR · Digital Forensics",5]],
+ certs:["Apple Certified Support Professional (2016)","CompTIA Security+ (2019)","CompTIA A+ (2019)","SpecterOps – Red Team Operations (2020)","DARPA – SSITH Bug Hunter (2020)","SANS – GIAC Certified Incident Handler (2020)","Tenable CTF – Team webepeepin ('21 '22 '23)","ServiceNow Flow Designer Developer (2024)","Python Certified Entry-Level Programmer (2025)"],
+ edu:[["Computer Science","10/2022 – 10/2023","Western Governors University"],["Computer Science","07/2020 – 01/2022","University of Arkansas – eVersity"],["Applied Physics","08/2012 – 12/2013","University of Central Arkansas"]],
+ langs:[["English","Native / Bilingual"],["Portuguese","Native / Bilingual"],["Spanish","Professional Working"]]
+};
+/* ===== END OF EDITABLE AREA — nothing below needs to change ===== */
+
+(function(){
+'use strict';
+var S=function(v){return v==null?'':String(v).trim()};
+var arr=function(v){return Array.isArray(v)?v:[]};
+var D={name:S(DATA.name)||'Your Name',title:S(DATA.title),summary:S(DATA.summary),email:S(DATA.email),phone:S(DATA.phone),
+  jobs:arr(DATA.jobs).filter(function(j){return j&&typeof j==='object'}),
+  skills:arr(DATA.skills).filter(function(s){return Array.isArray(s)&&S(s[0])}),
+  certs:arr(DATA.certs).map(S).filter(Boolean),
+  edu:arr(DATA.edu).filter(function(e){return Array.isArray(e)&&e.some(S)}),
+  langs:arr(DATA.langs).filter(function(l){return Array.isArray(l)&&S(l[0])})};
+var first=D.name.split(/\s+/)[0];
+var user=first.toLowerCase().replace(/[^a-z0-9]/g,'')||'resume';
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var STATIC=/[?&]static\b/.test(location.search);
+var INSTANT=RM||STATIC;
+if(STATIC)document.documentElement.classList.add('static');
+var $=function(s){return document.querySelector(s)};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function mailHref(){return 'mailto:'+D.email.replace(/[\s<>"]/g,'')}
+function telHref(){return 'tel:'+D.phone.replace(/[^0-9+]/g,'')}
+
+/* meta */
+document.title=D.name+(D.title?' — '+D.title:'');
+var desc=(D.summary||D.title).slice(0,180);
+[['meta[name=description]',desc],['meta[property="og:title"]',document.title],['meta[property="og:description"]',desc],['meta[name="twitter:title"]',document.title],['meta[name="twitter:description"]',desc]].forEach(function(p){var m=$(p[0]);if(m)m.setAttribute('content',p[1])});
+$('#ttl').textContent='visitor@'+user+': ~ — bash';
+var PS='visitor@'+user+':~$';
+$('#ps').innerHTML='';
+(function(){var b=el('b',null,'visitor');var s=el('span',null,'@'+user+':~$');$('#ps').className='ps1';$('#ps').append(b,s)})();
+
+/* ---------- output engine ---------- */
+var scr=$('#scr'),out=$('#out'),inp=$('#in');
+var skip=INSTANT,pending=0,auto=true;
+function wait(ms){return(skip||INSTANT)?Promise.resolve():new Promise(function(r){setTimeout(r,ms)})}
+function put(n,parent){var p=parent||out;var stick=scr.scrollHeight-scr.scrollTop-scr.clientHeight<140;p.appendChild(n);if(stick)scr.scrollTop=scr.scrollHeight}
+function stickBottom(){scr.scrollTop=scr.scrollHeight}
+function L(text,cls,typed){var n=el('div',cls||'');if(typed)n._t=text;else n.textContent=text;return n}
+async function emit(nodes){
+  for(var i=0;i<nodes.length;i++){
+    var n=nodes[i];
+    if(n._t!=null){
+      var t=n._t;
+      if(skip||INSTANT){n.textContent=t;put(n)}
+      else{n.textContent='';put(n);for(var k=0;k<t.length&&!skip;k+=5){n.textContent=t.slice(0,k+5);stickBottomIfNear();await wait(9)}n.textContent=t}
+    }else put(n);
+    await wait(n._d==null?24:n._d);
+  }
+}
+function stickBottomIfNear(){if(scr.scrollHeight-scr.scrollTop-scr.clientHeight<160)scr.scrollTop=scr.scrollHeight}
+function sec(name){return L('┌── '+name.toUpperCase()+' ──────────','h')}
+function btn(label,href,cls,fn,aria){
+  var b=href?el('a','btn'+(cls?' '+cls:''),label):el('button','btn'+(cls?' '+cls:''),label);
+  if(href)b.href=href;else{b.type='button';b.addEventListener('click',fn)}
+  if(aria)b.setAttribute('aria-label',aria);return b}
+function btnRow(){var r=el('div','btns');
+  if(D.email)r.appendChild(btn('✉ Email me',mailHref(),'p'));
+  r.appendChild(btn('⤓ Download PDF',null,'',function(){window.print()}));return r}
+
+/* ---------- commands ---------- */
+function cAbout(){
+  var n=[];
+  n.push(L(D.name,'big',true));
+  if(D.title)n.push(L(D.title,'acc',true));
+  if(D.summary){var s=L(D.summary,'',true);s.style.marginTop='10px';n.push(s)}
+  n.push(btnRow());return n}
+function cExp(){
+  var n=[sec('experience')];
+  if(!D.jobs.length)n.push(L('no records found.','dim'));
+  D.jobs.forEach(function(j,i){
+    var r=L(S(j.role)||'Role','role ind first');n.push(r);
+    var m=[S(j.co),S(j.loc)].filter(Boolean).join(' · ');if(m)n.push(L(m,'ind dim'));
+    if(S(j.dates))n.push(L(S(j.dates),'ind warn'));
+    if(S(j.text)){n.push(L(S(j.text),'ind',true))}
+    n[n.length-1]._d=140;
+  });return n}
+function cSkills(){
+  var n=[sec('skills')];
+  if(!D.skills.length)n.push(L('no records found.','dim'));
+  D.skills.forEach(function(s){
+    var lv=Math.max(0,Math.min(5,Math.round(+s[1]||0)));
+    n.push(L(S(s[0]),'acc first'));
+    var r=el('div','bar');r.appendChild(el('span','dim','['));
+    r.appendChild(el('span','on','█'.repeat(lv*2)));r.appendChild(el('span','off','░'.repeat(10-lv*2)));
+    r.appendChild(el('span','dim','] '));r.appendChild(el('span','warn',lv+'/5'));
+    r._d=70;n.push(r)});
+  return n}
+function cCerts(){
+  var n=[sec('certifications')];
+  if(!D.certs.length)n.push(L('no records found.','dim'));
+  D.certs.forEach(function(c){var r=el('div');r.appendChild(el('span','ok','[✔] '));r.appendChild(document.createTextNode(c));r.style.paddingLeft='4ch';r.style.textIndent='-4ch';n.push(r)});
+  return n}
+function cEdu(){
+  var n=[sec('education')];
+  if(!D.edu.length)n.push(L('no records found.','dim'));
+  D.edu.forEach(function(e){
+    n.push(L(S(e[0])||'Degree','role ind first'));
+    var m=[S(e[2]),S(e[1])].filter(Boolean).join(' · ');if(m)n.push(L(m,'ind dim'))});
+  return n}
+function cLang(){
+  var n=[sec('languages')];
+  if(!D.langs.length)n.push(L('no records found.','dim'));
+  D.langs.forEach(function(l){var r=el('div');r.appendChild(el('span','acc',S(l[0])));if(S(l[1])){r.appendChild(el('span','dim',' ... '));r.appendChild(document.createTextNode(S(l[1])))}n.push(r)});
+  return n}
+function cContact(){
+  var n=[sec('contact')];
+  if(D.email){var r=el('div');r.appendChild(el('span','dim','email  '));var a=el('a',null,D.email);a.href=mailHref();r.appendChild(a);n.push(r)}
+  if(D.phone){var p=el('div');p.appendChild(el('span','dim','phone  '));var b=el('a',null,D.phone);b.href=telHref();p.appendChild(b);n.push(p)}
+  if(!D.email&&!D.phone)n.push(L('no contact details configured.','dim'));
+  n.push(btnRow());return n}
+function cHelp(){
+  var n=[sec('help')];
+  var rows=[['about','who I am + the pitch'],['experience','work history'],['skills','skill levels'],['certs','certifications'],['education','degrees'],['languages','spoken languages'],['contact','how to reach me'],['all','run everything'],['theme [name]','green | amber | cyan | magenta | ice'],['pdf','print / save as PDF'],['clear','wipe the screen']];
+  rows.forEach(function(r){var d=el('div');d.appendChild(el('span','acc',r[0].padEnd(14,' ')));d.appendChild(el('span','dim',r[1]));d.style.whiteSpace='pre-wrap';n.push(d)});
+  n.push(L("Tip: Tab completes, ↑/↓ browse history. Try 'sudo hire "+user+"'.",'dim first'));return n}
+var THEMES=['green','amber','cyan','magenta','ice'];var themeIdx=0;
+function cTheme(args){
+  var want=(args[0]||'').toLowerCase();
+  var i=THEMES.indexOf(want);
+  if(want&&i<0)return [L('theme: unknown "'+want.slice(0,20)+'". options: '+THEMES.join(', '),'err')];
+  themeIdx=i<0?(themeIdx+1)%THEMES.length:i;
+  var t=THEMES[themeIdx];document.documentElement.setAttribute('data-theme',t==='green'?'':t);
+  var m=$('meta[name=theme-color]');
+  return [L('theme set to '+t+'.','ok')]}
+function cSudo(args){
+  var n=[L('[sudo] password for visitor: ********','dim')];
+  if((args[0]||'').toLowerCase()==='hire'){
+    n.push(L('verifying credentials ... done','dim'));
+    n.push(L('ACCESS GRANTED','big'));
+    n.push(L('✔ '+D.name+' added to your shortlist. Good call.','ok'));
+    if(D.email){var r=el('div');r.appendChild(document.createTextNode('→ next step: '));var a=el('a',null,D.email);a.href=mailHref();r.appendChild(a);n.push(r)}
+  }else n.push(L('visitor is not in the sudoers file. This incident will be reported.','err'));
+  return n}
+
+var all=['about','experience','skills','certs','education','languages','contact'];
+var ALIAS={whoami:'about',bio:'about',me:'about',exp:'experience',work:'experience',jobs:'experience',skill:'skills',cert:'certs',certifications:'certs',achievements:'certs',edu:'education',school:'education',lang:'languages',langs:'languages',mail:'contact',phone:'contact',cls:'clear','?':'help',man:'help',ls:'help'};
+var CMD={about:cAbout,experience:cExp,skills:cSkills,certs:cCerts,education:cEdu,languages:cLang,contact:cContact,help:cHelp,theme:cTheme,sudo:cSudo};
+var NAMES=['about','all','clear','contact','certs','education','email','experience','help','languages','pdf','skills','sudo','theme'];
+
+/* ---------- command runner ---------- */
+async function echo(raw,anim){
+  var d=el('div','cmdline');var p=el('span','ps1');p.appendChild(el('b',null,'visitor'));p.appendChild(document.createTextNode('@'+user+':~$ '));
+  var t=el('span','t');d.append(p,t);put(d);
+  if(anim&&!skip&&!INSTANT){var c=el('span','cur');d.appendChild(c);
+    for(var i=0;i<raw.length&&!skip;i++){t.textContent=raw.slice(0,i+1);stickBottomIfNear();await wait(raw.length>12?24:48)}
+    t.textContent=raw;c.remove();await wait(220)}
+  else t.textContent=raw}
+async function exec(raw,anim){
+  raw=raw.trim();if(!raw)return;
+  var parts=raw.split(/\s+/);var c=parts[0].toLowerCase();var args=parts.slice(1);c=ALIAS[c]||c;
+  if(c==='clear'){out.textContent='';return}
+  await echo(raw,anim);
+  if(c==='all'){for(var i=0;i<all.length;i++){await emit(CMD[all[i]]([]))}return}
+  if(c==='pdf'){await emit([L('opening print dialog — choose "Save as PDF".','dim')]);setTimeout(function(){window.print()},60);return}
+  if(c==='email'){if(D.email){await emit([L('opening mail client ...','dim')]);location.href=mailHref()}else await emit([L('no email configured.','err')]);return}
+  if(CMD[c]){await emit(CMD[c](args));return}
+  await emit([L('command not found: '+raw.slice(0,40)+" — type 'help'",'err')])}
+function enqueue(raw,anim){pending++;chain=chain.then(function(){return exec(raw,anim)}).catch(function(e){console.error(e)}).then(function(){pending--;if(pending<=0){skip=INSTANT;auto=false;$('#skip').classList.add('gone');stickBottom()}})}
+var chain=Promise.resolve();
+
+/* ---------- boot ---------- */
+async function boot(){
+  if(!INSTANT){
+    var lines=[['ROOT-SHELL BIOS v1.337   (c) 1985–'+new Date().getFullYear(),'acc'],['Memory test ........ 65536K OK','dim'],['Detecting storage ... /dev/resume0 found','dim'],
+      ['[  OK  ] Started network time sync','ok'],['[  OK  ] Mounted /home/'+user+'/resume.dat','ok'],['[  OK  ] Loaded keyring: trusted','ok'],['[ WARN ] Employer firewall: 1 offer waiting','warn'],['[  OK  ] Reached target: hire-me.target','ok']];
+    for(var i=0;i<lines.length&&!skip;i++){put(L(lines[i][0],lines[i][1]));await wait(110)}
+    if(!skip){var pb=L('','dim');put(pb);for(var k=0;k<=24&&!skip;k++){pb.textContent='decrypting profile  ['+'█'.repeat(k)+'░'.repeat(24-k)+'] '+Math.round(k/24*100)+'%';await wait(38)}}
+    out.textContent='';
+  }
+  put(L('Root Shell 1.0 — '+D.name+(D.title?' · '+D.title:''),'dim'));
+  put(L('login: visitor   (auto-login, no password)','dim'));
+}
+function startup(){
+  pending++;
+  chain=chain.then(boot).catch(console.error).then(function(){pending--;
+    var cmds=['whoami','experience','skills','certs','education','languages','contact'];
+    cmds.forEach(function(c,i){pending++;chain=chain.then(function(){return exec(c,true)}).catch(console.error).then(function(){pending--;if(pending<=0)done()})});
+  });
+}
+function done(){
+  skip=INSTANT;auto=false;$('#skip').classList.add('gone');
+  put(L("── session ready ──  type 'help' or tap a command below. Hint: try 'sudo hire "+user+"'.",'dim first'));
+  stickBottom()}
+
+/* ---------- input ---------- */
+var hist=[],hi=0;
+$('#pl').addEventListener('submit',function(e){e.preventDefault();var v=inp.value;inp.value='';if(!v.trim())return;hist.push(v);hi=hist.length;
+  if(pending>0)skip=true;
+  pending++;chain=chain.then(function(){return exec(v,false)}).catch(console.error).then(function(){pending--;if(pending<=0){done2()}});
+  stickBottom()});
+function done2(){skip=INSTANT;auto=false;stickBottom()}
+inp.addEventListener('keydown',function(e){
+  if(e.key==='ArrowUp'){e.preventDefault();if(hi>0){hi--;inp.value=hist[hi]}}
+  else if(e.key==='ArrowDown'){e.preventDefault();if(hi<hist.length-1){hi++;inp.value=hist[hi]}else{hi=hist.length;inp.value=''}}
+  else if(e.key==='Tab'){e.preventDefault();var v=inp.value.toLowerCase();if(!v)return;var m=NAMES.filter(function(n){return n.indexOf(v)===0});if(m.length)inp.value=m[0]+(m.length===1?' ':'')}
+  else if(e.key==='l'&&e.ctrlKey){e.preventDefault();out.textContent=''}
+});
+/* skip intro on any key / tap while auto-playing */
+function skipIntro(){if(auto&&pending>0){skip=true;$('#skip').classList.add('gone')}}
+document.addEventListener('keydown',skipIntro);document.addEventListener('pointerdown',skipIntro);
+var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
+if(fine){scr.addEventListener('click',function(e){if(!String(getSelection()).length&&!e.target.closest('a,button'))inp.focus()});inp.focus()}
+
+/* chips */
+var chipsEl=$('#chips');
+['help','about','experience','skills','certs','education','languages','contact','all','theme','clear'].forEach(function(c){
+  var b=el('button','chip',c);b.type='button';b.addEventListener('click',function(){if(pending>0)skip=true;enqueue(c,false);if(fine)inp.focus()});chipsEl.appendChild(b)});
+var pdfChip=el('button','chip','pdf');pdfChip.type='button';pdfChip.addEventListener('click',function(){window.print()});chipsEl.appendChild(pdfChip);
+if(D.email){var ec=el('a','chip','email');ec.href=mailHref();chipsEl.appendChild(ec)}
+
+/* uptime */
+var t0=Date.now();setInterval(function(){var s=Math.floor((Date.now()-t0)/1000);$('#up').textContent='up '+String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000);
+
+/* ---------- print version ---------- */
+(function(){
+  var P=$('#print');
+  function add(tag,txt,cls,parent){var e=el(tag,cls,txt);(parent||P).appendChild(e);return e}
+  add('h1',D.name);if(D.title)add('div',D.title,'t');
+  var c=[D.email,D.phone].filter(Boolean).join('  ·  ');if(c)add('div',c,'c');
+  if(D.summary)add('p',D.summary);
+  if(D.jobs.length){add('h2','Experience');D.jobs.forEach(function(j){var d=add('div',null,'it');var p=add('p',null,null,d);p.appendChild(el('b',null,S(j.role)));
+    var m=[S(j.co),S(j.loc),S(j.dates)].filter(Boolean).join(' · ');if(m)add('p',m,'m',d);if(S(j.text))add('p',S(j.text),null,d)})}
+  if(D.skills.length){add('h2','Skills');var u=add('ul');D.skills.forEach(function(s){add('li',S(s[0])+' — '+Math.max(0,Math.min(5,Math.round(+s[1]||0)))+'/5',null,u)})}
+  if(D.certs.length){add('h2','Certifications');var u2=add('ul');D.certs.forEach(function(x){add('li',x,null,u2)})}
+  if(D.edu.length){add('h2','Education');D.edu.forEach(function(e){var d=add('div',null,'it');var p=add('p',null,null,d);p.appendChild(el('b',null,S(e[0])));var m=[S(e[2]),S(e[1])].filter(Boolean).join(' · ');if(m)add('p',m,'m',d)})}
+  if(D.langs.length){add('h2','Languages');var u3=add('ul');D.langs.forEach(function(l){add('li',S(l[0])+(S(l[1])?' — '+S(l[1]):''),null,u3)})}
+})();
+
+startup();
+})();
+</script>
+</body>
+</html>

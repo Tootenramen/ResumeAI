@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ResumeAI — Art Resume Prompts</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07070b;--card:#101018;--line:#23232f;--text:#f4f4fa;--mute:#9a9ab0;--a:#8b6cff;--b:#22d3ee;--c:#ff4d6d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:#07070bcc;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font-weight:700;font-size:20px;letter-spacing:-.03em}.logo span{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav .links{display:flex;gap:24px;color:var(--mute);font-size:14px}nav .links a:hover{color:#fff}
+.btn{background:linear-gradient(135deg,var(--a),#b39dff);color:#fff;border:0;border-radius:11px;padding:10px 18px;font:600 14px 'Space Grotesk',sans-serif;cursor:pointer;transition:.15s}
+.btn:hover{filter:brightness(1.15);transform:translateY(-1px)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:var(--a)}
+.btn.big{padding:15px 28px;font-size:16px}
+.hero{position:relative;text-align:center;padding:80px 5vw 30px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-20% -10% auto;height:90%;background:radial-gradient(40% 50% at 25% 30%,#8b6cff44,transparent),radial-gradient(40% 50% at 75% 20%,#22d3ee33,transparent),radial-gradient(35% 45% at 55% 60%,#ff4d6d22,transparent);filter:blur(30px);z-index:-1}
+.tag{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--b);border:1px solid #22d3ee44;border-radius:99px;padding:5px 14px;margin-bottom:22px}
+h1{font-size:clamp(38px,7vw,84px);line-height:1;margin:0 auto 20px;max-width:980px;letter-spacing:-.04em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--a),var(--b),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--mute);max-width:640px;margin:0 auto 30px;font-size:19px}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.fan{position:relative;height:clamp(260px,38vw,470px);margin:50px auto 0;max-width:1000px}
+.fan .thumb{position:absolute;width:clamp(150px,24vw,300px);top:0;box-shadow:0 30px 80px #000a;border-radius:6px;transition:.4s}
+.fan .thumb:nth-child(1){left:6%;transform:rotate(-9deg) translateY(30px)}
+.fan .thumb:nth-child(2){left:50%;margin-left:calc(clamp(150px,24vw,300px)/-2);z-index:2;transform:translateY(-10px) scale(1.08)}
+.fan .thumb:nth-child(3){right:6%;transform:rotate(9deg) translateY(30px)}
+.fan:hover .thumb:nth-child(1){transform:rotate(-14deg) translate(-30px,30px)}
+.fan:hover .thumb:nth-child(3){transform:rotate(14deg) translate(30px,30px)}
+.stats{display:flex;justify-content:center;gap:clamp(24px,6vw,80px);padding:30px 5vw;flex-wrap:wrap;border-block:1px solid var(--line);margin-top:30px}
+.stats b{display:block;font-size:34px;letter-spacing:-.03em}.stats span{color:var(--mute);font-size:13px}
+.stats div{text-align:center}
+h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;margin:0 0 8px}
+.sec{padding:60px 5vw 0}
+.sec>p{color:var(--mute);margin:0 0 20px;max-width:640px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:1px solid var(--line);color:var(--mute);border-radius:99px;padding:7px 15px;font:500 13px 'Space Grotesk',sans-serif;cursor:pointer}
+.chip.on{color:#fff;border-color:var(--a);background:#8b6cff33}
+input,textarea{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:9px 13px;font:14px 'Space Grotesk',sans-serif}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;cursor:pointer}
+.card:hover{transform:translateY(-5px);border-color:#8b6cffaa;box-shadow:0 20px 50px #8b6cff22}
+.thumb{position:relative;aspect-ratio:816/1056;overflow:hidden;background:#222}
+.thumb iframe{position:absolute;top:0;left:0;width:816px;height:1056px;border:0;transform-origin:0 0;pointer-events:none;background:#fff}
+.card .info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px;letter-spacing:-.01em}
+.card small{color:var(--mute)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags i{font-style:normal;font-size:11px;color:var(--b);border:1px solid #22d3ee33;border-radius:99px;padding:1px 9px}
+.row{display:flex;gap:8px;margin-top:4px}.row .btn{flex:1;padding:9px}
+.modal{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
+.modal.show{display:flex}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:20px;width:min(1180px,100%);height:min(92vh,900px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);overflow:hidden}
+.sheet .l{background:#0b0b11;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.sheet .l .thumb{height:100%;max-height:100%;border-radius:4px;box-shadow:0 20px 60px #000}
+.sheet .r{display:flex;flex-direction:column;min-height:0}
+.sheet header{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.sheet header h3{margin:0;font-size:22px;letter-spacing:-.02em}.sheet header p{margin:2px 0 0;color:var(--mute);font-size:14px}
+.sheet pre{flex:1;margin:0;padding:18px 22px;overflow:auto;white-space:pre-wrap;font:12.5px/1.6 'JetBrains Mono',ui-monospace,Consolas,monospace;color:#d4d4e6}
+.sheet footer{padding:14px 22px;border-top:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px}
+.wcard{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.wcard:hover{transform:translateY(-4px);border-color:#22d3ee99;box-shadow:0 20px 50px #22d3ee18}
+.wthumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#111}
+.wthumb iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
+.wcard .info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:7px}
+.wcard h3{margin:0;font-size:18px}.wcard p{margin:0;color:var(--mute);font-size:13.5px}
+.wstat{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:#8b6cff18;border:1px solid #8b6cff55;border-radius:14px;padding:12px 16px;margin-bottom:18px;font-size:14px}
+.wstat .ok{color:#6ee7a8}.wstat .btn{padding:7px 14px;font-size:13px}
+.guide{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.guide h3{margin:0 0 10px;font-size:22px}.guide ol{margin:0 0 16px;padding-left:20px;color:#cfcfe0;line-height:1.8}
+.guide code{background:#0b0b11;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font:12.5px 'JetBrains Mono',monospace;color:var(--b)}
+.pp{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.pp div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.pp h4{margin:0;font-size:16px}.pp p{margin:0;color:var(--mute);font-size:13.5px;flex:1}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.how div{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--card)}
+.how b{font-size:38px;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;line-height:1}
+.how h4{margin:10px 0 4px}.how p{margin:0;color:var(--mute);font-size:14px}
+footer.site{margin-top:80px;border-top:1px solid var(--line);padding:30px 5vw;color:var(--mute);font-size:13px;text-align:center}
+.ed{width:min(720px,100%);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.ed textarea{width:100%;height:50vh;font:12.5px/1.5 'JetBrains Mono',monospace;resize:vertical}
+.ed p{margin:0;color:var(--mute);font-size:13.5px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);background:#22c55e;color:#04210f;font-weight:700;padding:11px 20px;border-radius:11px;transition:.25s;z-index:99}
+.toast.show{transform:translateX(-50%)}
+@media(max-width:820px){nav .links{display:none}.sheet{grid-template-columns:1fr;height:94vh;overflow:auto}.sheet .l{padding:12px}.sheet .l .thumb{height:auto;width:min(100%,360px)}.sheet pre{min-height:260px}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#">Resume<span>AI</span></a>
+  <div class="links"><a href="#sites">Full Websites</a><a href="#gallery">Prompts</a><a href="#power">Power Prompts</a><a href="#how">How it works</a></div>
+  <button class="btn ghost" onclick="openEd()">✎ Your details</button>
+</nav>
+
+<section class="hero">
+  <span class="tag">11 animated resume websites · copy &amp; paste</span>
+  <h1>Your resume as an <em>animated website</em>. One prompt.</h1>
+  <p>Pick a design, hit copy, paste into Claude, ChatGPT, Lovable or v0 — get a scroll-animated resume site you can send to a hiring manager as a link. Previews below are live and moving.</p>
+  <div class="cta">
+    <a class="btn big" href="#gallery">Browse the designs</a>
+    <button class="btn big ghost" onclick="openEd()">Use my own details</button>
+  </div>
+  <div class="fan" id="fan"></div>
+</section>
+
+<div class="stats">
+  <div><b>11</b><span>art directions</span></div>
+  <div><b>1 link</b><span>to send a recruiter</span></div>
+  <div><b>Free</b><span>to host (Netlify, GitHub Pages)</span></div>
+  <div><b>∞</b><span>tweaks by just talking</span></div>
+</div>
+
+<section class="sec" id="sites">
+  <h2>Full Websites — ready to send</h2>
+  <p>29 finished, animated resume websites. Open one, love it, then make it yours in 3 minutes (guide below). Each is a single file: edit the details block, drag it onto <b>app.netlify.com/drop</b>, and you have a free link for hiring managers.</p>
+  <div class="wstat" id="wstat"></div>
+  <div class="bar"><div class="chips" id="wchips"></div></div>
+  <div class="wgrid" id="wgrid"></div>
+  <div class="guide">
+    <h3>Make it yours in 3 minutes</h3>
+    <ol>
+      <li><b>Get your data block.</b> Paste your current resume into any AI (Claude, ChatGPT) with the prompt below. It returns a ready <code>const DATA = {…}</code>.</li>
+      <li><b>Swap it in.</b> Right-click the site file → open with Notepad. Find <code>/* ===== EDIT YOUR DETAILS HERE ===== */</code> near the top of the script and replace the DATA block with yours. Save.</li>
+      <li><b>Check it.</b> Double-click the file to preview. Add <code>?static</code> to the link to see it without animations.</li>
+      <li><b>Publish free.</b> Drag the file onto <b>app.netlify.com/drop</b> (or use GitHub Pages). Copy the link into your applications. Use <b>Download PDF</b> in the site for a print version.</li>
+      <li><b>Social preview.</b> Edit the <code>&lt;title&gt;</code> and description/og tags in the file head to your name — link-preview bots don't run JavaScript.</li>
+    </ol>
+    <button class="btn" onclick="copyText(DATAPROMPT)">Copy the "turn my resume into DATA" prompt</button>
+  </div>
+</section>
+
+<section class="sec" id="gallery">
+  <h2>Prompt Gallery</h2>
+  <p>Previews use sample content. Hit <b>✎ Your details</b> to swap in your own — every preview and every prompt updates instantly.</p>
+  <div class="bar">
+    <div class="chips" id="chips"></div>
+    <input id="q" placeholder="Search designs…">
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="sec" id="power">
+  <h2>Power Prompts</h2>
+  <p>Words, not pixels. Run these before you build a design, so the content is as good as the art.</p>
+  <div class="pp" id="pp"></div>
+</section>
+
+<section class="sec" id="how">
+  <h2>How it works</h2>
+  <p>Four steps. Two minutes.</p>
+  <div class="how">
+    <div><b>1</b><h4>Pick a design</h4><p>Each one is a full art direction — palette, type, layout, details.</p></div>
+    <div><b>2</b><h4>Add your details</h4><p>Paste your info once. Every prompt fills itself in.</p></div>
+    <div><b>3</b><h4>Copy &amp; paste</h4><p>Into any AI that writes code. You get an animated, responsive index.html.</p></div>
+    <div><b>4</b><h4>Publish &amp; share</h4><p>Drag the file onto app.netlify.com/drop for a free link. A print-ready PDF is built in too.</p></div>
+  </div>
+</section>
+
+<footer class="site">ResumeAI — built for people who refuse to send a boring resume.<br>Built by <a href="https://github.com/Tootenramen" style="color:inherit;text-decoration:underline">Gustavo Freitas</a> · <a href="https://tootenramen.github.io" style="color:inherit;text-decoration:underline">more projects</a></footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()">
+  <div class="sheet">
+    <div class="l"><div class="thumb" id="mthumb"></div></div>
+    <div class="r">
+      <header><div><h3 id="mt"></h3><p id="md"></p></div><button class="btn ghost" onclick="closeM()">✕</button></header>
+      <pre id="mp"></pre>
+      <footer>
+        <button class="btn" id="mc">Copy prompt</button>
+        <button class="btn ghost" id="mb">Copy blank (placeholders)</button>
+        <button class="btn ghost" id="mdl">⬇ Download preview</button>
+        <button class="btn ghost" id="mo">Open full ↗</button>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="edm" onclick="if(event.target===this)closeEd()">
+  <div class="ed">
+    <h3 style="margin:0">Your details</h3>
+    <p><b>Easiest:</b> click <i>Copy AI prompt</i>, paste it into Claude or ChatGPT with your old resume, then paste the AI's answer below and hit Apply. (You can paste the <code>const DATA = {…}</code> answer exactly as it comes.) Every site, prompt and download then uses it. Saved only in this browser.</p>
+    <div><button class="btn ghost" onclick="copyText(DATAPROMPT)">Copy AI prompt</button></div>
+    <textarea id="edt" spellcheck="false"></textarea>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" onclick="applyEd()">Apply</button><button class="btn ghost" onclick="resetEd()">Reset to sample</button><button class="btn ghost" onclick="closeEd()">Cancel</button></div>
+    <p id="err" style="color:#ff6b81"></p>
+  </div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script src="sites-bundle.js"></script>
+<script>
+/* ============ DATA ============ */
+const SAMPLE={
+ name:"Gustavo Freitas",
+ title:"Computer Scientist — Offensive & Defensive Cyber Operations",
+ summary:"Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.",
+ email:"gustavo@example.com",phone:"555-010-0100",
+ jobs:[
+  {role:"Security Orchestration, Automation & Response Engineer",co:"Marriott International",dates:"05/2024 – Present",loc:"Remote · Bethesda, MD",text:"Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating."},
+  {role:"Senior Cyber Incident Response Analyst",co:"Marriott International",dates:"05/2022 – 05/2024",loc:"Remote · Bethesda, MD",text:"Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources."},
+  {role:"Security Analyst, Security Operations Center",co:"Arkansas Blue Cross Blue Shield",dates:"11/2021 – 05/2022",loc:"Little Rock, AR",text:"Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures."},
+  {role:"Lead Security Analyst, Security Operations Center",co:"Bank OZK",dates:"01/2019 – 08/2021",loc:"Little Rock, AR",text:"Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape."},
+  {role:"Network Security Analyst, Security Operations",co:"Mechanics Bank",dates:"09/2016 – 08/2018",loc:"Hercules, CA",text:"Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling."}
+ ],
+ skills:[["DevOps · Blue Team",4],["Penetration Testing · Red Team",4],["Exploit Dev / Vulnerability Research",3],["Enterprise Risk Management",4],["DFIR · Digital Forensics",5]],
+ certs:["Apple Certified Support Professional (2016)","CompTIA Security+ (2019)","CompTIA A+ (2019)","SpecterOps – Red Team Operations (2020)","DARPA – SSITH Bug Hunter (2020)","SANS – GIAC Certified Incident Handler (2020)","Tenable CTF – Team webepeepin ('21 '22 '23)","ServiceNow Flow Designer Developer (2024)","Python Certified Entry-Level Programmer (2025)"],
+ edu:[["Computer Science","10/2022 – 10/2023","Western Governors University"],["Computer Science","07/2020 – 01/2022","University of Arkansas – eVersity"],["Applied Physics","08/2012 – 12/2013","University of Central Arkansas"]],
+ langs:[["English","Native / Bilingual"],["Portuguese","Native / Bilingual"],["Spanish","Professional Working"]]
+};
+let D=SAMPLE;
+try{const s=localStorage.getItem("resumeai.data");if(s)D=JSON.parse(s)}catch(e){}
+
+/* ============ HELPERS ============ */
+const e=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const doc=(d,css,body,font)=>`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=816"><title>${e(d.name)} — Resume</title>${font?`<link href="https://fonts.googleapis.com/css2?family=${font}&display=swap" rel="stylesheet">`:""}<style>*{box-sizing:border-box;margin:0;padding:0}html,body{width:816px}body{height:1056px;overflow:hidden;position:relative;-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:816px 1056px;margin:0}@media print{html,body{width:816px}}${css}</style></head><body>${body}</body></html>`;
+const dots=(l,on="●",off="○")=>Array.from({length:5},(_,i)=>i<l?on:off).join("");
+const J=(d,f)=>d.jobs.map(f).join("");
+const first=d=>(d.name||"").split(" ")[0]||"";
+const last=d=>(d.name||"").split(" ").slice(1).join(" ");
+const ini=d=>(d.name||"?").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
+
+/* ============ TEMPLATES ============ */
+const T=[
+/* 0 — SIGNAL RED (upgrade of the original) */
+{id:"signal",name:"Signal Red",tag:"The classic, sharpened",moods:["Light","Corporate"],font:"Inter:wght@400;500;700;800",
+ concept:"A refined upgrade of a two-column corporate resume: confident dark masthead, one fierce red accent, skill dots, razor-clean hierarchy.",
+ spec:`- Full-bleed dark slate masthead (#2b333e) with the name in 42px light-weight Inter, the title below it in red (#f0483e), then a 3-line summary in 9.5px light grey.
+- A darker contact strip (#1f252d) directly under it with small line icons (email, phone).
+- Below: two columns, 56% / 44%. Left = WORK EXPERIENCE. Right = SKILLS, CERTIFICATIONS, EDUCATION, LANGUAGES.
+- Section headings: red (#f0483e) 800-weight uppercase with a 3px red underline that only spans the text width.
+- Each job: bold title, company in regular weight, an italic red meta row (dates left, location right), then a bullet with a small red dot.
+- Skills shown as five dots (filled dark slate / hollow outline).
+- Generous whitespace, nothing decorative beyond the red accent.`,
+ css:`body{background:#fff;font-family:Inter,Arial,sans-serif;color:#1d232b;font-size:10px}
+.h{background:#2b333e;color:#fff;padding:38px 40px 24px}.h h1{font-size:42px;font-weight:300;letter-spacing:-.5px}.h h2{color:#f0483e;font-size:15px;font-weight:500;margin:4px 0 12px}.h p{font-size:9.2px;line-height:1.55;color:#d4d8de}
+.c{background:#1f252d;color:#fff;padding:11px 40px;display:flex;gap:70px;font-size:10px}
+.m{display:grid;grid-template-columns:56% 44%;padding:28px 40px;gap:30px}
+h3{color:#f0483e;font-size:17px;font-weight:800;text-transform:uppercase;border-bottom:3px solid #f0483e;display:inline-block;margin-bottom:14px}
+.j{margin-bottom:15px}.j b{font-size:11.5px;font-weight:800;display:block}.j .co{font-size:12px}.j .mt{display:flex;justify-content:space-between;color:#f0483e;font-style:italic;font-size:8.5px;margin:3px 0 5px}.j p{font-size:9.4px;line-height:1.5;padding-left:12px;position:relative}.j p:before{content:"";position:absolute;left:0;top:5px;width:5px;height:5px;border-radius:50%;background:#f0483e}
+.s{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:9.6px}.s span:last-child{letter-spacing:5px;color:#2b333e;font-size:13px}
+.r>div{margin-bottom:24px}.r li{list-style:none;font-size:9.6px;margin-bottom:6px}.r small{display:block;color:#888;font-style:italic;font-size:8.2px}`,
+ body:d=>`<div class=h><h1>${e(d.name)}</h1><h2>${e(d.title)}</h2><p>${e(d.summary)}</p></div><div class=c><span>✉ ${e(d.email)}</span><span>☎ ${e(d.phone)}</span></div><div class=m><div><h3>Work Experience</h3>${J(d,j=>`<div class=j><b>${e(j.role)}</b><div class=co>${e(j.co)}</div><div class=mt><span>${e(j.dates)}</span><span>${e(j.loc)}</span></div><p>${e(j.text)}</p></div>`)}</div><div class=r><div><h3>Skills</h3>${d.skills.map(s=>`<div class=s><span>${e(s[0])}</span><span>${dots(s[1])}</span></div>`).join("")}</div><div><h3>Certifications</h3><ul>${d.certs.map(c=>`<li>${e(c)}</li>`).join("")}</ul></div><div><h3>Education</h3><ul>${d.edu.map(x=>`<li>${e(x[0])} (${e(x[1])})<small>${e(x[2])}</small></li>`).join("")}</ul></div><div><h3>Languages</h3><ul>${d.langs.map(x=>`<li>${e(x[0])}<small>${e(x[1])}</small></li>`).join("")}</ul></div></div></div>`},
+
+/* 1 — TERMINAL */
+{id:"terminal",name:"Root Shell",tag:"A resume that runs in a terminal",moods:["Dark","Tech"],font:"JetBrains+Mono:wght@400;700",
+ concept:"The resume as a live terminal session — you 'run' commands to reveal each section. Made for engineers, hackers and security people.",
+ spec:`- Background pure black (#05080a). All text JetBrains Mono. Primary color phosphor green (#39ff7a), secondary dim green (#1f9d55), muted grey (#6b7f75), warning amber (#ffb000) for dates.
+- A fake window title bar at the top with three dots and the title "name@resume: ~".
+- Each section is introduced by a prompt line: "user@host:~$ cat summary.txt", "$ ls -l experience/", "$ ./skills --levels", "$ gpg --list-certs", "$ cat education.log", "$ locale".
+- Name is a big ASCII-feel heading (30px bold, green glow text-shadow) followed by a blinking block cursor (CSS animation).
+- Experience entries look like log lines: "[05/2024 → now] ROLE @ COMPANY" in bold, details indented with "│".
+- Skills rendered as text bars: "DFIR ████████░░ 80%" using block characters.
+- Certifications each prefixed with a green "[✔]".
+- Subtle CRT scanline overlay using a repeating-linear-gradient at 4% opacity, plus a faint vignette.`,
+ css:`body{background:#05080a;color:#39ff7a;font-family:'JetBrains Mono',Consolas,monospace;font-size:9.6px;line-height:1.55;padding:0}
+body:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,#0000 0 2px,#00000040 2px 3px),radial-gradient(120% 90% at 50% 40%,#0000 55%,#000b);pointer-events:none}
+.t{background:#10161a;padding:9px 16px;display:flex;gap:7px;align-items:center;color:#6b7f75;font-size:9px;border-bottom:1px solid #1b2a22}.t i{width:10px;height:10px;border-radius:50%;background:#ff5f56}.t i:nth-child(2){background:#ffbd2e}.t i:nth-child(3){background:#27c93f}.t span{margin-left:10px}
+.w{padding:20px 34px}.p{color:#1f9d55;margin:14px 0 5px}.p:before{content:"$ ";color:#39ff7a}
+h1{font-size:34px;text-shadow:0 0 14px #39ff7a88;letter-spacing:-1px}.cur{display:inline-block;width:.55em;height:.9em;background:#39ff7a;vertical-align:-2px;margin-left:4px;animation:b 1s steps(2) infinite}@keyframes b{50%{opacity:0}}
+.d{color:#9fe8b8}.dim{color:#6b7f75}.am{color:#ffb000}.j{margin:7px 0}.j b{color:#39ff7a}.j div{padding-left:10px;border-left:1px solid #1f9d55;margin-left:3px;color:#9fe8b8}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}`,
+ body:d=>`<div class=t><i></i><i></i><i></i><span>${e((first(d)||"user").toLowerCase())}@resume: ~</span></div><div class=w><div class=p>whoami</div><h1>${e(d.name)}<span class=cur></span></h1><div class=d>${e(d.title)}</div><div class=dim>✉ ${e(d.email)}  ·  ☎ ${e(d.phone)}</div><div class=p>cat summary.txt</div><div class=d>${e(d.summary)}</div><div class=p>ls -l experience/</div>${J(d,j=>`<div class=j><b>${e(j.role)} @ ${e(j.co)}</b> <span class=am>[${e(j.dates)}]</span> <span class=dim>${e(j.loc)}</span><div>${e(j.text)}</div></div>`)}<div class=g><div><div class=p>./skills --levels</div>${d.skills.map(s=>`<div>${e(s[0].slice(0,34).padEnd(34," "))} ${"█".repeat(s[1]*2)}${"░".repeat(10-s[1]*2)} ${s[1]*20}%</div>`).join("")}<div class=p>cat education.log</div>${d.edu.map(x=>`<div>${e(x[0])} <span class=dim>— ${e(x[2])}</span> <span class=am>[${e(x[1])}]</span></div>`).join("")}<div class=p>locale</div>${d.langs.map(x=>`<div>${e(x[0])} <span class=dim>${e(x[1])}</span></div>`).join("")}</div><div><div class=p>gpg --list-certs</div>${d.certs.map(c=>`<div><span>[✔]</span> ${e(c)}</div>`).join("")}</div></div></div>`},
+
+/* 2 — BRUTALIST */
+{id:"brutal",name:"Loud & Proud",tag:"Neo-brutalist poster resume",moods:["Bold","Light"],font:"Anton&family=Space+Grotesk:wght@400;700",
+ concept:"A resume as a gig poster. Massive condensed type, hard black borders, hard offset shadows, acid yellow. Impossible to ignore.",
+ spec:`- Background acid yellow (#f6f000). Ink black (#0a0a0a). Accent hot pink (#ff3d8b) and white used sparingly.
+- The name in Anton, uppercase, ~110px, line-height .85, filling the top of the page, first name black on yellow, last name white on a black block rotated -1.5deg.
+- Title in a pink pill with 3px black border and hard 5px/5px black shadow.
+- Everything is a card: 3px solid black border, white background, hard offset shadow (6px 6px 0 #0a0a0a), no border-radius (or at most 4px).
+- Experience cards are numbered 01–05 with big Anton numerals in a corner; role in Space Grotesk 700.
+- Skills as black pills with white text; level shown as filled/empty squares.
+- Certifications as tilted sticker-like tags (alternate rotation ±2deg).
+- A rotated marquee-style banner strip ("OPEN TO WORK • OPEN TO WORK •") across the page in black.`,
+ css:`body{background:#f6f000;font-family:'Space Grotesk',Arial,sans-serif;color:#0a0a0a;font-size:9.4px;padding:30px 34px}
+h1{font-family:Anton,Impact,sans-serif;font-size:96px;line-height:.86;text-transform:uppercase;font-weight:400}h1 span{display:inline-block;background:#0a0a0a;color:#fff;padding:0 12px;transform:rotate(-1.5deg);margin-left:6px}
+.pill{display:inline-block;background:#ff3d8b;border:3px solid #0a0a0a;box-shadow:5px 5px 0 #0a0a0a;padding:5px 12px;font-weight:700;font-size:12px;margin:14px 0 10px}
+.ct{font-weight:700;margin-bottom:10px;font-size:10px}
+.bn{background:#0a0a0a;color:#f6f000;font-family:Anton;letter-spacing:2px;font-size:13px;padding:5px 0;margin:10px -40px;transform:rotate(-1.2deg);white-space:nowrap;overflow:hidden}
+.sm{background:#fff;border:3px solid #0a0a0a;box-shadow:6px 6px 0 #0a0a0a;padding:10px 13px;margin-bottom:14px;font-size:9.6px;line-height:1.45}
+.g{display:grid;grid-template-columns:1.55fr 1fr;gap:18px}.c{background:#fff;border:3px solid #0a0a0a;box-shadow:6px 6px 0 #0a0a0a;padding:9px 12px 10px 48px;margin-bottom:11px;position:relative}
+.c>i{position:absolute;left:8px;top:2px;font:400 30px Anton;font-style:normal;color:#ff3d8b;-webkit-text-stroke:1px #0a0a0a}
+.c b{font-size:10.4px;display:block}.c em{font-style:normal;font-weight:700;font-size:8.5px;background:#f6f000;padding:0 4px}.c p{margin-top:3px;font-size:8.8px;line-height:1.4}
+.k{background:#fff;border:3px solid #0a0a0a;box-shadow:6px 6px 0 #0a0a0a;padding:10px 12px;margin-bottom:14px}.k h4{font:400 20px Anton;text-transform:uppercase;margin-bottom:6px}
+.sk{display:flex;justify-content:space-between;margin-bottom:5px;font-weight:700;font-size:9px}.sk span:last-child{letter-spacing:2px}
+.tg{display:inline-block;background:#0a0a0a;color:#fff;font-size:8.2px;font-weight:700;padding:3px 7px;margin:0 4px 5px 0;transform:rotate(-1.5deg)}.tg:nth-child(even){background:#ff3d8b;color:#0a0a0a;transform:rotate(1.8deg)}
+.k li{list-style:none;font-size:8.8px;margin-bottom:3px}`,
+ body:d=>`<h1>${e(first(d))}<span>${e(last(d))}</span></h1><div class=pill>${e(d.title)}</div><div class=ct>✉ ${e(d.email)} &nbsp;/&nbsp; ☎ ${e(d.phone)}</div><div class=sm>${e(d.summary)}</div><div class=bn>OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK •</div><div class=g style="margin-top:22px"><div>${d.jobs.map((j,i)=>`<div class=c><i>0${i+1}</i><b>${e(j.role)}</b><em>${e(j.co)} · ${e(j.dates)}</em><p>${e(j.text)}</p></div>`).join("")}</div><div><div class=k><h4>Skills</h4>${d.skills.map(s=>`<div class=sk><span>${e(s[0])}</span><span>${"■".repeat(s[1])}${"□".repeat(5-s[1])}</span></div>`).join("")}</div><div class=k><h4>Certs</h4>${d.certs.map(c=>`<span class=tg>${e(c)}</span>`).join("")}</div><div class=k><h4>School</h4><ul>${d.edu.map(x=>`<li><b>${e(x[0])}</b> · ${e(x[2])}</li>`).join("")}</ul><h4 style="margin-top:6px">Speaks</h4>${d.langs.map(x=>`<li><b>${e(x[0])}</b> · ${e(x[1])}</li>`).join("")}</div></div></div>`},
+
+/* 3 — AURORA */
+{id:"aurora",name:"Aurora Glass",tag:"Glassmorphism on a living gradient",moods:["Dark","Modern"],font:"Space+Grotesk:wght@300;400;500;700",
+ concept:"Frosted-glass panels floating over a slow-moving aurora of violet, cyan and pink. Feels like a product launch, reads like a resume.",
+ spec:`- Background near-black navy (#080814) with 3 large blurred radial-gradient blobs: violet (#7c5cff), cyan (#22d3ee), pink (#ff4d9d), blurred 60px, at ~45% opacity, in different corners.
+- Every content block is a glass card: background rgba(255,255,255,.06), 1px border rgba(255,255,255,.14), border-radius 18px, backdrop-filter blur(14px).
+- Name huge (54px, weight 300 first name / 700 last name) with a gradient text fill (cyan→violet→pink).
+- Title in uppercase tracking .2em small caps, muted.
+- Two-column layout: wide left glass card per job, right column stacked glass cards for skills, certs, education, languages.
+- Skills: thin 4px gradient progress bars, rounded.
+- Timeline dots (glowing) on each experience card.
+- Subtle noise/grain overlay at 4% for premium feel.`,
+ css:`body{background:#080814;color:#e8e8f4;font-family:'Space Grotesk',sans-serif;font-size:9.4px;padding:34px 36px}
+.o{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5}.o1{width:420px;height:420px;background:#7c5cff;top:-120px;left:-100px}.o2{width:380px;height:380px;background:#22d3ee;top:300px;right:-160px}.o3{width:340px;height:340px;background:#ff4d9d;bottom:-120px;left:120px}
+.z{position:relative;z-index:1}
+h1{font-size:54px;font-weight:300;letter-spacing:-2px;line-height:1}h1 b{font-weight:700}h1 span{background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff4d9d);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ti{text-transform:uppercase;letter-spacing:.2em;color:#aab;font-size:9.5px;margin:8px 0 14px}
+.gl{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:13px 16px;backdrop-filter:blur(14px);margin-bottom:11px}
+.g{display:grid;grid-template-columns:1.6fr 1fr;gap:12px}.gl h4{font-size:9px;text-transform:uppercase;letter-spacing:.18em;color:#22d3ee;margin-bottom:8px}
+.gl.j{position:relative;padding-left:26px}.gl.j:before{content:"";position:absolute;left:11px;top:17px;width:7px;height:7px;border-radius:50%;background:#22d3ee;box-shadow:0 0 12px #22d3ee}.gl.j b{font-size:10.6px;display:block}.gl.j em{font-style:normal;color:#a78bfa;font-size:8.6px}.gl.j p{margin-top:4px;line-height:1.5;color:#c9c9de;font-size:9px}
+.sk{margin-bottom:8px;font-size:8.8px}.bar{height:4px;border-radius:9px;background:#ffffff18;margin-top:3px}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff4d9d)}
+.gl li{list-style:none;margin-bottom:4px;font-size:8.8px;color:#d0d0e4}.gl small{color:#889}`,
+ body:d=>`<div class="o o1"></div><div class="o o2"></div><div class="o o3"></div><div class=z><h1><b>${e(first(d))}</b> <span>${e(last(d))}</span></h1><div class=ti>${e(d.title)}</div><div class=gl style="font-size:9.4px;line-height:1.55;color:#cfcfe4">${e(d.summary)}<div style="margin-top:7px;color:#22d3ee">✉ ${e(d.email)} &nbsp; ☎ ${e(d.phone)}</div></div><div class=g><div>${J(d,j=>`<div class="gl j"><b>${e(j.role)}</b><em>${e(j.co)} · ${e(j.dates)} · ${e(j.loc)}</em><p>${e(j.text)}</p></div>`)}</div><div><div class=gl><h4>Skills</h4>${d.skills.map(s=>`<div class=sk>${e(s[0])}<div class=bar><i style="width:${s[1]*20}%"></i></div></div>`).join("")}</div><div class=gl><h4>Certifications</h4><ul>${d.certs.map(c=>`<li>${e(c)}</li>`).join("")}</ul></div><div class=gl><h4>Education</h4><ul>${d.edu.map(x=>`<li>${e(x[0])} <small>· ${e(x[2])}</small></li>`).join("")}</ul><h4 style="margin-top:8px">Languages</h4><ul>${d.langs.map(x=>`<li>${e(x[0])} <small>· ${e(x[1])}</small></li>`).join("")}</ul></div></div></div></div>`},
+
+/* 4 — SWISS */
+{id:"swiss",name:"Swiss Editorial",tag:"International Typographic Style",moods:["Light","Bold","Minimal"],font:"Inter:wght@300;400;600;900",
+ concept:"A resume designed like a Müller-Brockmann poster: a strict grid, one red, giant numerals, and type doing all the work.",
+ spec:`- Pure white (#fff) page, ink (#111), signal red (#e4261b) — nothing else.
+- 12-column grid. Left rail (3 columns) holds small uppercase labels (section names, 8px, tracking .12em, red). Content in the remaining 9.
+- Name set flush-left in Inter 900, ~66px, letter-spacing -3px, line-height .9, spanning two lines (first / last).
+- A thick 6px red bar at the very top-left (60px wide) and a thin 1px black rule under the header.
+- Experience: each entry has a giant light-weight index numeral (01–05, 40px, light grey) in the rail; role in 600 weight, company and dates in a two-column mini-grid, body text 9px/1.5.
+- Skills as a clean table: name left, five small squares right (filled red / empty outline).
+- No icons, no gradients, no rounded corners. Alignment is the decoration.`,
+ css:`body{background:#fff;color:#111;font-family:Inter,Helvetica,Arial,sans-serif;font-size:9.2px;padding:0 40px}
+.bar{width:60px;height:8px;background:#e4261b}
+.hd{padding:26px 0 18px;border-bottom:1px solid #111;display:grid;grid-template-columns:2fr 1fr;align-items:end}
+h1{font-size:68px;font-weight:900;letter-spacing:-3.5px;line-height:.88}h1 span{color:#e4261b}
+.hd .ti{font-size:11px;font-weight:600;margin-bottom:8px}.hd .ct{text-align:right;font-size:9px;line-height:1.7}
+.r{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:13px 0;border-bottom:1px solid #ddd}
+.l{font-size:8px;text-transform:uppercase;letter-spacing:.14em;color:#e4261b;font-weight:600}
+.j{display:grid;grid-template-columns:48px 1fr;gap:8px;margin-bottom:11px}.j i{font:300 34px/1 Inter;font-style:normal;color:#ccc}.j b{font-size:10.6px;font-weight:600;display:block}.j .m{color:#e4261b;font-size:8.4px;margin:1px 0 3px;display:flex;gap:10px}.j p{line-height:1.5;color:#333}
+.sk{display:flex;justify-content:space-between;padding:3.5px 0;border-bottom:1px solid #eee}.sq i{display:inline-block;width:8px;height:8px;margin-left:3px;border:1px solid #111}.sq i.f{background:#e4261b;border-color:#e4261b}
+.c3{display:grid;grid-template-columns:1fr 1fr;gap:18px}.c3 li{list-style:none;padding:2.5px 0}small{color:#888}`,
+ body:d=>`<div style="padding-top:0"><div class=bar></div><div class=hd><div><div class=ti>${e(d.title)}</div><h1>${e(first(d))}<br><span>${e(last(d))}</span></h1></div><div class=ct>${e(d.email)}<br>${e(d.phone)}</div></div>
+<div class=r><div class=l>Profile</div><div style="font-size:10px;line-height:1.55">${e(d.summary)}</div></div>
+<div class=r><div class=l>Experience</div><div>${d.jobs.map((j,i)=>`<div class=j><i>0${i+1}</i><div><b>${e(j.role)}</b><div class=m><span>${e(j.co)}</span><span>${e(j.dates)}</span><span style="color:#888">${e(j.loc)}</span></div><p>${e(j.text)}</p></div></div>`).join("")}</div></div>
+<div class=r><div class=l>Skills</div><div>${d.skills.map(s=>`<div class=sk><span>${e(s[0])}</span><span class=sq>${Array.from({length:5},(_,i)=>`<i class="${i<s[1]?"f":""}"></i>`).join("")}</span></div>`).join("")}</div></div>
+<div class=r style="border:0"><div class=l>Credentials</div><div class=c3><ul>${d.certs.map(c=>`<li>${e(c)}</li>`).join("")}</ul><div><ul>${d.edu.map(x=>`<li><b>${e(x[0])}</b><br><small>${e(x[2])} · ${e(x[1])}</small></li>`).join("")}</ul><ul style="margin-top:8px">${d.langs.map(x=>`<li>${e(x[0])} <small>— ${e(x[1])}</small></li>`).join("")}</ul></div></div></div></div>`},
+
+/* 5 — BLUEPRINT */
+{id:"blueprint",name:"Blueprint",tag:"Technical drawing, architect style",moods:["Dark","Tech","Playful"],font:"IBM+Plex+Mono:wght@400;600&family=Caveat:wght@500",
+ concept:"The resume as an engineering blueprint: cyanotype blue, drafting grid, dimension lines, a title block in the corner, and hand-annotated notes.",
+ spec:`- Background cyanotype blue (#0d3b8c) with a drafting grid made from two repeating-linear-gradients (major lines every 80px at 18% white, minor every 16px at 7% white).
+- All linework in white / pale cyan (#bfe6ff), 1px, with dashed lines for secondary structure. Font IBM Plex Mono; handwritten annotations in Caveat (e.g. an arrow note "← still shipping").
+- The page has a double-line border inset 18px. The name sits in a large technical title (40px, wide letter-spacing) with a dimension line (arrows both ends) beneath it labelled with the title.
+- Each job is a "DETAIL A…E" box with a corner tag, thin border, and small crosshair marks at corners.
+- Skills as horizontal measurement scales with tick marks, a filled segment to show level.
+- Bottom-right corner: an engineering TITLE BLOCK table (DRAWN BY, SHEET 1/1, SCALE 1:1, REV, DATE) filled with the person's info.`,
+ css:`body{background-color:#0d3b8c;background-image:linear-gradient(#ffffff2e 1px,#0000 1px),linear-gradient(90deg,#ffffff2e 1px,#0000 1px),linear-gradient(#ffffff12 1px,#0000 1px),linear-gradient(90deg,#ffffff12 1px,#0000 1px);background-size:80px 80px,80px 80px,16px 16px,16px 16px;color:#d9efff;font-family:'IBM Plex Mono',Consolas,monospace;font-size:8.6px;padding:34px}
+.bd{position:absolute;inset:18px;border:1px solid #bfe6ff;pointer-events:none}.bd:after{content:"";position:absolute;inset:4px;border:1px solid #bfe6ff66}
+h1{font-size:38px;letter-spacing:.14em;font-weight:600;text-transform:uppercase}.dm{display:flex;align-items:center;gap:6px;margin:6px 0 12px;font-size:9px}.dm:before,.dm:after{content:"";flex:1;border-top:1px solid #bfe6ff}.dm:before{border-left:1px solid #bfe6ff;height:8px;border-top:0;border-bottom:1px solid #bfe6ff}
+.note{font-family:Caveat,cursive;font-size:17px;color:#ffe27a;position:absolute;right:50px;top:50px;transform:rotate(4deg)}
+.g{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}.dt{border:1px solid #bfe6ff99;padding:10px 12px 9px;margin-bottom:11px;position:relative}
+.dt:before,.dt:after{content:"+";position:absolute;color:#bfe6ff;font-size:11px;line-height:1}.dt:before{left:-5px;top:-6px}.dt:after{right:-5px;bottom:-5px}
+.dt .tg{position:absolute;right:8px;top:-7px;background:#0d3b8c;padding:0 5px;font-size:7.5px;letter-spacing:.14em;color:#ffe27a}.dt b{font-size:9.8px;color:#fff;display:block}.dt .m{color:#8fd0ff;margin:2px 0 4px;font-size:8px}.dt p{line-height:1.5;font-size:8.5px}
+.sc{margin-bottom:9px;font-size:8.4px}.sc div{height:7px;border:1px solid #bfe6ff;margin-top:3px;background:repeating-linear-gradient(90deg,#0000 0 9px,#bfe6ff55 9px 10px);position:relative}.sc div i{position:absolute;left:0;top:0;bottom:0;background:#bfe6ffaa}
+.bx{border:1px dashed #bfe6ff88;padding:9px 11px;margin-bottom:11px}.bx h4{font-size:8px;letter-spacing:.18em;color:#ffe27a;margin-bottom:6px}.bx li{list-style:none;margin-bottom:3px}
+table{border-collapse:collapse;width:100%;font-size:7.6px}td{border:1px solid #bfe6ff;padding:3px 6px}td:first-child{color:#8fd0ff;width:34%}`,
+ body:d=>`<div class=bd></div><div class=note>← still shipping</div><h1>${e(d.name)}</h1><div class=dm>${e(d.title)}</div><div style="line-height:1.55;margin-bottom:12px;font-size:9px">${e(d.summary)}</div><div class=g><div>${d.jobs.map((j,i)=>`<div class=dt><span class=tg>DETAIL ${"ABCDE"[i]||i+1}</span><b>${e(j.role)}</b><div class=m>${e(j.co)} ▪ ${e(j.dates)} ▪ ${e(j.loc)}</div><p>${e(j.text)}</p></div>`).join("")}</div><div><div class=bx><h4>MEASURED SKILLS</h4>${d.skills.map(s=>`<div class=sc>${e(s[0])}<div><i style="width:${s[1]*20}%"></i></div></div>`).join("")}</div><div class=bx><h4>CERTIFICATIONS</h4><ul>${d.certs.map(c=>`<li>▸ ${e(c)}</li>`).join("")}</ul></div><div class=bx><h4>EDUCATION / LANG</h4><ul>${d.edu.map(x=>`<li>▸ ${e(x[0])} · ${e(x[2])}</li>`).join("")}${d.langs.map(x=>`<li>▸ ${e(x[0])} (${e(x[1])})</li>`).join("")}</ul></div><table><tr><td>DRAWN BY</td><td>${e(d.name)}</td></tr><tr><td>CONTACT</td><td>${e(d.email)}</td></tr><tr><td>PHONE</td><td>${e(d.phone)}</td></tr><tr><td>SHEET</td><td>1 / 1 &nbsp; REV A</td></tr></table></div></div>`},
+
+/* 6 — SYNTHWAVE */
+{id:"synth",name:"Neon Grid '85",tag:"Synthwave sunset",moods:["Dark","Bold","Playful"],font:"Orbitron:wght@500;800&family=Space+Grotesk:wght@400;600",
+ concept:"Retro-futurist outrun: a striped sunset, a perspective neon grid, glowing chrome type. For the person who wants a resume with a soundtrack.",
+ spec:`- Sky gradient from deep indigo (#1a0b3b) at the top to magenta (#ff2e97) then orange (#ff9a3c) at the horizon.
+- A large striped sun (circle, gradient yellow→pink) at the horizon, with horizontal transparent bars cut across its lower half.
+- Bottom third: a perspective neon grid (CSS transform: perspective + rotateX, cyan #00f0ff lines on near-black) that the content sits above.
+- Name in Orbitron 800, uppercase, white with a pink+cyan layered text-shadow neon glow.
+- Content panels: semi-opaque dark purple (#12062ccc) with 1px cyan neon borders and a soft glow.
+- Experience as a vertical list with cyan year chips; skills as glowing segmented bars (pink/cyan).
+- Small details: scanline overlay, a tiny "PLAYER 1" label, stars (tiny white dots) in the sky.`,
+ css:`body{background:linear-gradient(#1a0b3b 0,#3a0f6b 28%,#ff2e97 48%,#ff9a3c 58%,#0a0220 58%);color:#f4e9ff;font-family:'Space Grotesk',sans-serif;font-size:9.2px;padding:30px 34px}
+.sun{position:absolute;left:50%;top:150px;margin-left:-130px;width:260px;height:260px;border-radius:50%;background:linear-gradient(#ffe45c,#ff2e97);opacity:.85;-webkit-mask:repeating-linear-gradient(#000 0 14px,#0000 14px 17px);mask:repeating-linear-gradient(#000 0 14px,#0000 14px 17px);-webkit-mask-size:100% 100%}
+.gr{position:absolute;left:-50%;right:-50%;bottom:-120px;height:520px;background:linear-gradient(#00f0ff55 1px,#0000 1px) 0 0/100% 34px,linear-gradient(90deg,#00f0ff55 1px,#0000 1px) 0 0/50px 100%;transform:perspective(300px) rotateX(62deg);transform-origin:50% 0;top:610px}
+.z{position:relative;z-index:2}
+h1{font-family:Orbitron,Impact,sans-serif;font-weight:800;font-size:40px;text-transform:uppercase;letter-spacing:.04em;color:#fff;text-shadow:0 0 6px #fff,0 0 14px #ff2e97,0 0 30px #ff2e97,3px 3px 0 #00f0ff55}
+.pl{font:600 9px Orbitron;color:#00f0ff;letter-spacing:.3em;margin-bottom:3px}.ti{font-size:12px;letter-spacing:.06em;color:#ffd9f0;margin:4px 0 10px;text-shadow:0 0 8px #ff2e97}
+.pn{background:#12062cdd;border:1px solid #00f0ffaa;box-shadow:0 0 14px #00f0ff44;padding:10px 13px;margin-bottom:10px}.pn h4{font:800 9px Orbitron;color:#ff2e97;letter-spacing:.2em;margin-bottom:6px;text-shadow:0 0 8px #ff2e97}
+.g{display:grid;grid-template-columns:1.5fr 1fr;gap:12px}.j{margin-bottom:8px}.j b{font-size:10.2px;color:#fff}.j .y{display:inline-block;background:#00f0ff;color:#0a0220;font-weight:700;font-size:7.8px;padding:0 5px;margin-left:5px}.j .m{color:#ffb6e0;font-size:8.2px}.j p{line-height:1.45;font-size:8.8px;margin-top:2px}
+.sk{margin-bottom:6px;font-size:8.6px}.sg{display:flex;gap:3px;margin-top:2px}.sg i{flex:1;height:6px;background:#2a1457}.sg i.o{background:#00f0ff;box-shadow:0 0 6px #00f0ff}.sg i.o:nth-child(even){background:#ff2e97;box-shadow:0 0 6px #ff2e97}
+li{list-style:none;font-size:8.6px;margin-bottom:3px}`,
+ body:d=>`<div class=sun></div><div class=gr></div><div class=z><div class=pl>PLAYER 1 · READY</div><h1>${e(d.name)}</h1><div class=ti>${e(d.title)}</div><div class=pn style="line-height:1.5">${e(d.summary)}<div style="color:#00f0ff;margin-top:5px">✉ ${e(d.email)} &nbsp;&nbsp; ☎ ${e(d.phone)}</div></div><div class=g><div class=pn><h4>EXPERIENCE</h4>${J(d,j=>`<div class=j><b>${e(j.role)}</b><span class=y>${e(j.dates)}</span><div class=m>${e(j.co)} · ${e(j.loc)}</div><p>${e(j.text)}</p></div>`)}</div><div><div class=pn><h4>SKILLS</h4>${d.skills.map(s=>`<div class=sk>${e(s[0])}<div class=sg>${Array.from({length:5},(_,i)=>`<i class="${i<s[1]?"o":""}"></i>`).join("")}</div></div>`).join("")}</div><div class=pn><h4>CERTS</h4><ul>${d.certs.map(c=>`<li>◆ ${e(c)}</li>`).join("")}</ul></div><div class=pn><h4>EDU + LANG</h4><ul>${d.edu.map(x=>`<li>◆ ${e(x[0])} · ${e(x[2])}</li>`).join("")}${d.langs.map(x=>`<li>◆ ${e(x[0])} — ${e(x[1])}</li>`).join("")}</ul></div></div></div></div>`},
+
+/* 7 — GAZETTE */
+{id:"gazette",name:"The Daily Career",tag:"Front-page newspaper",moods:["Light","Playful"],font:"Playfair+Display:wght@400;700;900&family=Libre+Baskerville:wght@400;700",
+ concept:"You, on the front page. A broadsheet masthead, headline-sized career news, multi-column 'articles', drop caps and column rules.",
+ spec:`- Newsprint cream (#f1e8d4) page with ink (#1a1814). Playfair Display for masthead and headlines, Libre Baskerville for body (9px, justified, hyphenated).
+- Masthead: centered "THE <LASTNAME> GAZETTE" in Playfair 900 at ~44px between double rules (3px + 1px) with a dateline row beneath: "VOL. XXV · <city> · EXTRA EDITION · PRICE: HIRED".
+- Lead headline across the top (Playfair 900, 30px): the person's strongest claim as a news headline, with a smaller italic deck below.
+- Body in 3 columns with 1px column rules (CSS columns). Each job is an "article": small-caps kicker (company), bold headline (role), byline (dates + location), text with a drop cap on the first article.
+- A boxed "BY THE NUMBERS" sidebar listing skills as ranked bullets; a classified-ad style box (dashed border) for certifications; "EDUCATION BRIEFS" and "LANGUAGES" columns at the bottom.
+- Light paper texture feel via subtle radial gradients; no color apart from ink + one faded red (#8b1e1e) for kickers.`,
+ css:`body{background:radial-gradient(120% 100% at 50% 0,#f6eedb,#e9dfc6);color:#1a1814;font-family:'Libre Baskerville',Georgia,serif;font-size:10.6px;padding:26px 34px}
+.mh{text-align:center;border-top:3px solid #1a1814;border-bottom:1px solid #1a1814;padding:6px 0 0;position:relative}.mh:after{content:"";display:block;border-top:1px solid #1a1814;margin-top:3px}
+.mh h1{font:900 46px/1 'Playfair Display',Georgia,serif;letter-spacing:-1px;text-transform:uppercase;padding:4px 0}
+.dl{display:flex;justify-content:space-between;border-bottom:3px double #1a1814;padding:3px 2px;font-size:7.6px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.hl{font:900 28px/1.05 'Playfair Display',serif;text-align:center;margin-top:6px}.dk{text-align:center;font-style:italic;font-size:10px;margin:5px 0 8px;border-bottom:1px solid #1a1814;padding-bottom:7px}
+.cols{columns:3;column-gap:16px;column-rule:1px solid #1a1814;text-align:justify;hyphens:auto}
+.a{break-inside:avoid;margin-bottom:9px}.a .k{font-size:7px;color:#8b1e1e;text-transform:uppercase;letter-spacing:.14em;font-weight:700}.a h3{font:700 14px/1.15 'Playfair Display',serif;margin:2px 0 2px}.a .by{font-style:italic;font-size:9px;color:#555;margin-bottom:3px}.a{margin-bottom:13px}.a p{line-height:1.5;font-size:10.2px}
+.a.f p:first-letter{font:900 30px/.8 'Playfair Display';float:left;padding:2px 4px 0 0}
+.bx{border:2px solid #1a1814;padding:6px 8px;margin-bottom:9px;break-inside:avoid;text-align:left}.bx h4{font:900 10px 'Playfair Display';text-transform:uppercase;text-align:center;border-bottom:1px solid #1a1814;margin-bottom:4px;padding-bottom:2px;letter-spacing:.1em}.bx.d{border-style:dashed}.bx li{margin:0 0 4px 11px;font-size:9.8px}.bx{padding:9px 11px}`,
+ body:d=>`<div class=mh><h1>The ${e(last(d)||d.name)} Gazette</h1></div><div class=dl><span>Vol. XXV · No. 1</span><span>${e(d.email)} · ${e(d.phone)}</span><span>Extra Edition · Price: Hired</span></div><div class=hl>${e(d.title)}</div><div class=dk>${e(d.summary.split(". ")[0])}.</div><div class=cols>${d.jobs.map((j,i)=>`<div class="a ${i?"":"f"}"><div class=k>${e(j.co)}</div><h3>${e(j.role)}</h3><div class=by>${e(j.dates)} — ${e(j.loc)}</div><p>${e(j.text)}</p></div>`).join("")}<div class=bx><h4>By the Numbers</h4><ul>${d.skills.map((s,i)=>`<li>#${i+1} ${e(s[0])} (${s[1]}/5)</li>`).join("")}</ul></div><div class="bx d"><h4>Classifieds · Certified</h4><ul>${d.certs.map(c=>`<li>${e(c)}</li>`).join("")}</ul></div><div class=bx><h4>Education Briefs</h4><ul>${d.edu.map(x=>`<li>${e(x[0])}, ${e(x[2])} (${e(x[1])})</li>`).join("")}</ul></div><div class=bx><h4>Languages</h4><ul>${d.langs.map(x=>`<li>${e(x[0])} — ${e(x[1])}</li>`).join("")}</ul></div></div>`},
+
+/* 8 — DOSSIER */
+{id:"dossier",name:"Case File 001",tag:"Classified dossier",moods:["Light","Tech","Playful"],font:"Special+Elite&family=Courier+Prime:wght@400;700",
+ concept:"The candidate as a classified intelligence file: manila folder, typewriter text, red stamps, redaction bars, paper clips. Perfect for security and investigation roles.",
+ spec:`- Manila folder color (#d9c28f) page with a slightly lighter paper sheet (#f3ead2) inset, subtle shadow, and a tab at the top with the case number "CASE FILE 001".
+- Typewriter fonts: Special Elite for headings, Courier Prime for body (9px).
+- A rotated (-12deg) red (#c1272d) rubber stamp "CLASSIFIED — HIRE IMMEDIATELY" with a double border and distressed look (opacity .8, slight blur).
+- A photo-style placeholder box with the candidate's initials, a metal paper-clip drawn in CSS.
+- Fields styled as a form: "SUBJECT:", "ALIAS / ROLE:", "CONTACT CHANNEL:" with underline blanks.
+- Experience as "INCIDENT REPORTS #1-5": date/location header, "ASSIGNMENT", "FINDINGS" (the text).
+- Several decorative black redaction bars (██████) over placeholder fake text in a footer row, plus a 'DECLASSIFIED' stamp.
+- Skills as "CLEARANCE LEVELS" with stamped checkboxes.`,
+ css:`body{background:#d9c28f;font-family:'Courier Prime','Courier New',monospace;color:#1d1a14;font-size:8.9px;padding:26px}
+.tab{position:absolute;left:46px;top:8px;background:#d9c28f;border:1px solid #a8925c;border-bottom:0;padding:3px 18px;font:400 11px 'Special Elite';letter-spacing:.14em;border-radius:6px 6px 0 0}
+.pp{background:#f3ead2;height:100%;padding:26px 30px;box-shadow:0 4px 16px #0004;position:relative;overflow:hidden}
+.st{position:absolute;right:24px;top:36px;border:3px double #c1272d;color:#c1272d;font:400 15px 'Special Elite';padding:6px 10px;transform:rotate(-11deg);opacity:.82;text-align:center;line-height:1.1;z-index:2}
+.ph{position:absolute;right:42px;top:112px;width:78px;height:96px;background:#cfc3a3;border:1px solid #8a7d58;display:flex;align-items:center;justify-content:center;font:400 30px 'Special Elite';color:#7a6e4e;transform:rotate(3deg)}.ph:before{content:"";position:absolute;top:-10px;left:12px;width:14px;height:36px;border:2px solid #8a8a8a;border-radius:7px}
+h1{font:400 32px 'Special Elite';letter-spacing:.02em}.fl{margin:2px 0;font-size:9px}.fl b{display:inline-block;width:118px}
+.sm{margin:9px 0;padding:6px 0;border-top:1px solid #1d1a14;border-bottom:1px solid #1d1a14;line-height:1.5;width:80%}
+h3{font:400 12px 'Special Elite';background:#1d1a14;color:#f3ead2;display:inline-block;padding:1px 8px;letter-spacing:.12em;margin:8px 0 6px}
+.ic{margin-bottom:7px;line-height:1.42}.ic b{display:block;font-size:9.4px}.ic i{font-style:normal;color:#8a6d1a}
+.g{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}.ck{margin-bottom:4px}.ck:before{content:"☒ "}.li li{list-style:none;margin-bottom:3px}
+.rd{background:#1d1a14;color:#1d1a14;display:inline-block;height:8px;margin:2px 3px 0 0}`,
+ body:d=>`<div class=tab>CASE FILE 001</div><div class=pp style="margin-top:20px;height:1010px"><div class=st>CLASSIFIED<br>HIRE IMMEDIATELY</div><div class=ph>${e(ini(d))}</div><h1>${e(d.name)}</h1><div class=fl><b>SUBJECT:</b>${e(d.name)}</div><div class=fl><b>ALIAS / ROLE:</b>${e(d.title)}</div><div class=fl><b>CONTACT CHANNEL:</b>${e(d.email)} · ${e(d.phone)}</div><div class=sm>${e(d.summary)}</div><div class=g><div><h3>INCIDENT REPORTS</h3>${d.jobs.map((j,i)=>`<div class=ic><b>#${i+1} ${e(j.role)}</b><i>${e(j.co)} · ${e(j.dates)} · ${e(j.loc)}</i><br>${e(j.text)}</div>`).join("")}</div><div><h3>CLEARANCE LEVELS</h3>${d.skills.map(s=>`<div class=ck>${e(s[0])} <b>[${s[1]}/5]</b></div>`).join("")}<h3>COMMENDATIONS</h3><ul class=li>${d.certs.map(c=>`<li>★ ${e(c)}</li>`).join("")}</ul><h3>TRAINING</h3><ul class=li>${d.edu.map(x=>`<li>${e(x[0])} — ${e(x[2])}</li>`).join("")}${d.langs.map(x=>`<li>${e(x[0])}: ${e(x[1])}</li>`).join("")}</ul><div style="margin-top:12px"><span class=rd style="width:90px"></span><span class=rd style="width:40px"></span><br><span class=rd style="width:60px"></span><span class=rd style="width:100px"></span><br><span class=rd style="width:120px"></span></div></div></div></div>`},
+
+/* 9 — ZEN */
+{id:"zen",name:"Ink & Hanko",tag:"Japanese minimalism",moods:["Light","Minimal"],font:"Cormorant+Garamond:wght@300;400;600&family=Noto+Serif+JP:wght@300;600",
+ concept:"Quiet confidence. Warm washi paper, a single vermilion seal, vertical calligraphic accents and enormous breathing room. The anti-resume resume.",
+ spec:`- Warm washi paper background (#f7f3ea) with an ultra-subtle fibre texture (repeating-radial-gradient at 3% opacity).
+- Typography: Cormorant Garamond for everything (light 300 for names, 400 for body 10px), generous letter-spacing on small caps.
+- A single vermilion (#c8321f) hanko-style square seal with the person's initials in white, slightly imperfect (rotate 3deg, rough edge with box-shadow inset).
+- A vertical text element (writing-mode: vertical-rl) at the left margin containing the title in small caps, in grey, with a thin vertical line next to it.
+- A single thin horizontal ink-brush line (SVG path, 2px, tapered) under the name.
+- Max 60% of the page filled; wide margins (70px). Sections separated by space only — no boxes.
+- Skills as a poetic list (name — level in words: Mastery, Fluent, Practiced…).
+- Dates in italic, right-aligned in the margin column.`,
+ css:`body{background:#f7f3ea;color:#222;font-family:'Cormorant Garamond',Georgia,serif;font-size:10.6px;padding:56px 64px 40px 96px}
+.vt{position:absolute;left:44px;top:56px;writing-mode:vertical-rl;letter-spacing:.4em;color:#999;font-size:10px;text-transform:uppercase;border-right:1px solid #bbb;padding-right:10px;white-space:nowrap}
+.hk{position:absolute;right:60px;top:52px;width:54px;height:54px;background:#c8321f;color:#fff;font:600 22px 'Noto Serif JP',serif;display:flex;align-items:center;justify-content:center;transform:rotate(3deg);box-shadow:inset 0 0 0 2px #f7f3ea66,inset 0 0 8px #0006;border-radius:3px}
+h1{font-size:50px;font-weight:300;letter-spacing:.02em;line-height:1}h1 b{font-weight:600}
+.br{display:block;margin:6px 0 10px}.ct{color:#777;font-size:10px;letter-spacing:.06em}
+.sm{max-width:500px;line-height:1.55;margin:10px 0 16px;color:#444;font-size:10.6px}
+h3{font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:#c8321f;margin:14px 0 8px;font-weight:600}
+.j{display:grid;grid-template-columns:100px 1fr;gap:14px;margin-bottom:9px}.j i{color:#888;text-align:right;font-size:9.4px;padding-top:2px}.j b{font-size:11.6px;font-weight:600}.j div div{color:#777;font-size:9.6px}.j p{line-height:1.45;margin-top:1px;font-size:10px;color:#333}
+.g{display:grid;grid-template-columns:1fr 1.2fr;gap:30px}.g li{list-style:none;margin-bottom:3px;font-size:10px}.g em{color:#999;font-size:9px}`,
+ body:d=>{const w=["Practiced","Skilled","Fluent","Advanced","Mastery"];return`<div class=vt>${e(d.title)}</div><div class=hk>${e(ini(d))}</div><h1>${e(first(d))} <b>${e(last(d))}</b></h1><svg class=br width=300 height=8 viewBox="0 0 300 8"><path d="M0 4 C60 1,140 7,300 3 C140 6,60 5,0 4Z" fill="#222"/></svg><div class=ct>${e(d.email)} &nbsp;·&nbsp; ${e(d.phone)}</div><div class=sm>${e(d.summary)}</div><h3>Experience</h3>${J(d,j=>`<div class=j><i>${e(j.dates)}</i><div><b>${e(j.role)}</b><div>${e(j.co)}, ${e(j.loc)}</div><p>${e(j.text)}</p></div></div>`)}<div class=g><div><h3>Craft</h3><ul>${d.skills.map(s=>`<li>${e(s[0])} <em>— ${w[s[1]-1]}</em></li>`).join("")}</ul><h3>Study</h3><ul>${d.edu.map(x=>`<li>${e(x[0])} <em>— ${e(x[2])}, ${e(x[1])}</em></li>`).join("")}</ul><h3>Tongues</h3><ul>${d.langs.map(x=>`<li>${e(x[0])} <em>— ${e(x[1])}</em></li>`).join("")}</ul></div><div><h3>Recognition</h3><ul>${d.certs.map(c=>`<li>${e(c)}</li>`).join("")}</ul></div></div>`}},
+
+/* 10 — RPG */
+{id:"rpg",name:"Character Sheet",tag:"Your career as an RPG hero",moods:["Dark","Playful","Bold"],font:"Press+Start+2P&family=VT323",
+ concept:"The resume as a 16-bit RPG character screen: HP-style skill bars, a quest log of past jobs, achievements unlocked, and an inventory of languages.",
+ spec:`- Deep midnight-purple background (#1b1033) with a pixel-art starfield (tiny 2px squares, box-shadow trick).
+- Fonts: 'Press Start 2P' for headings (7-9px, uppercase), VT323 for body (13px). Image-rendering pixelated feel; no anti-aliasing smoothing on borders.
+- Windows with chunky 4px double borders (white outer, dark inner) and a title bar in a vivid color per panel (cyan #3ee0ff, yellow #ffd23f, pink #ff5fa2, green #7bff6b).
+- Header: pixel avatar made from CSS grid (a simple 8×8 hero sprite), name big, "CLASS: <title>", "LVL <years of experience>", plus HP / MP bars.
+- Skills = STAT BARS (segmented pixel bars, 10 segments) with a label; DFIR-style top skill gets a golden "MAX" tag.
+- Experience = QUEST LOG, each entry "★ QUEST COMPLETE" with date and "REWARD:" line.
+- Certifications = ACHIEVEMENTS UNLOCKED with trophy glyphs; languages = INVENTORY slots in a grid of square slots.
+- A blinking "PRESS START TO HIRE" at the bottom.`,
+ css:`body{background:#1b1033;color:#f1e9ff;font-family:VT323,monospace;font-size:13.5px;line-height:1.1;padding:26px 30px}
+body:before{content:"";position:absolute;left:0;top:0;width:2px;height:2px;background:#fff;box-shadow:40px 80px #fff,120px 30px #9ff,220px 140px #fff,330px 60px #ff9,450px 110px #fff,560px 40px #9ff,690px 90px #fff,760px 190px #fff,90px 300px #9ff,700px 420px #fff,30px 640px #ff9,760px 760px #fff,400px 900px #9ff,120px 980px #fff}
+.w{border:4px solid #f1e9ff;outline:4px solid #0d0720;outline-offset:-8px;background:#241549;margin-bottom:12px;position:relative}.w h4{font:400 8px 'Press Start 2P';padding:6px 9px;color:#0d0720;letter-spacing:.06em}.w>div{padding:8px 11px}
+.c1 h4{background:#3ee0ff}.c2 h4{background:#ffd23f}.c3 h4{background:#ff5fa2}.c4 h4{background:#7bff6b}
+.hd{display:flex;gap:14px;align-items:center}.av{display:grid;grid-template-columns:repeat(8,6px);grid-auto-rows:6px;border:3px solid #f1e9ff;padding:3px;background:#0d0720}.av i{display:block}
+h1{font:400 20px 'Press Start 2P';line-height:1.4;color:#ffd23f;text-shadow:3px 3px 0 #ff5fa2}.cl{font:400 8px 'Press Start 2P';color:#3ee0ff;margin:6px 0;line-height:1.7}
+.hp{display:flex;gap:6px;align-items:center;font:400 7px 'Press Start 2P';margin-top:4px}.hp u{display:block;height:8px;width:150px;background:#0d0720;border:2px solid #f1e9ff;text-decoration:none}.hp u i{display:block;height:100%;background:#7bff6b}
+.g{display:grid;grid-template-columns:1.5fr 1fr;gap:12px}.q{margin-bottom:8px;font-size:12.6px;line-height:1.15}.q b{color:#ffd23f;font-size:14px}.q span{color:#7bff6b}.q em{font-style:normal;color:#ff9fcd}
+.sb{display:flex;gap:2px;margin:2px 0 7px}.sb i{width:11px;height:9px;background:#0d0720}.sb i.o{background:#3ee0ff}.sb i.o:nth-child(n+8){background:#ff5fa2}
+.mx{font:400 6px 'Press Start 2P';background:#ffd23f;color:#0d0720;padding:2px 4px;margin-left:5px}.ac{font-size:12.6px;margin-bottom:3px}
+.inv{display:grid;grid-template-columns:1fr 1fr;gap:6px}.inv div{border:3px solid #f1e9ff;background:#0d0720;padding:6px;text-align:center;font-size:12px}.inv b{display:block;color:#7bff6b;font-size:14px}
+.st{text-align:center;font:400 9px 'Press Start 2P';color:#ffd23f;animation:bl 1s steps(2) infinite;margin-top:8px}@keyframes bl{50%{opacity:0}}`,
+ body:d=>{const spr=["0011110000111100","0111111001111110","0101101001011010","1111111111111111","1101101111011011","0111111001111110","0011110000111100","0100001001000010"];const sp=["0001111000","0011111100"];const A=["00111100","01111110","01011010","01111110","00111100","01111110","11111111","10100101"];const cols=["#0d0720","#ffd23f"];const yrs=Math.max(1,new Date().getFullYear()-2016);return`<div class="w c1"><h4>▶ PLAYER 1 — CHARACTER</h4><div class=hd><div class=av>${A.join("").split("").map(b=>`<i style="background:${b==="1"?"#ffd23f":"#0d0720"}"></i>`).join("")}</div><div><h1>${e(d.name)}</h1><div class=cl>CLASS: ${e(d.title)}<br>LVL ${yrs} · ✉ ${e(d.email)} · ☎ ${e(d.phone)}</div><div class=hp>HP <u><i style="width:100%"></i></u> MP <u><i style="width:85%;background:#3ee0ff"></i></u></div></div></div><div style="padding-top:0;font-size:12.4px">${e(d.summary)}</div></div><div class=g><div class="w c2"><h4>★ QUEST LOG</h4><div>${d.jobs.map(j=>`<div class=q><b>${e(j.role)}</b><br><span>${e(j.co)}</span> <em>[${e(j.dates)}] ${e(j.loc)}</em><br>${e(j.text)}<br><em>★ QUEST COMPLETE</em></div>`).join("")}</div></div><div><div class="w c1"><h4>⚔ STATS</h4><div>${d.skills.map(s=>`<div>${e(s[0])}${s[1]===5?'<span class=mx>MAX</span>':""}</div><div class=sb>${Array.from({length:10},(_,i)=>`<i class="${i<s[1]*2?"o":""}"></i>`).join("")}</div>`).join("")}</div></div><div class="w c3"><h4>🏆 ACHIEVEMENTS</h4><div>${d.certs.map(c=>`<div class=ac>🏆 ${e(c)}</div>`).join("")}</div></div></div></div><div class=g><div class="w c4"><h4>♦ INVENTORY</h4><div class=inv>${d.langs.map(x=>`<div><b>${e(x[0])}</b>${e(x[1])}</div>`).join("")}</div></div><div class="w c2"><h4>♜ TRAINING</h4><div>${d.edu.map(x=>`<div class=ac>▪ ${e(x[0])} — ${e(x[2])} <em style="color:#ff9fcd">(${e(x[1])})</em></div>`).join("")}</div></div></div><div class=st>PRESS START TO HIRE</div>`}}
+];
+
+/* ============ PROMPT BUILDER ============ */
+function dataBlock(d,blank){
+  if(blank)return `NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]`;
+  return `NAME: ${d.name}
+TITLE: ${d.title}
+EMAIL: ${d.email}   PHONE: ${d.phone}
+SUMMARY: ${d.summary}
+EXPERIENCE (newest first):
+${d.jobs.map(j=>`- ${j.role} at ${j.co}, ${j.dates}, ${j.loc}: ${j.text}`).join("\n")}
+SKILLS (level 1-5): ${d.skills.map(s=>`${s[0]} (${s[1]})`).join("; ")}
+CERTIFICATIONS: ${d.certs.join("; ")}
+EDUCATION: ${d.edu.map(x=>`${x[0]}, ${x[2]}, ${x[1]}`).join("; ")}
+LANGUAGES: ${d.langs.map(x=>`${x[0]} (${x[1]})`).join("; ")}`;
+}
+const ANIM={
+signal:`- Hero: name slides up and fades in, title wipes in from the left in red, summary fades after.
+- Each job card reveals on scroll (fade + 16px rise, 80ms stagger). The red section underline draws from left to right when its heading enters view.
+- Skill dots fill one by one, left to right, when the Skills block scrolls into view.
+- Sticky slim top bar that turns solid slate after you scroll past the hero; the active section's link gets a red underline.`,
+terminal:`- Boot sequence: lines "type" themselves out character by character (use CSS steps() or a tiny JS typewriter), each command prompt ($ whoami, $ cat summary.txt…) running as you scroll to it.
+- Block cursor blinks permanently at the end of the active line. Name has a slow neon-glow pulse.
+- Skill bars fill from 0 to their level with a frame-by-frame "loading" feel.
+- A clickable nav written as commands (cd ~/experience, cd ~/skills). Subtle CRT flicker every ~8s.`,
+brutal:`- Name slams in: each word scales from 0.6 to 1 with a bouncy overshoot, rotating into its final tilt.
+- The black "OPEN TO WORK" banner scrolls infinitely like a marquee, and reverses direction on scroll.
+- Cards pop in with a hard-shadow "stamp" effect (shadow grows from 0 to 6px) as they enter view; hover lifts the card and increases the shadow.
+- Cert stickers wobble slightly on hover. Cursor becomes a big yellow circle on desktop.`,
+aurora:`- The three blurred gradient blobs drift slowly and continuously (20s ease-in-out alternate loops), and shift with mouse movement (parallax).
+- Glass cards fade up with a slight blur-to-sharp transition on scroll. Timeline dots pulse with a soft glow.
+- Gradient progress bars grow from 0 when visible. Hover on a card tilts it 3D toward the cursor and brightens its border.`,
+swiss:`- A minimal, precise motion language: the red bar grows across the top on load, the giant name lines slide in from the left with a mask-reveal (overflow hidden + translateY).
+- Section index numerals count up (00→01…) as sections enter view. Rules draw from left to right.
+- Skill squares fill in sequence. Everything uses one easing curve (cubic-bezier(.2,.7,.2,1)). No bounce, no decoration.`,
+blueprint:`- Lines draw themselves: borders and dimension lines animate with stroke-dashoffset (SVG) or scaleX from 0 as if being drafted.
+- Detail boxes appear one at a time with a short "plotter" delay; the handwritten note types in last.
+- Measurement bars fill with tick marks lighting up. On hover, a crosshair follows the cursor and shows live X/Y coordinates in the corner.`,
+synth:`- The perspective grid scrolls toward the viewer forever (animate background-position). The striped sun slowly pulses and sinks slightly as you scroll (parallax).
+- Name flickers on like a neon sign (a few quick opacity flickers, then steady glow).
+- Panels slide in from alternating sides with a glow burst. Skill segments light up in sequence, pink and cyan alternating.
+- Subtle stars twinkle in the sky.`,
+gazette:`- Page load: the masthead "prints" in with a slight ink-spread (opacity + letter-spacing from wide to normal).
+- Articles fade in column by column as you scroll, drop caps animate in. Section boxes slide in like clippings.
+- Hover on an article highlights it with a soft yellow marker sweep. A small "STOP PRESS" ticker scrolls across a thin bar under the masthead.`,
+dossier:`- A "CLASSIFIED" stamp slams onto the page (scale 3 → 1 with a small screen shake) shortly after load.
+- Black redaction bars sit over a few lines and slide away on hover or click to reveal the real text.
+- Incident reports appear one by one like pages being dealt onto a desk, with a slight random rotation that settles to straight. Paper clip wiggles on hover.`,
+zen:`- Very slow, calm motion: elements fade in over 1.2s with a 12px rise, long staggers (150ms).
+- The brush line under the name draws itself from left to right; the red hanko seal presses in (scale 1.4 → 1, opacity 0 → 1) last.
+- Text sections reveal as you scroll. The vertical title slowly fades in. Respect reduced-motion strictly — here stillness is the aesthetic.`,
+rpg:`- Boot screen: "PRESS START" blinks; on click/scroll the character screen assembles window by window with a pixel-wipe.
+- Pixel avatar idles (2-frame bob, steps(2)). HP and MP bars fill; each stat bar fills segment by segment with a short blip-style delay.
+- Quest log entries stamp "QUEST COMPLETE" as they enter view. Achievements pop in with a gold flash. Optional: arrow keys navigate between windows.`
+};
+
+function promptFor(t,blank){
+  return `You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "${t.name}" — ${t.tag}
+${t.concept}
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+${t.spec}
+
+ANIMATION & INTERACTION
+${ANIM[t.id]}
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+${dataBlock(D,blank)}
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.`;
+}
+
+/* shared animation layer for the live previews */
+const FXBASE=`@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@keyframes fd{from{opacity:0}to{opacity:1}}@keyframes sx{from{transform:scaleX(0)}}.j,.gl,.dt,.pn,.a,.ic,.w,.c,.k,.bx,.sm,.sk,.mh,.hl,.dk,.h,.hd{animation:up .8s cubic-bezier(.2,.7,.2,1) both}:nth-child(2){animation-delay:.12s}:nth-child(3){animation-delay:.24s}:nth-child(4){animation-delay:.36s}:nth-child(5){animation-delay:.48s}:nth-child(6){animation-delay:.6s}:nth-child(7){animation-delay:.72s}@media(prefers-reduced-motion:reduce){*{animation:none!important}}`;
+const FX={
+terminal:`@keyframes gl{50%{text-shadow:0 0 28px #39ff7a}}h1{animation:gl 2.6s infinite}`,
+brutal:`.bn{animation:mq 10s linear infinite}@keyframes mq{to{text-indent:-520px}}h1 span{animation:pop .7s .3s cubic-bezier(.3,1.6,.5,1) both}@keyframes pop{from{opacity:0;transform:rotate(-1.5deg) scale(.5)}to{opacity:1;transform:rotate(-1.5deg) scale(1)}}`,
+aurora:`.o{animation:dr 14s ease-in-out infinite alternate}.o2{animation-duration:18s}.o3{animation-duration:22s}@keyframes dr{to{transform:translate(90px,60px) scale(1.2)}}.bar i{transform-origin:left;animation:sx 1.4s .5s both}.gl.j:before{animation:pl 2s infinite}@keyframes pl{50%{box-shadow:0 0 22px #22d3ee}}`,
+swiss:`.bar{transform-origin:left;animation:sx 1s both}h1{animation:up 1s .15s both}.sq i{animation:fd .3s both}${[1,2,3,4,5].map(i=>`.sq i:nth-child(${i}){animation-delay:${1+i*.12}s}`).join("")}.j i{animation:fd 1.4s .4s both}`,
+blueprint:`.note{animation:fd 1s 1.8s both}.sc div i{transform-origin:left;animation:sx 1.4s .6s both}.dt{animation-duration:1s}.dm:before,.dm:after{transform-origin:left;animation:sx 1.2s both}`,
+synth:`.gr{animation:gs 1.1s linear infinite}@keyframes gs{to{background-position:0 34px,50px 0}}.sun{animation:sp 4s ease-in-out infinite alternate}@keyframes sp{to{transform:scale(1.07)}}h1{animation:fl 3s both}@keyframes fl{0%,18%,22%,62%,100%{opacity:1}20%,60%{opacity:.35}}.sg i.o{animation:fd .3s both}${[1,2,3,4,5].map(i=>`.sg i:nth-child(${i}){animation-delay:${.8+i*.15}s}`).join("")}`,
+gazette:`.mh h1{animation:ink 1.4s both}@keyframes ink{from{opacity:0;letter-spacing:.2em}to{opacity:1}}`,
+dossier:`.st{animation:sl .45s 1.1s cubic-bezier(.2,.8,.2,1) both}@keyframes sl{from{opacity:0;transform:rotate(-11deg) scale(3)}to{opacity:.82;transform:rotate(-11deg) scale(1)}}.ph{animation:fd 1s .6s both}`,
+zen:`.br{transform-origin:left;animation:sx 1.4s .4s both}.hk{animation:hk 1s 1.2s both}@keyframes hk{from{opacity:0;transform:rotate(3deg) scale(1.5)}to{opacity:1;transform:rotate(3deg) scale(1)}}.vt{animation:fd 2s both}.j{animation-duration:1.2s}`,
+rpg:`.av{animation:bob 1s steps(2) infinite}@keyframes bob{50%{transform:translateY(-3px)}}.hp u i{transform-origin:left;animation:sx 2s .4s both}.sb i.o{animation:fd .1s both}${Array.from({length:10},(_,i)=>`.sb i:nth-child(${i+1}){animation-delay:${1+i*.09}s}`).join("")}`
+};
+
+/* ============ POWER PROMPTS ============ */
+const PP=[
+ ["ATS-Safe Rewrite","Keep the art for humans, send this version to the bots.",`Rewrite my resume to pass Applicant Tracking Systems: single column, standard headings (Summary, Experience, Education, Skills), no tables/icons/images, reverse-chronological, every bullet = strong verb + what I did + a metric. Mirror the keywords from the job posting naturally; never stuff.\n\nJob posting: [PASTE]\nMy resume: [PASTE]`],
+ ["Tailor to a Job Posting","Same you, aimed precisely at one role.",`Act as a senior recruiter. 1) List the top 10 keywords/skills in the posting. 2) Rewrite my summary and bullets to match without inventing experience. 3) Flag real gaps and suggest honest ways to address them. 4) Output the final resume in Markdown.\n\nJob posting: [PASTE]\nMy resume: [PASTE]`],
+ ["Duties → Achievements","Turn 'responsible for' into 'increased / reduced / shipped'.",`Rewrite these duties as achievement bullets: Action verb + what I did + measurable result. Give 3 versions each (concise, detailed, senior-level). If a number is missing, use [X%] placeholders for me to fill — never invent figures.\n\nRole: [TITLE at COMPANY]\nDuties: [PASTE]`],
+ ["Summary Generator","Five tones, zero clichés.",`Write 5 resume summaries (2-3 sentences each): confident, friendly, metrics-led, career-changer, senior-leader. Ban clichés like "hard-working" and "team player". Include my role, years of experience and top strength.\n\nMy background: [PASTE]`],
+ ["Cover Letter","250 words that sound like a human.",`Write a 250-word cover letter for [JOB TITLE] at [COMPANY]: a hook tied to the company, 2 achievements that prove fit, a clear next step. Warm, confident, specific. Never open with "I am writing to apply".\n\nJob posting: [PASTE]\nMy resume: [PASTE]`],
+ ["LinkedIn Rewrite","Be found by recruiters, not just seen.",`Rewrite my LinkedIn: a 220-character keyword-rich headline, a first-person About section (3 short paragraphs ending in a call to action), and 5 optimized experience bullets for [TARGET ROLE].\n\nCurrent profile: [PASTE]`],
+ ["Interview Prep","Predict the questions. Prepare the stories.",`From my resume and the job posting, predict the 12 most likely interview questions (behavioral, technical, curveballs). For each give a STAR answer outline built from my real experience, plus one likely follow-up.\n\nResume: [PASTE]\nJob posting: [PASTE]`],
+ ["Make It Even Wilder","Use after any design prompt to push it further.",`Take the resume you just built and push the art direction 30% further: add one signature interaction or visual flourish that fits the concept (a subtle animation on screen that is disabled in print, a clever detail, a surprising layout moment). Keep it one page and print-safe. Output the full updated code.`]
+];
+
+/* ============ FULL WEBSITES ============ */
+const SITES=[
+ ["professional","Clean Professional","Safe for any industry — dark mode + 5 accent colors",["Professional","Light"]],
+ ["terminal-os","Root Shell","Boots like a computer; visitors type commands",["Tech","Dark","Interactive"]],
+ ["synthwave","Neon Grid '85","Outrun sunset, scrolling neon grid",["Dark","Bold","Playful"]],
+ ["arcade-rpg","Character Sheet","16-bit RPG: quests, stats, achievements",["Dark","Playful","Interactive"]],
+ ["aurora-glass","Aurora Glass","Glass cards over a living aurora",["Dark","Modern"]],
+ ["swiss-kinetic","Swiss Kinetic","Giant kinetic type, one red, press G for grid",["Light","Bold","Minimal"]],
+ ["blueprint","Blueprint","Self-drawing technical drawing",["Dark","Tech"]],
+ ["film-credits","Opening Night","Cinematic title card + end credits",["Dark","Cinematic"]],
+ ["cosmos","Orbit","Your career as a journey through space",["Dark","Playful"]],
+ ["gazette","The Daily Career","You on the front page of a newspaper",["Light","Playful"]],
+ ["brutalist","Loud & Proud","Neo-brutalist poster, marquees, confetti",["Light","Bold","Playful"]],
+ ["dossier","Case File 001","Classified dossier with redactions to reveal",["Light","Tech","Interactive"]],
+ ["zen","Ink & Hanko","Calm ink-brush Japanese minimalism",["Light","Minimal"]],
+ ["workhorse","Workhorse","Retail, warehouse, trades: huge tap-to-call, 6-second readable",["Professional","Bold"]],
+ ["receipt","Thermal Receipt","Prints itself line by line like a store receipt",["Dark","Playful"]],
+ ["trading-card","Collector Card","Holographic tilt card + a deck of job cards",["Dark","Playful","Interactive"]],
+ ["magazine","Cover Story","Fashion magazine cover and feature spread",["Light","Bold"]],
+ ["streaming","Now Streaming","Streaming-home look: your jobs are episodes",["Dark","Cinematic","Interactive"]],
+ ["transit-map","Career Line","Subway map that draws itself as you scroll",["Light","Interactive"]],
+ ["messages","Let's Chat","Your resume as a text conversation",["Light","Playful","Interactive"]],
+ ["spreadsheet","Sheet1","Resume as a spreadsheet with data bars",["Light","Tech","Interactive"]],
+ ["vitals","Vitals","Patient-monitor look with a live ECG, for nursing and care",["Dark","Professional"]],
+ ["boarding-pass","Boarding Pass","Every job is a boarding pass; a plane flies down the page",["Light","Playful"]],
+ ["now-playing","Now Playing","Music player: jobs are tracks, skills are an equalizer",["Dark","Playful","Interactive"]],
+ ["menu","Chef's Menu","Fine-dining menu; jobs are dishes with tenure as the price",["Light","Minimal"]],
+ ["notebook","Notebook","Handwritten notebook with doodles, tape and highlighter",["Light","Playful"]],
+ ["ticker","Market Open","Stock-terminal chart of your career, for sales and finance",["Dark","Tech","Interactive"]],
+ ["work-order","Work Order","Stamped carbon-copy job ticket for the trades",["Light","Bold"]],
+ ["desktop95","Desktop 95","Retro desktop with draggable windows",["Light","Playful","Interactive"]]
+];
+const DATAPROMPT=`Convert my resume into a JavaScript object named DATA using EXACTLY this schema, and output ONLY the code block. Keep my wording, do not invent anything, and leave out fields I don't have. Skill levels are 1-5 (estimate honestly from my resume).
+
+const DATA = {
+ name:"", title:"", summary:"",
+ email:"", phone:"",
+ jobs:[{role:"",co:"",dates:"",loc:"",text:""}],
+ skills:[["Skill name",4]],
+ certs:["Certification (year)"],
+ edu:[["Degree","dates","School"]],
+ langs:[["Language","Level"]]
+};
+
+Tips: "title" is one headline line, "summary" is 2-3 punchy sentences, each job "text" is 1-3 sentences with results and numbers where I gave them.
+
+MY RESUME:
+[PASTE YOUR RESUME TEXT HERE]`;
+const $=id=>document.getElementById(id);
+let wmood="All";
+const wmoods=["All",...new Set(SITES.flatMap(s=>s[3]))];
+$("wchips").innerHTML=wmoods.map(m=>`<button class="chip${m==="All"?" on":""}" data-w="${m}">${m}</button>`).join("");
+$("wchips").onclick=ev=>{if(ev.target.dataset.w){wmood=ev.target.dataset.w;document.querySelectorAll("#wchips .chip").forEach(x=>x.classList.toggle("on",x.dataset.w===wmood));renderSites()}};
+function renderSites(){
+  const mine=D!==SAMPLE;
+  $("wstat").innerHTML=mine?`<span class=ok>✓ Using YOUR details: <b>${hesc(D.name)}</b></span> <button class="btn ghost" onclick="openEd()">Edit</button> <button class="btn ghost" onclick="resetEd()">Back to sample</button>`:`<span>Previews show sample content. <b>Paste your own details</b> and every Open / Download button below gives you that site already filled in.</span> <button class="btn" onclick="openEd()">✎ Use my details</button>`;
+  $("wgrid").innerHTML=SITES.filter(s=>wmood==="All"||s[3].includes(wmood)).map(s=>`<div class=wcard><div class=wthumb><iframe loading=lazy tabindex=-1 src="sites/${s[0]}.html"></iframe></div><div class=info><h3>${s[1]}</h3><p>${s[2]}</p><div class=tags>${s[3].map(m=>`<i>${m}</i>`).join("")}</div><div class=row><button class="btn" onclick="siteOpen('${s[0]}')">Open${mine?" mine":""} ↗</button><button class="btn ghost" onclick="siteDl('${s[0]}')">⬇ Download${mine?" mine":""}</button></div></div></div>`).join("");
+  requestAnimationFrame(fit);
+}
+
+let mood="All",cur=null;
+const moods=["All",...new Set(T.flatMap(t=>t.moods))];
+$("chips").innerHTML=moods.map(m=>`<button class="chip${m==="All"?" on":""}" data-m="${m}">${m}</button>`).join("");
+$("chips").onclick=ev=>{if(ev.target.dataset.m){mood=ev.target.dataset.m;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x.dataset.m===mood));render()}};
+$("q").oninput=render;
+
+function thumb(t){return `<div class=thumb data-t="${t.id}"><iframe loading=lazy tabindex=-1 srcdoc="${doc2(t).replace(/&/g,"&amp;").replace(/"/g,"&quot;")}"></iframe></div>`}
+function doc2(t){return doc(D,t.css+FXBASE+(FX[t.id]||""),t.body(D),t.font)}
+function fit(){document.querySelectorAll(".thumb").forEach(el=>{const f=el.firstElementChild;if(f)f.style.transform=`scale(${el.clientWidth/816})`});document.querySelectorAll(".wthumb").forEach(el=>{const f=el.firstElementChild;if(f)f.style.transform=`scale(${el.clientWidth/1440})`})}
+addEventListener("resize",fit);
+
+function render(){
+  const q=$("q").value.toLowerCase();
+  const list=T.filter(t=>(mood==="All"||t.moods.includes(mood))&&(t.name+t.tag+t.concept).toLowerCase().includes(q));
+  $("grid").innerHTML=list.map(t=>`<div class=card onclick="openM('${t.id}')">${thumb(t)}<div class=info><h3>${t.name}</h3><small>${t.tag}</small><div class=tags>${t.moods.map(m=>`<i>${m}</i>`).join("")}</div><div class=row><button class="btn ghost" onclick="event.stopPropagation();openM('${t.id}')">View</button><button class=btn onclick="event.stopPropagation();copyT('${t.id}')">Copy prompt</button></div></div></div>`).join("")||"<p style='color:var(--mute)'>No designs match.</p>";
+  $("fan").innerHTML=["swiss","aurora","terminal"].map(id=>thumb(T.find(t=>t.id===id))).join("");
+  requestAnimationFrame(fit);
+}
+$("pp").innerHTML=PP.map((p,i)=>`<div><h4>${p[0]}</h4><p>${p[1]}</p><button class="btn ghost" onclick="copyText(PP[${i}][2])">Copy prompt</button></div>`).join("");
+
+async function copyText(s){
+  try{await navigator.clipboard.writeText(s)}catch{const t=document.createElement("textarea");t.value=s;document.body.append(t);t.select();document.execCommand("copy");t.remove()}
+  copyText.toast("Copied!");
+}
+copyText.toast=msg=>{const x=$("toast");x.textContent=msg;x.classList.add("show");clearTimeout(copyText.t);copyText.t=setTimeout(()=>x.classList.remove("show"),1800)};
+const byId=id=>T.find(t=>t.id===id);
+function copyT(id,blank){copyText(promptFor(byId(id),blank))}
+function openM(id){
+  const t=byId(id);cur=t;
+  $("mt").textContent=t.name;$("md").textContent=t.tag;$("mp").textContent=promptFor(t);
+  $("mthumb").outerHTML=thumb(t).replace("class=thumb",'class=thumb id=mthumb');
+  $("mc").onclick=()=>copyT(id);$("mb").onclick=()=>copyT(id,true);
+  $("mdl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([doc2(t)],{type:"text/html"}));a.download=`${(D.name||"resume").replace(/\s+/g,"-")}-${t.id}.html`;a.click()};
+  $("mo").onclick=()=>window.open(URL.createObjectURL(new Blob([doc2(t)],{type:"text/html"})),"_blank");
+  $("modal").classList.add("show");requestAnimationFrame(fit);
+}
+function closeM(){$("modal").classList.remove("show")}
+function openEd(){$("edt").value=JSON.stringify(D,null,2);$("err").textContent="";$("edm").classList.add("show")}
+function closeEd(){$("edm").classList.remove("show")}
+function parseDetails(txt){
+  txt=txt.trim().replace(/^```\w*\s*|```$/g,"").trim().replace(/^(const|let|var)\s+DATA\s*=\s*/,"").replace(/;\s*$/,"");
+  try{return JSON.parse(txt)}catch{ return (new Function("return ("+txt+")"))() }   /* accepts the AI's JS-object output too */
+}
+function applyEd(){try{
+  const o=parseDetails($("edt").value);
+  for(const k of ["name","jobs","skills","certs","edu","langs"])if(o[k]==null)throw Error("Missing field: "+k);
+  o.title=o.title||"";o.summary=o.summary||"";o.email=o.email||"";o.phone=o.phone||"";
+  if(!Array.isArray(o.jobs)||!Array.isArray(o.skills)||!Array.isArray(o.certs)||!Array.isArray(o.edu)||!Array.isArray(o.langs))throw Error("jobs, skills, certs, edu and langs must be lists [ ].");
+  D=o;try{localStorage.setItem("resumeai.data",JSON.stringify(o))}catch{}closeEd();render();renderSites();copyText.toast("Your details are applied to every site");
+}catch(x){$("err").textContent="⚠ "+x.message}}
+function resetEd(){D=SAMPLE;try{localStorage.removeItem("resumeai.data")}catch{}$("edt").value=JSON.stringify(D,null,2);render();renderSites()}
+
+/* ---- personalize a full website with the user's details ---- */
+const hesc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+function personalize(id){
+  let h=(window.SITES_SRC||{})[id];if(!h)return null;
+  if(D===SAMPLE)return h;
+  const json=JSON.stringify(D,null,1).replace(/</g,"\\u003c");
+  h=h.replace(/const DATA = \{[\s\S]*?\n\};/,()=>"const DATA = "+json+";");
+  const i=h.search(/<body/i);let head=h.slice(0,i);const rest=h.slice(i);
+  for(const k of ["name","title"]){const a=SAMPLE[k];const b=hesc(D[k]||"");head=head.split(a).join(b).split(a.replace(/&/g,"&amp;")).join(b)}
+  return head+rest;
+}
+function siteOpen(id){const h=personalize(id);if(!h){location.href="sites/"+id+".html";return}window.open(URL.createObjectURL(new Blob([h],{type:"text/html"})),"_blank")}
+function siteDl(id){const h=personalize(id);if(!h){location.href="sites/"+id+".html";return}const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([h],{type:"text/html"}));a.download=`${(D.name||"resume").trim().replace(/\s+/g,"-")}-${id}.html`;a.click()}
+addEventListener("keydown",ev=>{if(ev.key==="Escape"){closeM();closeEd()}});
+
+/* direct render for testing / deep links: index.html#render=terminal */
+const m=location.hash.match(/render=(\w+)/);
+if(m&&byId(m[1])){location.replace(URL.createObjectURL(new Blob([doc2(byId(m[1]))],{type:"text/html"})))}else{render();renderSites()}
+</script>
+</body>
+</html>

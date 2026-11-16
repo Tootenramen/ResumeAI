@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resume</title>
+<meta name="description" content="Resume">
+<meta name="theme-color" content="#f1e9d3">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Resume">
+<meta property="og:description" content="Resume">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Resume">
+<meta name="twitter:description" content="Resume">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23f1e9d3'/%3E%3Crect x='6' y='6' width='52' height='52' fill='none' stroke='%231a1612' stroke-width='3'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-weight='900' font-size='40' text-anchor='middle' fill='%231a1612'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4edda; --desk:#cdc3aa; --ink:#1a1612; --mute:#4a4136; --red:#a3201a; --rule:#1a1612; --hl:#ffe36a;
+  --disp:"Playfair Display","Didot","Bodoni MT",Georgia,"Times New Roman",serif; --text:"Libre Baskerville",Baskerville,Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:60px}
+body{background:var(--desk);color:var(--ink);font-family:var(--text);font-size:1rem;line-height:1.7;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.sheet{position:relative;max-width:1240px;margin:clamp(0px,2vw,28px) auto;background:var(--paper);box-shadow:0 20px 60px rgba(40,30,10,.35);padding:clamp(14px,3vw,38px);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .15 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse at 50% 0,rgba(255,255,255,.4),transparent 60%),radial-gradient(ellipse at 50% 100%,rgba(120,80,20,.14),transparent 55%)}
+.sheet::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:60px;margin-left:-30px;background:linear-gradient(90deg,transparent,rgba(90,60,20,.06) 48%,rgba(255,255,255,.25) 52%,transparent);pointer-events:none}
+
+/* masthead */
+.strip{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--rule);padding-bottom:6px;color:var(--mute)}
+.mastrow{display:grid;grid-template-columns:150px 1fr 150px;gap:18px;align-items:center;padding:14px 0 10px}
+.ear{border:1px solid var(--rule);padding:8px 10px;text-align:center;font-size:.68rem;line-height:1.4;letter-spacing:.06em;text-transform:uppercase;font-family:var(--text)}
+.ear b{display:block;font-family:var(--disp);font-size:1.5rem;letter-spacing:0;line-height:1.1}
+h1.mast{font-family:var(--disp);font-weight:900;font-size:clamp(2.4rem,8.4vw,6.6rem);line-height:.95;text-align:center;text-transform:uppercase;letter-spacing:.01em}
+h1.mast .w{display:inline-block;white-space:nowrap}
+h1.mast .ch{display:inline-block;animation:ink 1.7s cubic-bezier(.3,.7,.2,1) both;animation-delay:calc(var(--i)*.07s + .15s);text-shadow:0 0 1px rgba(26,22,18,.6)}
+@keyframes ink{0%{opacity:0;filter:blur(14px);transform:scale(1.35)}55%{opacity:.95;filter:blur(3px)}100%{opacity:1;filter:blur(0);transform:none}}
+.dbl{border-top:4px solid var(--rule);border-bottom:1px solid var(--rule);height:9px;margin:4px 0}
+.dateline{display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;padding:7px 0;border-bottom:1px solid var(--rule);font-weight:700}
+.ticker{display:flex;align-items:stretch;background:var(--ink);color:var(--paper);margin:12px 0 0;overflow:hidden;font-size:.82rem}
+.ticker .lab{flex:none;background:var(--red);color:#fff;font-weight:700;letter-spacing:.18em;padding:8px 14px;z-index:1;font-size:.74rem;display:flex;align-items:center}
+.ticker .vp{overflow:hidden;flex:1;display:flex;align-items:center}
+.ticker .tr{display:flex;flex:none;white-space:nowrap;animation:tick 70s linear infinite}
+.ticker:hover .tr{animation-play-state:paused}
+.ticker span{padding:0 22px;letter-spacing:.05em}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+nav.sec{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule);border-top:1px solid var(--rule);margin-top:12px;box-shadow:0 6px 10px -8px rgba(0,0,0,.4)}
+nav.sec ul{list-style:none;display:flex;justify-content:center;overflow-x:auto;scrollbar-width:none}
+nav.sec ul::-webkit-scrollbar{display:none}
+nav.sec a{display:block;white-space:nowrap;text-decoration:none;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:0 16px;line-height:44px;min-height:44px;position:relative}
+nav.sec a::after{content:"";position:absolute;left:16px;right:16px;bottom:8px;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s}
+nav.sec a:hover::after,nav.sec a.on::after{transform:scaleX(1)}
+
+/* front page */
+.front{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:0 clamp(18px,3vw,36px);padding:26px 0}
+.kick{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:8px}
+h2.hl{font-family:var(--disp);font-weight:900;font-size:clamp(2.2rem,6vw,5rem);line-height:1.02;letter-spacing:-.01em;overflow-wrap:break-word;hyphens:auto}
+.mk{background:linear-gradient(transparent 58%,var(--hl) 58% 92%,transparent 92%) no-repeat;background-size:0% 100%;transition:background-size .55s cubic-bezier(.6,0,.2,1);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mk:hover,a.mk:focus-visible,.in .mk.auto,html.static .mk.auto{background-size:100% 100%}
+.sub{font-family:var(--disp);font-style:italic;font-size:clamp(1.2rem,2.6vw,1.8rem);line-height:1.3;margin-top:.7rem;color:var(--mute)}
+.by{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:6px 0;margin:1.1rem 0 1.2rem;display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between}
+.body2{column-count:2;column-gap:28px;column-rule:1px solid var(--rule);text-align:left;font-size:1.06rem;line-height:1.75}
+.body2 p::first-letter,.dc::first-letter{font-family:var(--disp);font-weight:900;float:left;font-size:4.4em;line-height:.78;padding:.06em .1em 0 0;color:var(--ink)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.4rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;font-family:var(--text);font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;transition:background .25s,color .25s,transform .25s;box-shadow:3px 3px 0 var(--red)}
+.btn.alt{background:transparent;color:var(--ink)}
+.btn:hover{background:var(--red);border-color:var(--red);color:#fff;transform:translate(-1px,-1px)}
+.side{border-left:1px solid var(--rule);padding-left:clamp(14px,2.4vw,30px)}
+.fig{border:1px solid var(--rule);padding:6px;margin-bottom:22px;background:rgba(255,255,255,.25)}
+.halft{aspect-ratio:4/3;position:relative;display:grid;place-items:center;overflow:hidden;background:#d8cfb6;background-image:radial-gradient(circle,rgba(26,22,18,.85) 1.4px,transparent 1.8px);background-size:6px 6px}
+.halft::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,var(--paper) 18%,transparent 70%)}
+.halft b{position:relative;font-family:var(--disp);font-weight:900;font-size:clamp(3.5rem,9vw,5.5rem);letter-spacing:.04em;color:var(--ink);padding-left:.04em}
+.fig figcaption{font-size:.7rem;font-style:italic;color:var(--mute);margin-top:5px;line-height:1.4}
+.front{position:relative}.stamp{position:absolute;left:28%;bottom:30px;border:4px double var(--red);color:var(--red);font-family:var(--disp);font-weight:900;letter-spacing:.14em;padding:6px 14px;font-size:clamp(1.1rem,2.6vw,1.9rem);transform:rotate(-12deg);opacity:.88;mix-blend-mode:multiply;animation:stamp .5s 1.9s cubic-bezier(.2,1.6,.4,1) both;pointer-events:none;z-index:3}
+@keyframes stamp{from{opacity:0;transform:rotate(-24deg) scale(2.6)}to{opacity:.88;transform:rotate(-12deg) scale(1)}}
+.numbers{border:3px double var(--rule);padding:16px 16px 6px;background:rgba(255,255,255,.2)}
+.numbers h3,.cls h3{font-family:var(--disp);font-weight:900;text-transform:uppercase;letter-spacing:.08em;text-align:center;font-size:1.25rem;border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:6px}
+.num{display:grid;grid-template-columns:64px 1fr;gap:0 12px;align-items:center;padding:10px 0;border-bottom:1px dotted var(--mute)}
+.num:last-child{border-bottom:0}
+.num .big{font-family:var(--disp);font-weight:900;font-size:3rem;line-height:1;text-align:center}
+.num .big small{font-size:.9rem;font-weight:700;color:var(--mute)}
+.num .lb{font-size:.82rem;line-height:1.35;font-weight:700}
+.bars{display:flex;gap:3px;margin-top:6px}
+.bars i{height:7px;flex:1;border:1px solid var(--ink);transform-origin:left;transition:transform .6s cubic-bezier(.6,0,.2,1);transition-delay:calc(var(--k)*.12s + .3s)}
+.bars i.on{background:var(--ink)}
+.rv .bars i{transform:scaleX(0)}.rv.in .bars i,html.static .rv .bars i{transform:none}
+
+section{padding:clamp(24px,4vw,44px) 0 0}
+.sech{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.sech::before,.sech::after{content:"";flex:1;border-top:3px double var(--rule)}
+.sech h2{font-family:var(--disp);font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(1.15rem,3vw,1.9rem);text-align:center}
+.disp{column-gap:34px;column-rule:1px solid var(--rule);column-count:3}
+.disp.c1{column-count:1;max-width:46rem;margin-inline:auto}.disp.c2{column-count:2}
+.art{break-inside:avoid;padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid var(--rule);display:block}
+.art:last-child{border-bottom:0;margin-bottom:0}
+.art .kick{margin-bottom:4px}
+.art h3{font-family:var(--disp);font-weight:700;font-size:1.5rem;line-height:1.15}
+.art .co{font-style:italic;font-size:.9rem;margin:.35rem 0;color:var(--mute)}
+.art p{font-size:.93rem}
+.art.lead p::first-letter{font-family:var(--disp);font-weight:900;float:left;font-size:4em;line-height:.78;padding:.06em .1em 0 0}
+.tri{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 clamp(18px,3vw,34px)}
+.tri>div{padding:0 clamp(0px,1vw,10px)}
+.tri>div+div{border-left:1px solid var(--rule);padding-left:clamp(18px,2.4vw,30px)}
+.cls{border:1px solid var(--rule);padding:12px 14px;background:rgba(255,255,255,.2)}
+.cls ul{list-style:none;font-size:.8rem;line-height:1.45}
+.cls li{padding:7px 0;border-bottom:1px dashed var(--mute);transition:background .2s}
+.cls li:last-child{border-bottom:0}
+.cls li b{text-transform:uppercase;letter-spacing:.06em;margin-right:4px}
+.cls li:hover{background:rgba(255,227,106,.45)}
+.tri h3.t{font-family:var(--disp);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:1.15rem;border-bottom:2px solid var(--rule);padding-bottom:6px;margin-bottom:6px}
+.ed{padding:10px 0;border-bottom:1px dotted var(--mute)}
+.ed b{font-family:var(--disp);font-size:1.2rem;display:block;line-height:1.2}
+.ed span{display:block;font-size:.85rem;color:var(--mute)}
+.ed em{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-style:normal;font-weight:700}
+.letters{text-align:center;padding:30px 0 6px;margin-top:34px;border-top:4px solid var(--rule)}
+.letters h2{font-family:var(--disp);font-weight:900;font-size:clamp(1.6rem,4.6vw,3.2rem);line-height:1.1}
+.letters p{max-width:34em;margin:.6rem auto 0;color:var(--mute);font-size:.95rem}
+.letters .btns{justify-content:center}
+.foot{text-align:center;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:26px;border-top:1px solid var(--rule);padding-top:10px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in,html.static .rv{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  .mastrow{grid-template-columns:1fr}.ear{display:none}
+  .front{grid-template-columns:1fr}.side{border-left:0;padding:24px 0 0}
+  .disp{column-count:2}.tri{grid-template-columns:1fr 1fr}.tri>div:first-child{grid-column:1/-1;margin-bottom:22px}.tri>div:nth-child(2){border-left:0;padding-left:0}
+}
+@media(max-width:680px){
+  .sheet{padding:12px}
+  .body2,.disp,.disp.c2{column-count:1}
+  .tri{grid-template-columns:1fr}.tri>div+div{border-left:0;padding-left:0;margin-top:22px}
+  .stamp{top:auto;bottom:auto;position:relative;display:inline-block;right:auto;margin:14px 0 0;animation-name:stamp}
+  .btn{flex:1 1 100%}
+  .strip{font-size:.62rem;justify-content:center;text-align:center}
+  nav.sec ul{justify-content:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv,.stamp{opacity:1;transform:none}.stamp{transform:rotate(-12deg)}
+  .ticker .tr{white-space:normal;flex-wrap:wrap}.ticker .tr .dup{display:none}.ticker .vp{overflow:visible}.ticker span{padding:4px 12px}
+  .mk.auto{background-size:100% 100%}.bars i{transform:none!important}
+}
+@media print{
+  @page{margin:13mm}
+  html,body{background:#fff!important;color:#000!important;font-size:10pt}
+  .sheet{box-shadow:none;margin:0;padding:0;background:none!important;max-width:none}.sheet::before{display:none}
+  nav.sec,.ticker,.btns,.stamp,.ear,.strip,.fig,.dbl{display:none!important}
+  *{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important;text-shadow:none!important}
+  h1.mast{font-size:28pt}.mastrow{padding:0 0 4pt}
+  .dateline{font-size:8pt}
+  h2.hl{font-size:22pt}.sub{font-size:12pt}
+  .front{display:block;padding:10pt 0}.side{border:0;padding:8pt 0 0}
+  .body2,.disp{column-count:2!important;font-size:9.5pt}.disp.c1{column-count:1!important}
+  .art,.num,.ed,.cls li{break-inside:avoid}
+  .tri{grid-template-columns:1.2fr 1fr 1fr;gap:0 14pt}
+  .numbers{border:1px solid #000;padding:6pt}.num .big{font-size:20pt}.bars i{height:5pt}.bars i.on{background:#000!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  section{padding:8pt 0 0}.letters{margin-top:10pt;padding-top:8pt}.foot{display:none}
+  .mk{background:none!important}
+}
+</style>
+</head>
+<body>
+<noscript><style>.rv,.stamp{opacity:1!important;transform:none!important}.mk.auto{background-size:100% 100%}.bars i{transform:none!important}</style></noscript>
+<div class="sheet" id="top"><div id="app"></div></div>
+
+<script>
+/* ===== EDIT YOUR DETAILS HERE ===== */
+/* Change the text between the quotes. Keep the commas, quotes and brackets exactly as they are. */
+const DATA = {
+ name:"Gustavo Freitas",
+ title:"Computer Scientist — Offensive & Defensive Cyber Operations",
+ summary:"Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.",
+ email:"gustavo@example.com", phone:"555-010-0100",
+ jobs:[
+  {role:"Security Orchestration, Automation & Response Engineer",co:"Marriott International",dates:"05/2024 – Present",loc:"Remote · Bethesda, MD",text:"Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating."},
+  {role:"Senior Cyber Incident Response Analyst",co:"Marriott International",dates:"05/2022 – 05/2024",loc:"Remote · Bethesda, MD",text:"Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources."},
+  {role:"Security Analyst, Security Operations Center",co:"Arkansas Blue Cross Blue Shield",dates:"11/2021 – 05/2022",loc:"Little Rock, AR",text:"Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures."},
+  {role:"Lead Security Analyst, Security Operations Center",co:"Bank OZK",dates:"01/2019 – 08/2021",loc:"Little Rock, AR",text:"Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape."},
+  {role:"Network Security Analyst, Security Operations",co:"Mechanics Bank",dates:"09/2016 – 08/2018",loc:"Hercules, CA",text:"Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling."}
+ ],
+ skills:[["DevOps · Blue Team",4],["Penetration Testing · Red Team",4],["Exploit Dev / Vulnerability Research",3],["Enterprise Risk Management",4],["DFIR · Digital Forensics",5]],
+ certs:["Apple Certified Support Professional (2016)","CompTIA Security+ (2019)","CompTIA A+ (2019)","SpecterOps – Red Team Operations (2020)","DARPA – SSITH Bug Hunter (2020)","SANS – GIAC Certified Incident Handler (2020)","Tenable CTF – Team webepeepin ('21 '22 '23)","ServiceNow Flow Designer Developer (2024)","Python Certified Entry-Level Programmer (2025)"],
+ edu:[["Computer Science","10/2022 – 10/2023","Western Governors University"],["Computer Science","07/2020 – 01/2022","University of Arkansas – eVersity"],["Applied Physics","08/2012 – 12/2013","University of Central Arkansas"]],
+ langs:[["English","Native / Bilingual"],["Portuguese","Native / Bilingual"],["Spanish","Professional Working"]]
+};
+/* ===== END OF EDITABLE AREA — no need to change anything below ===== */
+
+(function(){
+"use strict";
+var D = DATA || {};
+var jobs = Array.isArray(D.jobs)?D.jobs:[], skills = Array.isArray(D.skills)?D.skills:[], certs = Array.isArray(D.certs)?D.certs:[],
+    edu = Array.isArray(D.edu)?D.edu:[], langs = Array.isArray(D.langs)?D.langs:[];
+var name = String(D.name||"Your Name");
+var $ = function(s,r){return (r||document).querySelector(s)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+var STATIC = /[?&]static\b/.test(location.search);
+var RM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(STATIC) document.documentElement.classList.add("static");
+
+var desc = (D.title? D.title+". ":"") + (D.summary||"");
+desc = desc.length>200? desc.slice(0,197)+"…":desc;
+document.title = name + (D.title? " — "+D.title:"");
+function meta(sel,v){var m=$(sel);if(m)m.setAttribute("content",v)}
+meta('meta[name="description"]',desc);meta('meta[property="og:title"]',document.title);meta('meta[property="og:description"]',desc);
+meta('meta[name="twitter:title"]',document.title);meta('meta[name="twitter:description"]',desc);
+
+var parts=name.trim().split(/\s+/), last=parts.length>1?parts[parts.length-1]:parts[0];
+var initials=parts.map(function(p){return p.charAt(0)}).filter(Boolean).slice(0,3).join("").toUpperCase();
+var today=new Date(), dstr=today.toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+var vol=today.getFullYear()-1913;
+var place=(jobs[0]&&jobs[0].loc)?String(jobs[0].loc).split("·").pop().trim():"";
+var cur=jobs[0]||{};
+
+/* masthead */
+function letters(str,start){var o="",i=start;String(str).split("").forEach(function(c){o+='<span class="ch" aria-hidden="true" style="--i:'+(i++)+'">'+esc(c)+'</span>'});return o}
+var mast='<span class="w">'+letters("THE",0)+'</span> <span class="w">'+letters(last.toUpperCase(),4)+'</span> <span class="w">'+letters("GAZETTE",4+last.length)+'</span>';
+var h='<header><div class="strip"><span>Vol. '+vol+' &middot; No. '+(today.getMonth()*31+today.getDate())+'</span><span>Late City Edition</span><span>Price: One Great Interview</span></div>'+
+ '<div class="mastrow"><div class="ear"><b>&#9733;</b>All the career<br>that&rsquo;s fit to print</div><h1 class="mast" aria-label="The '+esc(last)+' Gazette">'+mast+'</h1><div class="ear"><b>&#9728;</b>Today: clear skies,<br>strong chance of opportunity</div></div>'+
+ '<div class="dbl"></div><div class="dateline"><span>'+esc(dstr)+'</span>'+(place?'<span>'+esc(place)+'</span>':'')+'<span>Established '+(today.getFullYear()-Math.max(1,spanYears()))+'</span></div>';
+function spanYears(){var y=[];jobs.forEach(function(j){var m=j&&j.dates&&String(j.dates).match(/(19|20)\d{2}/g);if(m)m.forEach(function(v){y.push(+v)})});return y.length?today.getFullYear()-Math.min.apply(null,y):0}
+
+/* ticker items */
+var items=[];
+if(cur.role) items.push("Now: "+cur.role+(cur.co?" at "+cur.co:""));
+skills.forEach(function(s){items.push(s[0]+" rated "+(Math.max(0,Math.min(5,Math.round(+s[1]||0))))+" out of 5")});
+certs.slice(0,4).forEach(function(c){items.push("Certified: "+c)});
+if(D.email) items.push("Press inquiries: "+D.email);
+if(!items.length) items.push(name+" — available for comment");
+var tk=items.map(function(t){return '<span>&#9670; '+esc(t)+'</span>'}).join("");
+h+='<div class="ticker" role="marquee" aria-label="Stop press news"><div class="lab">STOP PRESS</div><div class="vp"><div class="tr"><div style="display:flex">'+tk+'</div><div class="dup" style="display:flex" aria-hidden="true">'+tk+'</div></div></div></div></header>';
+
+/* nav list built after */
+var nav=[["top","Front Page"]];
+
+/* front page */
+var tt=String(D.title||""), hd=tt, dk="", sp=tt.search(/\s[—–-]\s/);
+if(sp>0){hd=tt.slice(0,sp);dk=tt.slice(sp).replace(/^\s[—–-]\s/,"")}
+var hw=hd.trim().split(/\s+/), lastw=hw.pop()||"", hhtml=(hw.length?esc(hw.join(" "))+" ":"")+'<span class="mk auto">'+esc(lastw)+'</span>';
+var figure='<figure class="fig"><div class="halft" role="img" aria-label="Staff photo placeholder with initials"><b>'+esc(initials)+'</b></div><figcaption>Fig. 1 &mdash; '+esc(name)+', pictured in a natural habitat of problems waiting to be solved.</figcaption></figure>';
+var nums='';
+if(skills.length){
+ nums='<aside class="numbers rv" aria-label="By the numbers"><h3>By The Numbers</h3>';
+ skills.forEach(function(s){var lv=Math.max(0,Math.min(5,Math.round(+s[1]||0))),b='';for(var k=0;k<5;k++)b+='<i class="'+(k<lv?'on':'')+'" style="--k:'+k+'"></i>';
+  nums+='<div class="num"><div class="big">'+lv+'<small>/5</small></div><div><div class="lb">'+esc(s[0])+'</div><div class="bars" aria-hidden="true">'+b+'</div></div></div>'});
+ nums+='</aside>';
+}
+h+='<main><div class="front" id="front"><article class="rv in"><div class="kick">Exclusive &mdash; Career Report</div><h2 class="hl">'+(hd?hhtml:esc(name))+'</h2>'+(dk?'<p class="sub">'+esc(dk)+'</p>':'')+
+ '<div class="by"><span>By Staff Writer</span><span>'+esc(name)+'</span>'+(jobs.length?'<span>'+jobs.length+' dispatches filed</span>':'')+'</div>'+
+ (D.summary?'<div class="body2"><p>'+esc(D.summary)+'</p></div>':'')+
+ '<div class="btns">'+(D.email?'<a class="btn" href="mailto:'+esc(D.email)+'">Email me</a>':'')+'<button class="btn alt" type="button" id="pdf">Download PDF</button></div></article>'+
+ '<div class="side">'+figure+nums+'</div></div></main>';
+h=h.replace('<div class="side">','<div class="stamp" aria-hidden="true">EXCLUSIVE</div><div class="side">');
+
+/* experience */
+var cc=Math.min(3,jobs.length);
+if(jobs.length){
+ nav.push(["dispatches","Dispatches"]);
+ h+='<section id="dispatches"><div class="sech"><h2>Dispatches From The Field</h2></div><div class="disp c'+cc+'">';
+ jobs.forEach(function(j,i){j=j||{};
+  h+='<article class="art rv'+(i===0?' lead':'')+'" style="--d:'+(i%3*.1)+'s"><div class="kick">'+[j.dates,j.loc].filter(Boolean).map(esc).join(' &middot; ')+'</div><h3><span class="mk">'+esc(j.role||"")+'</span></h3>'+(j.co?'<div class="co">Filed from '+esc(j.co)+'</div>':'')+(j.text?'<p>'+esc(j.text)+'</p>':'')+'</article>';
+ });
+ h+='</div></section>';
+}
+/* tri: certs, edu, langs */
+if(certs.length||edu.length||langs.length){
+ nav.push(["registry","Classifieds"]);
+ h+='<section id="registry"><div class="sech"><h2>Classifieds &amp; Notices</h2></div><div class="tri">';
+ if(certs.length){h+='<div class="rv"><div class="cls"><h3>Certifications On File</h3><ul>';certs.forEach(function(c){h+='<li><b>Certified.</b> <span class="mk">'+esc(c)+'</span> Inquire within.</li>'});h+='</ul></div></div>'}
+ if(edu.length){h+='<div class="rv" style="--d:.1s"><h3 class="t">School Board</h3>';edu.forEach(function(e){h+='<div class="ed"><b>'+esc(e[0])+'</b>'+(e[2]?'<span>'+esc(e[2])+'</span>':'')+(e[1]?'<em>'+esc(e[1])+'</em>':'')+'</div>'});h+='</div>'}
+ if(langs.length){h+='<div class="rv" style="--d:.2s"><h3 class="t">Foreign Desk</h3>';langs.forEach(function(e){h+='<div class="ed"><b>'+esc(e[0])+'</b>'+(e[1]?'<span>'+esc(e[1])+'</span>':'')+'</div>'});h+='</div>'}
+ h+='</div></section>';
+}
+nav.push(["letters","Contact"]);
+h+='<section class="letters rv" id="letters"><h2>Letters To The Editor</h2><p>Have a story, a role or a challenge worth solving? Write in &mdash; replies are filed promptly.</p><div class="btns">'+
+ (D.email?'<a class="btn" href="mailto:'+esc(D.email)+'">'+esc(D.email)+'</a>':'')+(D.phone?'<a class="btn alt" href="tel:'+esc(String(D.phone).replace(/[^\d+]/g,""))+'">'+esc(D.phone)+'</a>':'')+'</div></section>'+
+ '<div class="foot">&copy; '+today.getFullYear()+' The '+esc(last)+' Gazette &middot; Printed on recycled pixels</div>';
+
+/* sticky nav inserted after header */
+var nl='<nav class="sec" aria-label="Sections"><ul>';nav.forEach(function(n){nl+='<li><a href="#'+n[0]+'">'+esc(n[1])+'</a></li>'});nl+='</ul></nav>';
+h=h.replace('</header>','</header>'+nl);
+$("#app").innerHTML=h;
+/* nav must be sticky relative to .sheet: it is, since header closes before it */
+var pdf=$("#pdf"); if(pdf) pdf.addEventListener("click",function(){window.print()});
+
+/* reveal */
+var rvs=document.querySelectorAll(".rv");
+if("IntersectionObserver" in window && !RM && !STATIC){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.1,rootMargin:"0px 0px -5% 0px"});
+ rvs.forEach(function(r){io.observe(r)});
+}else rvs.forEach(function(r){r.classList.add("in")});
+
+/* nav highlight */
+var links=[].slice.call(document.querySelectorAll("nav.sec a")),secs=links.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))}),tick=false;
+function upd(){tick=false;var c=0;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<innerHeight*.4)c=i});links.forEach(function(a,i){a.classList.toggle("on",i===c)})}
+addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
+})();
+</script>
+</body>
+</html>

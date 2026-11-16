@@ -1,0 +1,1277 @@
+﻿# ResumeAI - All Prompts
+
+Copy-paste any of these into Claude, ChatGPT, etc.
+
+---
+
+## PART 1: Make your details file (use first)
+
+Convert my resume into a JavaScript object named DATA using EXACTLY this schema, and output ONLY the code block. Keep my wording, do not invent anything, and leave out fields I don't have. Skill levels are 1-5 (estimate honestly from my resume).
+
+const DATA = {
+ name:"", title:"", summary:"",
+ email:"", phone:"",
+ jobs:[{role:"",co:"",dates:"",loc:"",text:""}],
+ skills:[["Skill name",4]],
+ certs:["Certification (year)"],
+ edu:[["Degree","dates","School"]],
+ langs:[["Language","Level"]]
+};
+
+Tips: "title" is one headline line, "summary" is 2-3 punchy sentences, each job "text" is 1-3 sentences with results and numbers where I gave them.
+
+MY RESUME:
+[PASTE YOUR RESUME TEXT HERE]
+
+---
+
+## PART 2: Website prompts (paste into an AI to BUILD a resume site)
+
+### Signal Red - The classic, sharpened
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Signal Red" — The classic, sharpened
+A refined upgrade of a two-column corporate resume: confident dark masthead, one fierce red accent, skill dots, razor-clean hierarchy.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Full-bleed dark slate masthead (#2b333e) with the name in 42px light-weight Inter, the title below it in red (#f0483e), then a 3-line summary in 9.5px light grey.
+- A darker contact strip (#1f252d) directly under it with small line icons (email, phone).
+- Below: two columns, 56% / 44%. Left = WORK EXPERIENCE. Right = SKILLS, CERTIFICATIONS, EDUCATION, LANGUAGES.
+- Section headings: red (#f0483e) 800-weight uppercase with a 3px red underline that only spans the text width.
+- Each job: bold title, company in regular weight, an italic red meta row (dates left, location right), then a bullet with a small red dot.
+- Skills shown as five dots (filled dark slate / hollow outline).
+- Generous whitespace, nothing decorative beyond the red accent.
+
+ANIMATION & INTERACTION
+- Hero: name slides up and fades in, title wipes in from the left in red, summary fades after.
+- Each job card reveals on scroll (fade + 16px rise, 80ms stagger). The red section underline draws from left to right when its heading enters view.
+- Skill dots fill one by one, left to right, when the Skills block scrolls into view.
+- Sticky slim top bar that turns solid slate after you scroll past the hero; the active section's link gets a red underline.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Signal Red" — The classic, sharpened
+A refined upgrade of a two-column corporate resume: confident dark masthead, one fierce red accent, skill dots, razor-clean hierarchy.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Full-bleed dark slate masthead (#2b333e) with the name in 42px light-weight Inter, the title below it in red (#f0483e), then a 3-line summary in 9.5px light grey.
+- A darker contact strip (#1f252d) directly under it with small line icons (email, phone).
+- Below: two columns, 56% / 44%. Left = WORK EXPERIENCE. Right = SKILLS, CERTIFICATIONS, EDUCATION, LANGUAGES.
+- Section headings: red (#f0483e) 800-weight uppercase with a 3px red underline that only spans the text width.
+- Each job: bold title, company in regular weight, an italic red meta row (dates left, location right), then a bullet with a small red dot.
+- Skills shown as five dots (filled dark slate / hollow outline).
+- Generous whitespace, nothing decorative beyond the red accent.
+
+ANIMATION & INTERACTION
+- Hero: name slides up and fades in, title wipes in from the left in red, summary fades after.
+- Each job card reveals on scroll (fade + 16px rise, 80ms stagger). The red section underline draws from left to right when its heading enters view.
+- Skill dots fill one by one, left to right, when the Skills block scrolls into view.
+- Sticky slim top bar that turns solid slate after you scroll past the hero; the active section's link gets a red underline.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Root Shell - A resume that runs in a terminal
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Root Shell" — A resume that runs in a terminal
+The resume as a live terminal session — you 'run' commands to reveal each section. Made for engineers, hackers and security people.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Background pure black (#05080a). All text JetBrains Mono. Primary color phosphor green (#39ff7a), secondary dim green (#1f9d55), muted grey (#6b7f75), warning amber (#ffb000) for dates.
+- A fake window title bar at the top with three dots and the title "name@resume: ~".
+- Each section is introduced by a prompt line: "user@host:~$ cat summary.txt", "$ ls -l experience/", "$ ./skills --levels", "$ gpg --list-certs", "$ cat education.log", "$ locale".
+- Name is a big ASCII-feel heading (30px bold, green glow text-shadow) followed by a blinking block cursor (CSS animation).
+- Experience entries look like log lines: "[05/2024 → now] ROLE @ COMPANY" in bold, details indented with "│".
+- Skills rendered as text bars: "DFIR ████████░░ 80%" using block characters.
+- Certifications each prefixed with a green "[✔]".
+- Subtle CRT scanline overlay using a repeating-linear-gradient at 4% opacity, plus a faint vignette.
+
+ANIMATION & INTERACTION
+- Boot sequence: lines "type" themselves out character by character (use CSS steps() or a tiny JS typewriter), each command prompt ($ whoami, $ cat summary.txt…) running as you scroll to it.
+- Block cursor blinks permanently at the end of the active line. Name has a slow neon-glow pulse.
+- Skill bars fill from 0 to their level with a frame-by-frame "loading" feel.
+- A clickable nav written as commands (cd ~/experience, cd ~/skills). Subtle CRT flicker every ~8s.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Root Shell" — A resume that runs in a terminal
+The resume as a live terminal session — you 'run' commands to reveal each section. Made for engineers, hackers and security people.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Background pure black (#05080a). All text JetBrains Mono. Primary color phosphor green (#39ff7a), secondary dim green (#1f9d55), muted grey (#6b7f75), warning amber (#ffb000) for dates.
+- A fake window title bar at the top with three dots and the title "name@resume: ~".
+- Each section is introduced by a prompt line: "user@host:~$ cat summary.txt", "$ ls -l experience/", "$ ./skills --levels", "$ gpg --list-certs", "$ cat education.log", "$ locale".
+- Name is a big ASCII-feel heading (30px bold, green glow text-shadow) followed by a blinking block cursor (CSS animation).
+- Experience entries look like log lines: "[05/2024 → now] ROLE @ COMPANY" in bold, details indented with "│".
+- Skills rendered as text bars: "DFIR ████████░░ 80%" using block characters.
+- Certifications each prefixed with a green "[✔]".
+- Subtle CRT scanline overlay using a repeating-linear-gradient at 4% opacity, plus a faint vignette.
+
+ANIMATION & INTERACTION
+- Boot sequence: lines "type" themselves out character by character (use CSS steps() or a tiny JS typewriter), each command prompt ($ whoami, $ cat summary.txt…) running as you scroll to it.
+- Block cursor blinks permanently at the end of the active line. Name has a slow neon-glow pulse.
+- Skill bars fill from 0 to their level with a frame-by-frame "loading" feel.
+- A clickable nav written as commands (cd ~/experience, cd ~/skills). Subtle CRT flicker every ~8s.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Loud & Proud - Neo-brutalist poster resume
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Loud & Proud" — Neo-brutalist poster resume
+A resume as a gig poster. Massive condensed type, hard black borders, hard offset shadows, acid yellow. Impossible to ignore.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Background acid yellow (#f6f000). Ink black (#0a0a0a). Accent hot pink (#ff3d8b) and white used sparingly.
+- The name in Anton, uppercase, ~110px, line-height .85, filling the top of the page, first name black on yellow, last name white on a black block rotated -1.5deg.
+- Title in a pink pill with 3px black border and hard 5px/5px black shadow.
+- Everything is a card: 3px solid black border, white background, hard offset shadow (6px 6px 0 #0a0a0a), no border-radius (or at most 4px).
+- Experience cards are numbered 01–05 with big Anton numerals in a corner; role in Space Grotesk 700.
+- Skills as black pills with white text; level shown as filled/empty squares.
+- Certifications as tilted sticker-like tags (alternate rotation ±2deg).
+- A rotated marquee-style banner strip ("OPEN TO WORK • OPEN TO WORK •") across the page in black.
+
+ANIMATION & INTERACTION
+- Name slams in: each word scales from 0.6 to 1 with a bouncy overshoot, rotating into its final tilt.
+- The black "OPEN TO WORK" banner scrolls infinitely like a marquee, and reverses direction on scroll.
+- Cards pop in with a hard-shadow "stamp" effect (shadow grows from 0 to 6px) as they enter view; hover lifts the card and increases the shadow.
+- Cert stickers wobble slightly on hover. Cursor becomes a big yellow circle on desktop.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Loud & Proud" — Neo-brutalist poster resume
+A resume as a gig poster. Massive condensed type, hard black borders, hard offset shadows, acid yellow. Impossible to ignore.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Background acid yellow (#f6f000). Ink black (#0a0a0a). Accent hot pink (#ff3d8b) and white used sparingly.
+- The name in Anton, uppercase, ~110px, line-height .85, filling the top of the page, first name black on yellow, last name white on a black block rotated -1.5deg.
+- Title in a pink pill with 3px black border and hard 5px/5px black shadow.
+- Everything is a card: 3px solid black border, white background, hard offset shadow (6px 6px 0 #0a0a0a), no border-radius (or at most 4px).
+- Experience cards are numbered 01–05 with big Anton numerals in a corner; role in Space Grotesk 700.
+- Skills as black pills with white text; level shown as filled/empty squares.
+- Certifications as tilted sticker-like tags (alternate rotation ±2deg).
+- A rotated marquee-style banner strip ("OPEN TO WORK • OPEN TO WORK •") across the page in black.
+
+ANIMATION & INTERACTION
+- Name slams in: each word scales from 0.6 to 1 with a bouncy overshoot, rotating into its final tilt.
+- The black "OPEN TO WORK" banner scrolls infinitely like a marquee, and reverses direction on scroll.
+- Cards pop in with a hard-shadow "stamp" effect (shadow grows from 0 to 6px) as they enter view; hover lifts the card and increases the shadow.
+- Cert stickers wobble slightly on hover. Cursor becomes a big yellow circle on desktop.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Aurora Glass - Glassmorphism on a living gradient
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Aurora Glass" — Glassmorphism on a living gradient
+Frosted-glass panels floating over a slow-moving aurora of violet, cyan and pink. Feels like a product launch, reads like a resume.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Background near-black navy (#080814) with 3 large blurred radial-gradient blobs: violet (#7c5cff), cyan (#22d3ee), pink (#ff4d9d), blurred 60px, at ~45% opacity, in different corners.
+- Every content block is a glass card: background rgba(255,255,255,.06), 1px border rgba(255,255,255,.14), border-radius 18px, backdrop-filter blur(14px).
+- Name huge (54px, weight 300 first name / 700 last name) with a gradient text fill (cyan→violet→pink).
+- Title in uppercase tracking .2em small caps, muted.
+- Two-column layout: wide left glass card per job, right column stacked glass cards for skills, certs, education, languages.
+- Skills: thin 4px gradient progress bars, rounded.
+- Timeline dots (glowing) on each experience card.
+- Subtle noise/grain overlay at 4% for premium feel.
+
+ANIMATION & INTERACTION
+- The three blurred gradient blobs drift slowly and continuously (20s ease-in-out alternate loops), and shift with mouse movement (parallax).
+- Glass cards fade up with a slight blur-to-sharp transition on scroll. Timeline dots pulse with a soft glow.
+- Gradient progress bars grow from 0 when visible. Hover on a card tilts it 3D toward the cursor and brightens its border.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Aurora Glass" — Glassmorphism on a living gradient
+Frosted-glass panels floating over a slow-moving aurora of violet, cyan and pink. Feels like a product launch, reads like a resume.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Background near-black navy (#080814) with 3 large blurred radial-gradient blobs: violet (#7c5cff), cyan (#22d3ee), pink (#ff4d9d), blurred 60px, at ~45% opacity, in different corners.
+- Every content block is a glass card: background rgba(255,255,255,.06), 1px border rgba(255,255,255,.14), border-radius 18px, backdrop-filter blur(14px).
+- Name huge (54px, weight 300 first name / 700 last name) with a gradient text fill (cyan→violet→pink).
+- Title in uppercase tracking .2em small caps, muted.
+- Two-column layout: wide left glass card per job, right column stacked glass cards for skills, certs, education, languages.
+- Skills: thin 4px gradient progress bars, rounded.
+- Timeline dots (glowing) on each experience card.
+- Subtle noise/grain overlay at 4% for premium feel.
+
+ANIMATION & INTERACTION
+- The three blurred gradient blobs drift slowly and continuously (20s ease-in-out alternate loops), and shift with mouse movement (parallax).
+- Glass cards fade up with a slight blur-to-sharp transition on scroll. Timeline dots pulse with a soft glow.
+- Gradient progress bars grow from 0 when visible. Hover on a card tilts it 3D toward the cursor and brightens its border.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Swiss Editorial - International Typographic Style
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Swiss Editorial" — International Typographic Style
+A resume designed like a Müller-Brockmann poster: a strict grid, one red, giant numerals, and type doing all the work.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Pure white (#fff) page, ink (#111), signal red (#e4261b) — nothing else.
+- 12-column grid. Left rail (3 columns) holds small uppercase labels (section names, 8px, tracking .12em, red). Content in the remaining 9.
+- Name set flush-left in Inter 900, ~66px, letter-spacing -3px, line-height .9, spanning two lines (first / last).
+- A thick 6px red bar at the very top-left (60px wide) and a thin 1px black rule under the header.
+- Experience: each entry has a giant light-weight index numeral (01–05, 40px, light grey) in the rail; role in 600 weight, company and dates in a two-column mini-grid, body text 9px/1.5.
+- Skills as a clean table: name left, five small squares right (filled red / empty outline).
+- No icons, no gradients, no rounded corners. Alignment is the decoration.
+
+ANIMATION & INTERACTION
+- A minimal, precise motion language: the red bar grows across the top on load, the giant name lines slide in from the left with a mask-reveal (overflow hidden + translateY).
+- Section index numerals count up (00→01…) as sections enter view. Rules draw from left to right.
+- Skill squares fill in sequence. Everything uses one easing curve (cubic-bezier(.2,.7,.2,1)). No bounce, no decoration.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Swiss Editorial" — International Typographic Style
+A resume designed like a Müller-Brockmann poster: a strict grid, one red, giant numerals, and type doing all the work.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Pure white (#fff) page, ink (#111), signal red (#e4261b) — nothing else.
+- 12-column grid. Left rail (3 columns) holds small uppercase labels (section names, 8px, tracking .12em, red). Content in the remaining 9.
+- Name set flush-left in Inter 900, ~66px, letter-spacing -3px, line-height .9, spanning two lines (first / last).
+- A thick 6px red bar at the very top-left (60px wide) and a thin 1px black rule under the header.
+- Experience: each entry has a giant light-weight index numeral (01–05, 40px, light grey) in the rail; role in 600 weight, company and dates in a two-column mini-grid, body text 9px/1.5.
+- Skills as a clean table: name left, five small squares right (filled red / empty outline).
+- No icons, no gradients, no rounded corners. Alignment is the decoration.
+
+ANIMATION & INTERACTION
+- A minimal, precise motion language: the red bar grows across the top on load, the giant name lines slide in from the left with a mask-reveal (overflow hidden + translateY).
+- Section index numerals count up (00→01…) as sections enter view. Rules draw from left to right.
+- Skill squares fill in sequence. Everything uses one easing curve (cubic-bezier(.2,.7,.2,1)). No bounce, no decoration.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Blueprint - Technical drawing, architect style
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Blueprint" — Technical drawing, architect style
+The resume as an engineering blueprint: cyanotype blue, drafting grid, dimension lines, a title block in the corner, and hand-annotated notes.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Background cyanotype blue (#0d3b8c) with a drafting grid made from two repeating-linear-gradients (major lines every 80px at 18% white, minor every 16px at 7% white).
+- All linework in white / pale cyan (#bfe6ff), 1px, with dashed lines for secondary structure. Font IBM Plex Mono; handwritten annotations in Caveat (e.g. an arrow note "← still shipping").
+- The page has a double-line border inset 18px. The name sits in a large technical title (40px, wide letter-spacing) with a dimension line (arrows both ends) beneath it labelled with the title.
+- Each job is a "DETAIL A…E" box with a corner tag, thin border, and small crosshair marks at corners.
+- Skills as horizontal measurement scales with tick marks, a filled segment to show level.
+- Bottom-right corner: an engineering TITLE BLOCK table (DRAWN BY, SHEET 1/1, SCALE 1:1, REV, DATE) filled with the person's info.
+
+ANIMATION & INTERACTION
+- Lines draw themselves: borders and dimension lines animate with stroke-dashoffset (SVG) or scaleX from 0 as if being drafted.
+- Detail boxes appear one at a time with a short "plotter" delay; the handwritten note types in last.
+- Measurement bars fill with tick marks lighting up. On hover, a crosshair follows the cursor and shows live X/Y coordinates in the corner.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Blueprint" — Technical drawing, architect style
+The resume as an engineering blueprint: cyanotype blue, drafting grid, dimension lines, a title block in the corner, and hand-annotated notes.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Background cyanotype blue (#0d3b8c) with a drafting grid made from two repeating-linear-gradients (major lines every 80px at 18% white, minor every 16px at 7% white).
+- All linework in white / pale cyan (#bfe6ff), 1px, with dashed lines for secondary structure. Font IBM Plex Mono; handwritten annotations in Caveat (e.g. an arrow note "← still shipping").
+- The page has a double-line border inset 18px. The name sits in a large technical title (40px, wide letter-spacing) with a dimension line (arrows both ends) beneath it labelled with the title.
+- Each job is a "DETAIL A…E" box with a corner tag, thin border, and small crosshair marks at corners.
+- Skills as horizontal measurement scales with tick marks, a filled segment to show level.
+- Bottom-right corner: an engineering TITLE BLOCK table (DRAWN BY, SHEET 1/1, SCALE 1:1, REV, DATE) filled with the person's info.
+
+ANIMATION & INTERACTION
+- Lines draw themselves: borders and dimension lines animate with stroke-dashoffset (SVG) or scaleX from 0 as if being drafted.
+- Detail boxes appear one at a time with a short "plotter" delay; the handwritten note types in last.
+- Measurement bars fill with tick marks lighting up. On hover, a crosshair follows the cursor and shows live X/Y coordinates in the corner.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Neon Grid '85 - Synthwave sunset
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Neon Grid '85" — Synthwave sunset
+Retro-futurist outrun: a striped sunset, a perspective neon grid, glowing chrome type. For the person who wants a resume with a soundtrack.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Sky gradient from deep indigo (#1a0b3b) at the top to magenta (#ff2e97) then orange (#ff9a3c) at the horizon.
+- A large striped sun (circle, gradient yellow→pink) at the horizon, with horizontal transparent bars cut across its lower half.
+- Bottom third: a perspective neon grid (CSS transform: perspective + rotateX, cyan #00f0ff lines on near-black) that the content sits above.
+- Name in Orbitron 800, uppercase, white with a pink+cyan layered text-shadow neon glow.
+- Content panels: semi-opaque dark purple (#12062ccc) with 1px cyan neon borders and a soft glow.
+- Experience as a vertical list with cyan year chips; skills as glowing segmented bars (pink/cyan).
+- Small details: scanline overlay, a tiny "PLAYER 1" label, stars (tiny white dots) in the sky.
+
+ANIMATION & INTERACTION
+- The perspective grid scrolls toward the viewer forever (animate background-position). The striped sun slowly pulses and sinks slightly as you scroll (parallax).
+- Name flickers on like a neon sign (a few quick opacity flickers, then steady glow).
+- Panels slide in from alternating sides with a glow burst. Skill segments light up in sequence, pink and cyan alternating.
+- Subtle stars twinkle in the sky.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Neon Grid '85" — Synthwave sunset
+Retro-futurist outrun: a striped sunset, a perspective neon grid, glowing chrome type. For the person who wants a resume with a soundtrack.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Sky gradient from deep indigo (#1a0b3b) at the top to magenta (#ff2e97) then orange (#ff9a3c) at the horizon.
+- A large striped sun (circle, gradient yellow→pink) at the horizon, with horizontal transparent bars cut across its lower half.
+- Bottom third: a perspective neon grid (CSS transform: perspective + rotateX, cyan #00f0ff lines on near-black) that the content sits above.
+- Name in Orbitron 800, uppercase, white with a pink+cyan layered text-shadow neon glow.
+- Content panels: semi-opaque dark purple (#12062ccc) with 1px cyan neon borders and a soft glow.
+- Experience as a vertical list with cyan year chips; skills as glowing segmented bars (pink/cyan).
+- Small details: scanline overlay, a tiny "PLAYER 1" label, stars (tiny white dots) in the sky.
+
+ANIMATION & INTERACTION
+- The perspective grid scrolls toward the viewer forever (animate background-position). The striped sun slowly pulses and sinks slightly as you scroll (parallax).
+- Name flickers on like a neon sign (a few quick opacity flickers, then steady glow).
+- Panels slide in from alternating sides with a glow burst. Skill segments light up in sequence, pink and cyan alternating.
+- Subtle stars twinkle in the sky.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### The Daily Career - Front-page newspaper
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "The Daily Career" — Front-page newspaper
+You, on the front page. A broadsheet masthead, headline-sized career news, multi-column 'articles', drop caps and column rules.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Newsprint cream (#f1e8d4) page with ink (#1a1814). Playfair Display for masthead and headlines, Libre Baskerville for body (9px, justified, hyphenated).
+- Masthead: centered "THE <LASTNAME> GAZETTE" in Playfair 900 at ~44px between double rules (3px + 1px) with a dateline row beneath: "VOL. XXV · <city> · EXTRA EDITION · PRICE: HIRED".
+- Lead headline across the top (Playfair 900, 30px): the person's strongest claim as a news headline, with a smaller italic deck below.
+- Body in 3 columns with 1px column rules (CSS columns). Each job is an "article": small-caps kicker (company), bold headline (role), byline (dates + location), text with a drop cap on the first article.
+- A boxed "BY THE NUMBERS" sidebar listing skills as ranked bullets; a classified-ad style box (dashed border) for certifications; "EDUCATION BRIEFS" and "LANGUAGES" columns at the bottom.
+- Light paper texture feel via subtle radial gradients; no color apart from ink + one faded red (#8b1e1e) for kickers.
+
+ANIMATION & INTERACTION
+- Page load: the masthead "prints" in with a slight ink-spread (opacity + letter-spacing from wide to normal).
+- Articles fade in column by column as you scroll, drop caps animate in. Section boxes slide in like clippings.
+- Hover on an article highlights it with a soft yellow marker sweep. A small "STOP PRESS" ticker scrolls across a thin bar under the masthead.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "The Daily Career" — Front-page newspaper
+You, on the front page. A broadsheet masthead, headline-sized career news, multi-column 'articles', drop caps and column rules.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Newsprint cream (#f1e8d4) page with ink (#1a1814). Playfair Display for masthead and headlines, Libre Baskerville for body (9px, justified, hyphenated).
+- Masthead: centered "THE <LASTNAME> GAZETTE" in Playfair 900 at ~44px between double rules (3px + 1px) with a dateline row beneath: "VOL. XXV · <city> · EXTRA EDITION · PRICE: HIRED".
+- Lead headline across the top (Playfair 900, 30px): the person's strongest claim as a news headline, with a smaller italic deck below.
+- Body in 3 columns with 1px column rules (CSS columns). Each job is an "article": small-caps kicker (company), bold headline (role), byline (dates + location), text with a drop cap on the first article.
+- A boxed "BY THE NUMBERS" sidebar listing skills as ranked bullets; a classified-ad style box (dashed border) for certifications; "EDUCATION BRIEFS" and "LANGUAGES" columns at the bottom.
+- Light paper texture feel via subtle radial gradients; no color apart from ink + one faded red (#8b1e1e) for kickers.
+
+ANIMATION & INTERACTION
+- Page load: the masthead "prints" in with a slight ink-spread (opacity + letter-spacing from wide to normal).
+- Articles fade in column by column as you scroll, drop caps animate in. Section boxes slide in like clippings.
+- Hover on an article highlights it with a soft yellow marker sweep. A small "STOP PRESS" ticker scrolls across a thin bar under the masthead.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Case File 001 - Classified dossier
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Case File 001" — Classified dossier
+The candidate as a classified intelligence file: manila folder, typewriter text, red stamps, redaction bars, paper clips. Perfect for security and investigation roles.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Manila folder color (#d9c28f) page with a slightly lighter paper sheet (#f3ead2) inset, subtle shadow, and a tab at the top with the case number "CASE FILE 001".
+- Typewriter fonts: Special Elite for headings, Courier Prime for body (9px).
+- A rotated (-12deg) red (#c1272d) rubber stamp "CLASSIFIED — HIRE IMMEDIATELY" with a double border and distressed look (opacity .8, slight blur).
+- A photo-style placeholder box with the candidate's initials, a metal paper-clip drawn in CSS.
+- Fields styled as a form: "SUBJECT:", "ALIAS / ROLE:", "CONTACT CHANNEL:" with underline blanks.
+- Experience as "INCIDENT REPORTS #1-5": date/location header, "ASSIGNMENT", "FINDINGS" (the text).
+- Several decorative black redaction bars (██████) over placeholder fake text in a footer row, plus a 'DECLASSIFIED' stamp.
+- Skills as "CLEARANCE LEVELS" with stamped checkboxes.
+
+ANIMATION & INTERACTION
+- A "CLASSIFIED" stamp slams onto the page (scale 3 → 1 with a small screen shake) shortly after load.
+- Black redaction bars sit over a few lines and slide away on hover or click to reveal the real text.
+- Incident reports appear one by one like pages being dealt onto a desk, with a slight random rotation that settles to straight. Paper clip wiggles on hover.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Case File 001" — Classified dossier
+The candidate as a classified intelligence file: manila folder, typewriter text, red stamps, redaction bars, paper clips. Perfect for security and investigation roles.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Manila folder color (#d9c28f) page with a slightly lighter paper sheet (#f3ead2) inset, subtle shadow, and a tab at the top with the case number "CASE FILE 001".
+- Typewriter fonts: Special Elite for headings, Courier Prime for body (9px).
+- A rotated (-12deg) red (#c1272d) rubber stamp "CLASSIFIED — HIRE IMMEDIATELY" with a double border and distressed look (opacity .8, slight blur).
+- A photo-style placeholder box with the candidate's initials, a metal paper-clip drawn in CSS.
+- Fields styled as a form: "SUBJECT:", "ALIAS / ROLE:", "CONTACT CHANNEL:" with underline blanks.
+- Experience as "INCIDENT REPORTS #1-5": date/location header, "ASSIGNMENT", "FINDINGS" (the text).
+- Several decorative black redaction bars (██████) over placeholder fake text in a footer row, plus a 'DECLASSIFIED' stamp.
+- Skills as "CLEARANCE LEVELS" with stamped checkboxes.
+
+ANIMATION & INTERACTION
+- A "CLASSIFIED" stamp slams onto the page (scale 3 → 1 with a small screen shake) shortly after load.
+- Black redaction bars sit over a few lines and slide away on hover or click to reveal the real text.
+- Incident reports appear one by one like pages being dealt onto a desk, with a slight random rotation that settles to straight. Paper clip wiggles on hover.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Ink & Hanko - Japanese minimalism
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Ink & Hanko" — Japanese minimalism
+Quiet confidence. Warm washi paper, a single vermilion seal, vertical calligraphic accents and enormous breathing room. The anti-resume resume.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Warm washi paper background (#f7f3ea) with an ultra-subtle fibre texture (repeating-radial-gradient at 3% opacity).
+- Typography: Cormorant Garamond for everything (light 300 for names, 400 for body 10px), generous letter-spacing on small caps.
+- A single vermilion (#c8321f) hanko-style square seal with the person's initials in white, slightly imperfect (rotate 3deg, rough edge with box-shadow inset).
+- A vertical text element (writing-mode: vertical-rl) at the left margin containing the title in small caps, in grey, with a thin vertical line next to it.
+- A single thin horizontal ink-brush line (SVG path, 2px, tapered) under the name.
+- Max 60% of the page filled; wide margins (70px). Sections separated by space only — no boxes.
+- Skills as a poetic list (name — level in words: Mastery, Fluent, Practiced…).
+- Dates in italic, right-aligned in the margin column.
+
+ANIMATION & INTERACTION
+- Very slow, calm motion: elements fade in over 1.2s with a 12px rise, long staggers (150ms).
+- The brush line under the name draws itself from left to right; the red hanko seal presses in (scale 1.4 → 1, opacity 0 → 1) last.
+- Text sections reveal as you scroll. The vertical title slowly fades in. Respect reduced-motion strictly — here stillness is the aesthetic.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Ink & Hanko" — Japanese minimalism
+Quiet confidence. Warm washi paper, a single vermilion seal, vertical calligraphic accents and enormous breathing room. The anti-resume resume.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Warm washi paper background (#f7f3ea) with an ultra-subtle fibre texture (repeating-radial-gradient at 3% opacity).
+- Typography: Cormorant Garamond for everything (light 300 for names, 400 for body 10px), generous letter-spacing on small caps.
+- A single vermilion (#c8321f) hanko-style square seal with the person's initials in white, slightly imperfect (rotate 3deg, rough edge with box-shadow inset).
+- A vertical text element (writing-mode: vertical-rl) at the left margin containing the title in small caps, in grey, with a thin vertical line next to it.
+- A single thin horizontal ink-brush line (SVG path, 2px, tapered) under the name.
+- Max 60% of the page filled; wide margins (70px). Sections separated by space only — no boxes.
+- Skills as a poetic list (name — level in words: Mastery, Fluent, Practiced…).
+- Dates in italic, right-aligned in the margin column.
+
+ANIMATION & INTERACTION
+- Very slow, calm motion: elements fade in over 1.2s with a 12px rise, long staggers (150ms).
+- The brush line under the name draws itself from left to right; the red hanko seal presses in (scale 1.4 → 1, opacity 0 → 1) last.
+- Text sections reveal as you scroll. The vertical title slowly fades in. Respect reduced-motion strictly — here stillness is the aesthetic.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+### Character Sheet - Your career as an RPG hero
+
+(with Gustavo's sample details filled in)
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Character Sheet" — Your career as an RPG hero
+The resume as a 16-bit RPG character screen: HP-style skill bars, a quest log of past jobs, achievements unlocked, and an inventory of languages.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Deep midnight-purple background (#1b1033) with a pixel-art starfield (tiny 2px squares, box-shadow trick).
+- Fonts: 'Press Start 2P' for headings (7-9px, uppercase), VT323 for body (13px). Image-rendering pixelated feel; no anti-aliasing smoothing on borders.
+- Windows with chunky 4px double borders (white outer, dark inner) and a title bar in a vivid color per panel (cyan #3ee0ff, yellow #ffd23f, pink #ff5fa2, green #7bff6b).
+- Header: pixel avatar made from CSS grid (a simple 8×8 hero sprite), name big, "CLASS: <title>", "LVL <years of experience>", plus HP / MP bars.
+- Skills = STAT BARS (segmented pixel bars, 10 segments) with a label; DFIR-style top skill gets a golden "MAX" tag.
+- Experience = QUEST LOG, each entry "★ QUEST COMPLETE" with date and "REWARD:" line.
+- Certifications = ACHIEVEMENTS UNLOCKED with trophy glyphs; languages = INVENTORY slots in a grid of square slots.
+- A blinking "PRESS START TO HIRE" at the bottom.
+
+ANIMATION & INTERACTION
+- Boot screen: "PRESS START" blinks; on click/scroll the character screen assembles window by window with a pixel-wipe.
+- Pixel avatar idles (2-frame bob, steps(2)). HP and MP bars fill; each stat bar fills segment by segment with a short blip-style delay.
+- Quest log entries stamp "QUEST COMPLETE" as they enter view. Achievements pop in with a gold flash. Optional: arrow keys navigate between windows.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: Gustavo Freitas
+TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+EMAIL: gustavo@example.com   PHONE: 555-010-0100
+SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+EXPERIENCE (newest first):
+- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
+- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
+- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
+- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
+SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
+CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
+EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
+LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+(blank version - you fill in [YOUR DETAILS])
+
+You are an award-winning art director and senior creative front-end engineer. Build my resume as a stunning, ANIMATED, single-page WEBSITE that I can send to hiring managers as a link. One self-contained index.html (inline CSS + JS, no build step, no frameworks required) that I can drop onto Netlify / GitHub Pages / Vercel and share.
+
+DESIGN: "Character Sheet" — Your career as an RPG hero
+The resume as a 16-bit RPG character screen: HP-style skill bars, a quest log of past jobs, achievements unlocked, and an inventory of languages.
+
+VISUAL LANGUAGE (adapt this into a responsive scrolling website: follow the layout on desktop, stack gracefully on mobile)
+- Deep midnight-purple background (#1b1033) with a pixel-art starfield (tiny 2px squares, box-shadow trick).
+- Fonts: 'Press Start 2P' for headings (7-9px, uppercase), VT323 for body (13px). Image-rendering pixelated feel; no anti-aliasing smoothing on borders.
+- Windows with chunky 4px double borders (white outer, dark inner) and a title bar in a vivid color per panel (cyan #3ee0ff, yellow #ffd23f, pink #ff5fa2, green #7bff6b).
+- Header: pixel avatar made from CSS grid (a simple 8×8 hero sprite), name big, "CLASS: <title>", "LVL <years of experience>", plus HP / MP bars.
+- Skills = STAT BARS (segmented pixel bars, 10 segments) with a label; DFIR-style top skill gets a golden "MAX" tag.
+- Experience = QUEST LOG, each entry "★ QUEST COMPLETE" with date and "REWARD:" line.
+- Certifications = ACHIEVEMENTS UNLOCKED with trophy glyphs; languages = INVENTORY slots in a grid of square slots.
+- A blinking "PRESS START TO HIRE" at the bottom.
+
+ANIMATION & INTERACTION
+- Boot screen: "PRESS START" blinks; on click/scroll the character screen assembles window by window with a pixel-wipe.
+- Pixel avatar idles (2-frame bob, steps(2)). HP and MP bars fill; each stat bar fills segment by segment with a short blip-style delay.
+- Quest log entries stamp "QUEST COMPLETE" as they enter view. Achievements pop in with a gold flash. Optional: arrow keys navigate between windows.
+- Scroll-triggered reveals via IntersectionObserver (no heavy libraries; small vanilla JS only, GSAP via CDN only if truly needed).
+- Smooth anchor scrolling and a sticky nav with links to each section.
+- Animate only transform/opacity where possible so it stays at 60fps.
+- Respect prefers-reduced-motion: if set, disable all non-essential motion and show content immediately.
+
+WEBSITE REQUIREMENTS
+- Sections in this order: Hero (name, title, one-line value pitch, "Email me" button as mailto + "Download PDF" button), About, Experience (timeline or cards), Skills, Certifications, Education, Languages, Contact/footer.
+- Fully responsive from 360px to 1600px wide. Touch-friendly tap targets. No horizontal scroll.
+- Fast: no images to download (use CSS/SVG/emoji for graphics), fonts from Google Fonts with system fallbacks. Target under 150KB.
+- Accessible: semantic HTML (header, nav, main, section, h1–h3, ul), contrast at least AA, visible focus states, aria-labels on icon buttons.
+- Sharing-ready: <title>, meta description, Open Graph + Twitter tags, a favicon as an inline SVG data URI, and lang="en".
+- Print stylesheet: @media print turns it into a clean, static, one-to-two-page resume with all animations disabled, so "Download PDF" (window.print()) produces a recruiter-friendly PDF.
+- Use ALL my content below. Do not invent employers, dates, numbers or credentials; if something is missing, leave it out. You may tighten my wording.
+
+MY CONTENT
+NAME: [FULL NAME]
+TARGET ROLE / TITLE: [JOB TITLE]
+EMAIL: [EMAIL]   PHONE: [PHONE]
+SUMMARY: [2-3 SENTENCES]
+EXPERIENCE (newest first):
+- [ROLE] at [COMPANY], [DATES], [LOCATION]: [2-3 SENTENCES OR BULLETS WITH NUMBERS]
+- [REPEAT FOR EACH JOB]
+SKILLS (with level 1-5): [SKILL (4), SKILL (3), ...]
+CERTIFICATIONS: [LIST WITH YEARS]
+EDUCATION: [DEGREE, SCHOOL, DATES]
+LANGUAGES: [LANGUAGE (LEVEL), ...]
+
+OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
+
+---
+
+## PART 3: Power prompts (improve any resume)
+
+### ATS-Safe Rewrite
+_Keep the art for humans, send this version to the bots._
+
+Rewrite my resume to pass Applicant Tracking Systems: single column, standard headings (Summary, Experience, Education, Skills), no tables/icons/images, reverse-chronological, every bullet = strong verb + what I did + a metric. Mirror the keywords from the job posting naturally; never stuff.
+
+Job posting: [PASTE]
+My resume: [PASTE]
+
+---
+
+### Tailor to a Job Posting
+_Same you, aimed precisely at one role._
+
+Act as a senior recruiter. 1) List the top 10 keywords/skills in the posting. 2) Rewrite my summary and bullets to match without inventing experience. 3) Flag real gaps and suggest honest ways to address them. 4) Output the final resume in Markdown.
+
+Job posting: [PASTE]
+My resume: [PASTE]
+
+---
+
+### Duties → Achievements
+_Turn 'responsible for' into 'increased / reduced / shipped'._
+
+Rewrite these duties as achievement bullets: Action verb + what I did + measurable result. Give 3 versions each (concise, detailed, senior-level). If a number is missing, use [X%] placeholders for me to fill — never invent figures.
+
+Role: [TITLE at COMPANY]
+Duties: [PASTE]
+
+---
+
+### Summary Generator
+_Five tones, zero clichés._
+
+Write 5 resume summaries (2-3 sentences each): confident, friendly, metrics-led, career-changer, senior-leader. Ban clichés like "hard-working" and "team player". Include my role, years of experience and top strength.
+
+My background: [PASTE]
+
+---
+
+### Cover Letter
+_250 words that sound like a human._
+
+Write a 250-word cover letter for [JOB TITLE] at [COMPANY]: a hook tied to the company, 2 achievements that prove fit, a clear next step. Warm, confident, specific. Never open with "I am writing to apply".
+
+Job posting: [PASTE]
+My resume: [PASTE]
+
+---
+
+### LinkedIn Rewrite
+_Be found by recruiters, not just seen._
+
+Rewrite my LinkedIn: a 220-character keyword-rich headline, a first-person About section (3 short paragraphs ending in a call to action), and 5 optimized experience bullets for [TARGET ROLE].
+
+Current profile: [PASTE]
+
+---
+
+### Interview Prep
+_Predict the questions. Prepare the stories._
+
+From my resume and the job posting, predict the 12 most likely interview questions (behavioral, technical, curveballs). For each give a STAR answer outline built from my real experience, plus one likely follow-up.
+
+Resume: [PASTE]
+Job posting: [PASTE]
+
+---
+
+### Make It Even Wilder
+_Use after any design prompt to push it further._
+
+Take the resume you just built and push the art direction 30% further: add one signature interaction or visual flourish that fits the concept (a subtle animation on screen that is disabled in print, a clever detail, a surprising layout moment). Keep it one page and print-safe. Output the full updated code.
+
+---
+

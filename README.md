@@ -37,4 +37,4 @@ powershell -ExecutionPolicy Bypass -File source-and-tools\build-bundle.ps1
 ```
 
 ---
-Built by [Gustavo Freitas](https://github.com/Tootenramen) - [more projects](https://tootenramen.github.io)
+Built by [Gustavo Freitas](https://github.com/Tootenramen) - [LinkedIn](https://www.linkedin.com/in/gustavo-freitas-69b93910b/) - [more projects](https://tootenramen.github.io)

@@ -31,7 +31,7 @@ ul{padding:0;list-style:none}
 .skip{position:absolute;left:8px;top:-60px;background:var(--k);color:var(--y);padding:10px 16px;z-index:200;font-weight:700}
 .skip:focus{top:8px}
 .anton,h1,h2,h3,.logo,.jn{font-family:Anton,Impact,'Arial Narrow Bold','Arial Black',sans-serif;font-weight:400}
-html.cur,html.cur *{cursor:none!important}
+html.nocur,html.nocur *{cursor:none!important}
 
 /* progress + cursor */
 .prog{position:fixed;left:0;top:0;height:6px;width:100%;background:var(--p);transform-origin:0 50%;transform:scaleX(0);z-index:120;pointer-events:none}
@@ -347,9 +347,9 @@ var bd=$('#badge');if(bd)bd.addEventListener('click',function(e){var r=bd.getBou
 /* custom cursor (fine pointers only) */
 if(!RM&&window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches){
  var cur=$('#cur'),dot=$('#cdot'),cx=0,cy=0,tx=0,ty=0,on=false;
- addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;if(!on){on=true;cx=tx;cy=ty;root.classList.add('cur');cur.classList.add('vis');dot.classList.add('vis')}
+ addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;if(!on){on=true;cx=tx;cy=ty;root.classList.add('nocur');cur.classList.add('vis');dot.classList.add('vis')}
   cur.classList.toggle('big',!!e.target.closest('a,button,.card,.sticker'))},{passive:true});
- document.addEventListener('mouseleave',function(){cur.classList.remove('vis');dot.classList.remove('vis');on=false;root.classList.remove('cur')});
+ document.addEventListener('mouseleave',function(){cur.classList.remove('vis');dot.classList.remove('vis');on=false;root.classList.remove('nocur')});
  addEventListener('mousedown',function(){cur.classList.add('down')});addEventListener('mouseup',function(){cur.classList.remove('down')});
  (function f(){cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;cur.style.transform='translate3d('+cx+'px,'+cy+'px,0)';dot.style.transform='translate3d('+tx+'px,'+ty+'px,0)';requestAnimationFrame(f)})();
 }

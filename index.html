@@ -216,7 +216,7 @@ const SAMPLE={
  langs:[["English", "Native"], ["Portuguese", "Native"], ["Spanish", "Professional"]]
 };
 let D=SAMPLE;
-try{const s=localStorage.getItem("resumeai.data");if(s)D=JSON.parse(s)}catch(e){}
+try{const s=localStorage.getItem("resumeai.data");if(s){const o=JSON.parse(s);if(o&&o.name===SAMPLE.name){localStorage.removeItem("resumeai.data")}else D=o}}catch(e){}  /* a saved copy of the sample person is stale (it predates sample updates): drop it, keep anyone else's own details */
 
 /* ============ HELPERS ============ */
 const e=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));

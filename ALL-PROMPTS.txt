@@ -66,19 +66,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -174,19 +174,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -283,19 +283,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -391,19 +391,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -497,19 +497,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -601,19 +601,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -706,19 +706,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -811,19 +811,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -916,19 +916,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -1023,19 +1023,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
@@ -1130,19 +1130,19 @@ WEBSITE REQUIREMENTS
 
 MY CONTENT
 NAME: Gustavo Freitas
-TITLE: Computer Scientist — Offensive & Defensive Cyber Operations
+TITLE: Customer Success Engineer — SOAR & Security Automation
 EMAIL: gustavo@example.com   PHONE: 555-010-0100
-SUMMARY: Proficient in DevOps, penetration testing, enterprise risk management and digital forensics (DFIR), with a skill set that aligns perfectly with security operations. Hands-on experience backed by deep knowledge of industry best practices, and a Computer Science path complemented by a background in applied physics — a multidimensional perspective for problem-solving in an ever-evolving threat landscape.
+SUMMARY: Technical advisor who has stood on both sides of the security team: 8+ years in the SOC and incident response, then building and delivering automation as a SOAR engineer at Marriott and a customer-facing Customer Success Engineer at Torq. I get enterprise teams live, solve the hard technical problems, and turn customer pain into product direction. GIAC GCIH certified.
 EXPERIENCE (newest first):
-- Security Orchestration, Automation & Response Engineer at Marriott International, 05/2024 – Present, Remote · Bethesda, MD: Design, develop and implement automations that accelerate functions across Global Information Security. Partner with the SOC, CIRT and other teams to find inefficient, manual processes worth automating.
-- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote · Bethesda, MD: Led global investigations using advanced research methods to respond to digital forensics incidents. Delivered actionable insight and threat-intelligence reports by correlating data across sources.
-- Security Analyst, Security Operations Center at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Managed and responded to cyber incidents while securing SIEM, IDS and IPS. Ran threat research and vulnerability management; strengthened IR through continuous monitoring and countermeasures.
-- Lead Security Analyst, Security Operations Center at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Owned primary incident response and the security of hosts across the United States. Administered SIEM and IDS rules, tuning detection to the evolving threat landscape.
-- Network Security Analyst, Security Operations at Mechanics Bank, 09/2016 – 08/2018, Hercules, CA: Supported every critical SOC technology across its life cycle, plus cyber incident response. Strengthened security posture with IR expertise and the right tooling.
-SKILLS (level 1-5): DevOps · Blue Team (4); Penetration Testing · Red Team (4); Exploit Dev / Vulnerability Research (3); Enterprise Risk Management (4); DFIR · Digital Forensics (5)
-CERTIFICATIONS: Apple Certified Support Professional (2016); CompTIA Security+ (2019); CompTIA A+ (2019); SpecterOps – Red Team Operations (2020); DARPA – SSITH Bug Hunter (2020); SANS – GIAC Certified Incident Handler (2020); Tenable CTF – Team webepeepin ('21 '22 '23); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025)
-EDUCATION: Computer Science, Western Governors University, 10/2022 – 10/2023; Computer Science, University of Arkansas – eVersity, 07/2020 – 01/2022; Applied Physics, University of Central Arkansas, 08/2012 – 12/2013
-LANGUAGES: English (Native / Bilingual); Portuguese (Native / Bilingual); Spanish (Professional Working)
+- Hyperautomation Customer Success Engineer at Torq, 12/2025 – 11/2026, Remote: Managed 30+ enterprise accounts as a top performer, leading onboarding and serving as technical advisor through adoption and expansion. Built Python workflows and API integrations across SIEM, EDR, ticketing and cloud tools.
+- SOAR Engineer, Global Information Security at Marriott International, 05/2024 – 11/2025, Remote: Designed and shipped Python-heavy playbooks in Splunk SOAR (Phantom) that sped up work across Marriott's global security organization and cut development time for new automations.
+- Senior Cyber Incident Response Analyst at Marriott International, 05/2022 – 05/2024, Remote: Investigated security incidents worldwide, applying digital forensics to determine scope and impact. Correlated data from multiple sources into threat intelligence reports.
+- Security Analyst, SOC at Arkansas Blue Cross Blue Shield, 11/2021 – 05/2022, Little Rock, AR: Responded to incidents and secured SIEM, IDS and IPS; ran threat research and vulnerability management.
+- Lead Security Analyst, SOC at Bank OZK, 01/2019 – 08/2021, Little Rock, AR: Led primary incident response and host security for the bank's hosts across the entire US; tuned SIEM and IDS rules to keep detection ahead of changing threats.
+SKILLS (level 1-5): Incident Response · DFIR (5); SOAR & Automation · Python (5); Cloud & Systems · AWS, Linux (4); APIs & Identity · SSO, SAML, OAuth (4); Networking · DNS, TCP/IP, TLS (4)
+CERTIFICATIONS: GIAC Certified Incident Handler, GCIH (2020); CompTIA Security+ (2019); CompTIA A+ (2019); ServiceNow Flow Designer Developer (2024); Python Certified Entry-Level Programmer (2025); SpecterOps Red Team Operations (2020); DARPA SSITH Bug Hunter (2020); Tenable CTF, team webepeepin (2021–present)
+EDUCATION: Computer Science, Western Governors University, 2022–23; Computer Science, University of Arkansas eVersity, 2020–22; Applied Physics, University of Central Arkansas, 2012–13
+LANGUAGES: English (Native); Portuguese (Native); Spanish (Professional)
 
 OUTPUT: the complete index.html in one code block, then 3 short bullets: how to preview it, how to publish it for free, and how to export it to PDF.
 
